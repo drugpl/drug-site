@@ -1,0 +1,23 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: drug_development
+  pool: 5
+  username: drug
+  password:
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: drug_test
+  pool: 5
+  username: drug
+  password:
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: drug_production
+  pool: 5
+  username: drug
+  password:

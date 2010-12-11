@@ -1,0 +1,122 @@
+// This import applies a global reset to any page that imports this stylesheet.
+@import "blueprint/reset";
+
+// To configure blueprint, edit the partials/base.sass file.
+@import "partials/base";
+
+// Import all the default blueprint modules so that we can access their mixins.
+@import "blueprint";
+
+// Combine the partials into a single screen stylesheet.
+@import "partials/page";
+@import "partials/form";
+@import "partials/two_col";
+@import "compass/css3/font-face";
+@import "compass/css3/box-shadow";
+@import "blueprint/colors";
+
+
+@include font-face("Titillium Regular", font-files("../fonts/TitilliumText1.woff", woff, "../fonts/TitilliumText1.ttf", truetype, "../fonts/TitilliumText1.svg", svg), "../fonts/TitilliumText1.eot");
+@include font-face("Titillium Bold", font-files("../fonts/TitilliumText250wt.woff", woff, "../fonts/TitilliumText250wt.ttf", truetype, "../fonts/TitilliumText250wt.svg", svg), "../fonts/TitilliumText250wt.eot");
+
+html {
+  font-family: Titillium Regular, Georgia, sans-serif; }
+
+body {
+  #container {
+    @include container; 
+    padding: 2em;
+    padding-bottom: 4em;
+    @include box-shadow($quiet-color, 0, 0, 25px, 10px); }
+
+  header, footer {
+    display: block;
+    @include column($blueprint-grid-columns); }
+
+  aside {
+    display: block;
+    $sidebar-columns: floor($blueprint-grid-columns / 3);
+    @include column($sidebar-columns); }
+
+  #content {
+    $content-columns: ceil(2 * $blueprint-grid-columns / 3);
+    @include column($content-columns, true); 
+    padding-top: 1em;
+    padding-right: 2em; 
+    padding-bottom: 2em; } 
+
+    section {
+      h1, h2, h3, h4, h5 {
+        font-family: Titillium Bold;
+        font-weight: normal;
+        padding-bottom: 0;
+        margin-bottom: 0; }
+
+      p {
+        margin-top: .5em;
+        text-align: justify; } } }
+
+ul {
+  list-style: outside disc;
+  margin: 0;
+  padding: 0; }
+
+header {
+  margin-top: .6em; }
+
+section {
+  display: block }
+
+article {
+  display: block }
+
+footer {
+  text-align: center;
+  font-size: 75%;
+  border-top: 1px solid $quiet-color; }
+
+nav {
+  display: block;
+  border-top: 1px solid $quiet-color;
+  border-bottom: 1px solid $quiet-color;
+  height: 1.25em;
+  margin-top: .6em;
+  line-height: 1.25em;
+
+   ul {
+     list-style: none;
+     margin: 0 auto }
+
+   li {
+     float: left;
+     display: inline;
+     margin: 0 }
+
+   li:after {
+     content: "‧" }
+
+   li:last-child:after {
+     content: none }
+
+   a:link, a:visited {
+     font-family: Titillium Bold;
+     color: $loud-color;
+     display: inline-block;
+     height: 1em;
+     padding: 0 .75em;
+     text-decoration: none;
+     border: 0 }
+
+   a:hover, a:active, .active a:link, .active a:visited {
+     color: $link-color;
+     border: 0 } }
+
+a:link, a:visited {
+  color: $link-color;
+  text-decoration: none;
+  border-bottom: 1px dotted $link-color }
+
+a:hover, a:active, .active a:link, .active a:visited {
+  color: $link-color;
+  border-bottom: 1px solid $link-color }
+

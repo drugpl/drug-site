@@ -10,6 +10,7 @@ gem 'jquery-rails'
 gem 'devise'
 gem 'compass'
 gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
+gem 'automatic_foreign_key'
 
 group :test do
   gem 'capybara'

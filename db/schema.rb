@@ -10,7 +10,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101210230944) do
+ActiveRecord::Schema.define(:version => 20101211225848) do
+
+  create_table "events", :force => true do |t|
+    t.string   "title",       :null => false
+    t.text     "description"
+    t.integer  "user_id",     :null => false
+    t.integer  "venue_id",    :null => false
+    t.datetime "starting_at", :null => false
+    t.datetime "ending_at"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
 
   create_table "histories", :force => true do |t|
     t.string   "message"
@@ -43,5 +54,20 @@ ActiveRecord::Schema.define(:version => 20101210230944) do
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
+
+  create_table "venues", :force => true do |t|
+    t.string   "address",    :null => false
+    t.string   "name",       :null => false
+    t.integer  "user_id",    :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "venues", ["name", "address"], :name => "venues_name_address_unique_index", :unique => true
+
+  add_foreign_key "events", ["user_id"], "users", ["id"], :name => "events_user_id_fkey"
+  add_foreign_key "events", ["venue_id"], "venues", ["id"], :name => "events_venue_id_fkey"
+
+  add_foreign_key "venues", ["user_id"], "users", ["id"], :name => "venues_user_id_fkey"
 
 end

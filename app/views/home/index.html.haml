@@ -1,2 +1,8 @@
-%h1 Home#index
-%p Find me in app/views/home/index.html.haml
+- if @event
+  %article.event
+    %header
+      %h2
+        = t("events.#{@event.starting_at > Time.now ? 'next' : 'last'}_event")
+    = render :partial => "events/event_detail", :locals => { :event => @event }
+- else
+  = t("events.no_events_published")

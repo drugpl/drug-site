@@ -28,6 +28,7 @@ end
 group :test do
   gem 'rspec'
   gem 'database_cleaner'
+  gem 'time_travel'
 end
 
 group :development do

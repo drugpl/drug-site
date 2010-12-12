@@ -53,6 +53,7 @@ pl:
       default: "%a, %d %b %Y, %H:%M:%S %z"
       short: "%d %b, %H:%M"
       long: "%d %B %Y, %H:%M"
+      event: "%A, %d/%m/%y, godz. %H:%M"
     am: "przed południem"
     pm: "po południu"
 
@@ -154,6 +155,11 @@ pl:
       last_word_connector: " i "
     select:
       prompt: "Proszę wybrać:"
+  
+  events:
+    no_events_published: Brak wydarzeń
+    last_event: Ostatnie spotkanie
+    next_event: Najbliższe spotkanie
 
   site_menu:
     pages:

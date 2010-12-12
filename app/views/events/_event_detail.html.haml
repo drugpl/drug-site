@@ -1,0 +1,10 @@
+%h3
+  = event.title
+%p  
+  %time
+    = l(event.starting_at, :format => :event)
+  %br
+  = "#{event.venue_address} (#{event.venue_name})"
+
+%p.description
+  = event.description

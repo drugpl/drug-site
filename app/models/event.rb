@@ -7,4 +7,6 @@ class Event < ActiveRecord::Base
   validates :user, :presence => true
   validates :venue, :presence => true
   validates_datetime :ending_at, :after => :starting_at, :allow_nil => true
+
+  delegate :name, :address, :to => :venue, :prefix => true
 end

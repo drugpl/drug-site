@@ -14,15 +14,16 @@
 @import "compass/css3/font-face";
 @import "compass/css3/box-shadow";
 @import "blueprint/colors";
+@import "blueprint/typography";
 
 
-@include font-face("Titillium Regular", font-files("../fonts/TitilliumText1.woff", woff, "../fonts/TitilliumText1.ttf", truetype, "../fonts/TitilliumText1.svg", svg), "../fonts/TitilliumText1.eot");
-@include font-face("Titillium Bold", font-files("../fonts/TitilliumText250wt.woff", woff, "../fonts/TitilliumText250wt.ttf", truetype, "../fonts/TitilliumText250wt.svg", svg), "../fonts/TitilliumText250wt.eot");
+//@include font-face("Titillium Regular", font-files("../fonts/TitilliumText1.woff", woff, "../fonts/TitilliumText1.ttf", truetype, "../fonts/TitilliumText1.svg", svg), "../fonts/TitilliumText1.eot");
+//@include font-face("Titillium Bold", font-files("../fonts/TitilliumText250wt.woff", woff, "../fonts/TitilliumText250wt.ttf", truetype, "../fonts/TitilliumText250wt.svg", svg), "../fonts/TitilliumText250wt.eot");
 
-html {
-  font-family: Titillium Regular, Georgia, sans-serif; }
 
 body {
+  @include blueprint_typography(true);
+
   #container {
     @include container; 
     padding: 2em;
@@ -47,7 +48,7 @@ body {
 
     section {
       h1, h2, h3, h4, h5 {
-        font-family: Titillium Bold;
+        //font-family: Titillium Bold;
         font-weight: normal;
         padding-bottom: 0;
         margin-bottom: 0; }
@@ -99,7 +100,7 @@ nav {
      content: none }
 
    a:link, a:visited {
-     font-family: Titillium Bold;
+     //font-family: Titillium Bold;
      color: $loud-color;
      display: inline-block;
      height: 1em;

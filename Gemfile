@@ -12,17 +12,22 @@ gem 'compass'
 gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
 gem 'automatic_foreign_key'
 gem 'validates_timeliness', '~> 3.0.2'
-gem 'rspec-rails', '>= 2.1.0', :group => [:development, :test]
 
-group :test do
+group :test, :development do
+  gem 'rspec-rails', '>= 2.1.0'
   gem 'capybara'
-  gem 'rspec'
+  gem 'steak'
   gem 'factory_girl_rails'
   if RUBY_VERSION < '1.9'
     gem 'ruby-debug'
   else
     gem 'ruby-debug19'
   end
+end
+
+group :test do
+  gem 'rspec'
+  gem 'database_cleaner'
 end
 
 group :development do

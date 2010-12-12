@@ -37,6 +37,7 @@ GEM
       activemodel (= 3.0.3)
       activesupport (= 3.0.3)
     activesupport (3.0.3)
+    archive-tar-minitar (0.5.2)
     arel (2.0.6)
     automatic_foreign_key (1.1.6)
       activerecord (>= 2.2)
@@ -64,6 +65,7 @@ GEM
     compass (0.10.6)
       haml (>= 3.0.4)
     culerity (0.2.12)
+    database_cleaner (0.6.0)
     devise (1.1.5)
       bcrypt-ruby (~> 2.1.2)
       warden (~> 1.0.2)
@@ -96,7 +98,8 @@ GEM
       rails (~> 3.0)
       thor (~> 0.14.4)
     json_pure (1.4.6)
-    linecache (0.43)
+    linecache19 (0.5.11)
+      ruby_core_source (>= 0.1.4)
     mail (2.2.12)
       activesupport (>= 2.3.6)
       i18n (>= 0.4.0)
@@ -140,11 +143,16 @@ GEM
       activesupport (~> 3.0)
       railties (~> 3.0)
       rspec (~> 2.2.0)
-    ruby-debug (0.10.4)
-      columnize (>= 0.1)
-      ruby-debug-base (~> 0.10.4.0)
-    ruby-debug-base (0.10.4)
-      linecache (>= 0.3)
+    ruby-debug-base19 (0.11.24)
+      columnize (>= 0.3.1)
+      linecache19 (>= 0.5.11)
+      ruby_core_source (>= 0.1.4)
+    ruby-debug19 (0.11.6)
+      columnize (>= 0.3.1)
+      linecache19 (>= 0.5.11)
+      ruby-debug-base19 (>= 0.11.19)
+    ruby_core_source (0.1.4)
+      archive-tar-minitar (>= 0.5.2)
     rubyzip (0.9.4)
     rvm (1.1.4)
     selenium-webdriver (0.1.1)
@@ -153,6 +161,8 @@ GEM
       json_pure
       rubyzip
     spoon (0.0.1)
+    steak (1.0.0)
+      rspec
     test_notifier (0.3.6)
       notifier
     thor (0.14.6)
@@ -180,6 +190,7 @@ DEPENDENCIES
   bond
   capybara
   compass
+  database_cleaner
   devise
   factory_girl_rails
   friendly_id
@@ -194,8 +205,9 @@ DEPENDENCIES
   rails_admin!
   rspec
   rspec-rails (>= 2.1.0)
-  ruby-debug
+  ruby-debug19
   rvm
+  steak
   test_notifier
   validates_timeliness (~> 3.0.2)
   what_methods

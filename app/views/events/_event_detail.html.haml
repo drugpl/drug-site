@@ -1,10 +1,13 @@
 %h3
   = event.title
+%div#map
 %p  
   %time
     = l(event.starting_at, :format => :event)
   %br
-  = "#{event.venue_address} (#{event.venue_name})"
+  %span#map-location{:'data-lng' => event.venue_longitude, :'data-lat' => event.venue_latitude, :'data-depth' => 14}
+    = event.venue_address
+  = "(#{event.venue_name})"
 
 %p.description
   = event.description

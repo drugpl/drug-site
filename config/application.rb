@@ -6,7 +6,7 @@ module Drug
   class Application < Rails::Application
     config.time_zone = 'Warsaw'
     config.i18n.default_locale = :pl
-    config.action_view.javascript_expansions[:defaults] = %w()
+    config.action_view.javascript_expansions[:defaults] = %w(jquery)
     config.encoding = "utf-8"
     config.filter_parameters += [:password]
     config.generators do |g|

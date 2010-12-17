@@ -12,6 +12,7 @@ gem 'compass'
 gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
 gem 'automatic_foreign_key'
 gem 'validates_timeliness', '~> 3.0.2'
+gem 'geokit'
 
 group :test, :development do
   gem 'rspec-rails', '>= 2.1.0'

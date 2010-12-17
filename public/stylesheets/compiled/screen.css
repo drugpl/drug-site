@@ -809,36 +809,49 @@ body section p {
   text-align: justify;
 }
 
-/* line 60, ../../../app/stylesheets/screen.scss */
+/* line 61, ../../../app/stylesheets/screen.scss */
+article.event div#map {
+  float: right;
+  margin: .5em 0 1em 1em;
+  border: 1px solid #dddddd;
+  width: 260px;
+  height: 200px;
+}
+/* line 68, ../../../app/stylesheets/screen.scss */
+article.event p.description {
+  clear: both;
+}
+
+/* line 72, ../../../app/stylesheets/screen.scss */
 ul {
   list-style: outside disc;
   margin: 0;
   padding: 0;
 }
 
-/* line 65, ../../../app/stylesheets/screen.scss */
+/* line 77, ../../../app/stylesheets/screen.scss */
 header {
   margin-top: .6em;
 }
 
-/* line 68, ../../../app/stylesheets/screen.scss */
+/* line 80, ../../../app/stylesheets/screen.scss */
 section {
   display: block;
 }
 
-/* line 71, ../../../app/stylesheets/screen.scss */
+/* line 83, ../../../app/stylesheets/screen.scss */
 article {
   display: block;
 }
 
-/* line 74, ../../../app/stylesheets/screen.scss */
+/* line 86, ../../../app/stylesheets/screen.scss */
 footer {
   text-align: center;
   font-size: 75%;
   border-top: 1px solid #dddddd;
 }
 
-/* line 79, ../../../app/stylesheets/screen.scss */
+/* line 91, ../../../app/stylesheets/screen.scss */
 nav {
   display: block;
   border-top: 1px solid #dddddd;
@@ -847,26 +860,26 @@ nav {
   margin-top: .6em;
   line-height: 1.25em;
 }
-/* line 87, ../../../app/stylesheets/screen.scss */
+/* line 99, ../../../app/stylesheets/screen.scss */
 nav ul {
   list-style: none;
   margin: 0 auto;
 }
-/* line 91, ../../../app/stylesheets/screen.scss */
+/* line 103, ../../../app/stylesheets/screen.scss */
 nav li {
   float: left;
   display: inline;
   margin: 0;
 }
-/* line 96, ../../../app/stylesheets/screen.scss */
+/* line 108, ../../../app/stylesheets/screen.scss */
 nav li:after {
   content: "‧";
 }
-/* line 99, ../../../app/stylesheets/screen.scss */
+/* line 111, ../../../app/stylesheets/screen.scss */
 nav li:last-child:after {
   content: none;
 }
-/* line 102, ../../../app/stylesheets/screen.scss */
+/* line 114, ../../../app/stylesheets/screen.scss */
 nav a:link, nav a:visited {
   color: #666666;
   display: inline-block;
@@ -875,20 +888,20 @@ nav a:link, nav a:visited {
   text-decoration: none;
   border: 0;
 }
-/* line 111, ../../../app/stylesheets/screen.scss */
+/* line 123, ../../../app/stylesheets/screen.scss */
 nav a:hover, nav a:active, nav .active a:link, nav .active a:visited {
   color: #cc232a;
   border: 0;
 }
 
-/* line 115, ../../../app/stylesheets/screen.scss */
+/* line 127, ../../../app/stylesheets/screen.scss */
 a:link, a:visited {
   color: #cc232a;
   text-decoration: none;
   border-bottom: 1px dotted #cc232a;
 }
 
-/* line 120, ../../../app/stylesheets/screen.scss */
+/* line 132, ../../../app/stylesheets/screen.scss */
 a:hover, a:active, .active a:link, .active a:visited {
   color: #cc232a;
   border-bottom: 1px solid #cc232a;

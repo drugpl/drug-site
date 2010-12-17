@@ -37,4 +37,13 @@ feature "Homepage" do
       page.should have_content(I18n.t("events.no_events_published"))
     end
   end
+
+  scenario "show event on map", :js => true do
+    event = Factory.stub(:event)
+    Event.should_receive(:last).and_return(event)
+    visit homepage
+    within "#map" do
+      find_link('Click to see this area on Google Maps')
+    end   
+  end
 end

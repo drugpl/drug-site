@@ -36,4 +36,13 @@ describe Venue do
     @venue.save
     @venue.should have(1).error_on(:user)
   end
+
+  it "should geocode address before save" do
+    @venue.latitude.should be_nil
+    @venue.longitude.should be_nil
+    Geocoder.should_receive(:geocode).with(@venue.address).and_return([-50.0, 50.0])
+    @venue.save
+    @venue.latitude.should == -50.0
+    @venue.longitude.should == 50.0
+  end
 end

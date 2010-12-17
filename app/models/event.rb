@@ -8,5 +8,5 @@ class Event < ActiveRecord::Base
   validates :venue, :presence => true
   validates_datetime :ending_at, :after => :starting_at, :allow_nil => true
 
-  delegate :name, :address, :to => :venue, :prefix => true
+  delegate :name, :address, :latitude, :longitude, :to => :venue, :prefix => true
 end

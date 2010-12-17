@@ -1,7 +1,7 @@
 require File.expand_path(File.dirname(__FILE__) + '/acceptance_helper')
 
 feature "Homepage" do
-  scenario "present past event" do
+  scenario "show past event if no upcoming" do
     title, description = "Beer chess", "Happy drinking"
     at_time 1.month.ago do
       past_event = Factory(:event, :title => title, :description => description)
@@ -14,7 +14,7 @@ feature "Homepage" do
     end
   end
 
-  scenario "present future event" do
+  scenario "show future event if present" do
     title, description = "Ruby meeting", "Happy hacking"
     at_time 1.month.ago do
       past_event = Factory(:event)
@@ -30,7 +30,7 @@ feature "Homepage" do
     end
   end
 
-  scenario "present no events" do
+  scenario "show message when no events" do
     Event.count.should == 0
     visit homepage
     within "section#body" do

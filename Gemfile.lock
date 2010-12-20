@@ -9,7 +9,9 @@ GIT
 GEM
   remote: http://rubygems.org/
   specs:
+    RedCloth (4.2.3)
     ZenTest (4.4.2)
+    aasm (2.2.0)
     abstract (1.0.0)
     actionmailer (3.0.3)
       actionpack (= 3.0.3)
@@ -63,6 +65,13 @@ GEM
     columnize (0.3.2)
     compass (0.10.6)
       haml (>= 3.0.4)
+    content_blocks (0.2.0)
+      RedCloth (~> 4.2.3)
+      RedCloth
+      aasm
+      aasm (~> 2.2.0)
+      activerecord (>= 3.0)
+      activerecord (~> 3.0.3)
     culerity (0.2.12)
     database_cleaner (0.6.0)
     devise (1.1.5)
@@ -185,6 +194,7 @@ DEPENDENCIES
   bond
   capybara
   compass
+  content_blocks (~> 0.2.0)
   database_cleaner
   devise
   factory_girl_rails

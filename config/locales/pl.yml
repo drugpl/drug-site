@@ -164,3 +164,8 @@ pl:
   site_menu:
     pages:
       home: Strona główna
+  
+  snippets:
+    online: DRUG w sieci
+    community: Ruby w Polsce
+    about: O nas

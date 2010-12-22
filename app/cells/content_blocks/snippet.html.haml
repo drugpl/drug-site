@@ -1,0 +1,5 @@
+%section
+  %header
+    %h2
+      = @opts[:title]
+  = @snippet.content.try(:html_safe)

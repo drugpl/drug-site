@@ -13,7 +13,8 @@ gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
 gem 'automatic_foreign_key'
 gem 'validates_timeliness', '~> 3.0.2'
 gem 'geokit'
-gem 'content_blocks', '~> 0.2.0'
+gem 'content_blocks', '>= 0.3.0'
+gem 'cells'
 
 group :test, :development do
   gem 'rspec-rails', '>= 2.1.0'

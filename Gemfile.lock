@@ -60,12 +60,13 @@ GEM
       selenium-webdriver (>= 0.0.27)
       xpath (~> 0.1.2)
     celerity (0.8.5)
+    cells (3.4.3)
     childprocess (0.1.4)
       ffi (~> 0.6.3)
     columnize (0.3.2)
     compass (0.10.6)
       haml (>= 3.0.4)
-    content_blocks (0.2.0)
+    content_blocks (0.2.1)
       RedCloth (~> 4.2.3)
       RedCloth
       aasm
@@ -193,8 +194,9 @@ DEPENDENCIES
   awesome_print
   bond
   capybara
+  cells
   compass
-  content_blocks (~> 0.2.0)
+  content_blocks (>= 0.2.1)
   database_cleaner
   devise
   factory_girl_rails

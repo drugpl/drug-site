@@ -66,7 +66,7 @@ GEM
     columnize (0.3.2)
     compass (0.10.6)
       haml (>= 3.0.4)
-    content_blocks (0.2.1)
+    content_blocks (0.3.0)
       RedCloth (~> 4.2.3)
       RedCloth
       aasm
@@ -196,7 +196,7 @@ DEPENDENCIES
   capybara
   cells
   compass
-  content_blocks (>= 0.2.1)
+  content_blocks (>= 0.3.0)
   database_cleaner
   devise
   factory_girl_rails

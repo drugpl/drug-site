@@ -1,4 +1,16 @@
 GIT
+  remote: git://github.com/pawelpacana/content_blocks
+  revision: 083264adbf59a43a169705d894e5101492373bab
+  specs:
+    content_blocks (0.3.0)
+      RedCloth (~> 4.2.3)
+      RedCloth
+      aasm
+      aasm (~> 2.2.0)
+      activerecord (>= 3.0)
+      activerecord (~> 3.0.3)
+
+GIT
   remote: git://github.com/sferik/rails_admin.git
   revision: 229873971e75dcc4856c4269a13ccd290c80e4e2
   specs:
@@ -66,13 +78,6 @@ GEM
     columnize (0.3.2)
     compass (0.10.6)
       haml (>= 3.0.4)
-    content_blocks (0.3.0)
-      RedCloth (~> 4.2.3)
-      RedCloth
-      aasm
-      aasm (~> 2.2.0)
-      activerecord (>= 3.0)
-      activerecord (~> 3.0.3)
     culerity (0.2.12)
     database_cleaner (0.6.0)
     devise (1.1.5)
@@ -196,7 +201,7 @@ DEPENDENCIES
   capybara
   cells
   compass
-  content_blocks (>= 0.3.0)
+  content_blocks (>= 0.3.0)!
   database_cleaner
   devise
   factory_girl_rails

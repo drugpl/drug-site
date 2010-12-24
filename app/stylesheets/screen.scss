@@ -10,7 +10,7 @@
 // Combine the partials into a single screen stylesheet.
 @import "partials/page";
 @import "partials/form";
-@import "partials/two_col";
+//@import "partials/two_col";
 @import "compass/css3/font-face";
 @import "compass/css3/box-shadow";
 @import "blueprint/colors";
@@ -25,7 +25,7 @@ body {
   @include blueprint_typography(true);
 
   #container {
-    @include container; 
+    @include container;
     padding: 2em;
     padding-bottom: 4em;
     @include box-shadow($quiet-color, 0, 0, 25px, 10px); }
@@ -36,22 +36,25 @@ body {
 
   aside {
     display: block;
-    $sidebar-columns: floor($blueprint-grid-columns / 3);
-    @include column($sidebar-columns); }
+    $sidebar-columns: floor($blueprint-grid-columns / 3 - 3);
+    @include column($sidebar-columns, true); }
 
   #content {
     $content-columns: ceil(2 * $blueprint-grid-columns / 3);
-    @include column($content-columns, true); 
-    padding-top: 1em;
+    @include column($content-columns); 
     padding-right: 2em; 
     padding-bottom: 2em; } 
 
     section {
       h1, h2, h3, h4, h5 {
-        //font-family: Titillium Bold;
-        font-weight: normal;
+        font-family: TitilliumText25L;
+        font-weight: 400;
         padding-bottom: 0;
         margin-bottom: 0; }
+
+      h2 {
+        font-size: 150%;
+      }
 
       p {
         margin-top: .5em;
@@ -66,7 +69,7 @@ article.event {
     height: 200px; }
 
   p.description {
-    clear: both;
+    //clear: both;
   } }
 
 ul {
@@ -79,6 +82,10 @@ header {
 
 section {
   display: block }
+
+section#about {
+  clear: both;
+}
 
 article {
   display: block }
@@ -112,7 +119,7 @@ nav {
      content: none }
 
    a:link, a:visited {
-     //font-family: Titillium Bold;
+     font-weight: 400;
      color: $loud-color;
      display: inline-block;
      height: 1em;

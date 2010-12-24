@@ -1,7 +1,7 @@
 // Here is where you can define your constants for your application and to configure the blueprint framework.
 // Feel free to delete these if you want keep the defaults:
 
-$blueprint-grid-columns: 24;
+$blueprint-grid-columns: 90;
 $blueprint-container-size: 900px;
 $blueprint-grid-margin: 10px;
 
@@ -14,4 +14,6 @@ $blueprint-background-color: #fff;
 $link-color: #cc232a;
 $quiet-color: #ddd;
 $loud-color: #666;
-$blueprint-font-family: Georgia, Arial, Helevtica, sans-serif
+
+$blueprint-font-family: TitilliumText25L;
+$blueprint-font-size: 14px;

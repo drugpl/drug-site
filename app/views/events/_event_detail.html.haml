@@ -1,5 +1,6 @@
-%h3
-  = event.title
+- if event.title
+  %h3.event-title
+    = event.title
 %div#map
 %p  
   %time
@@ -10,4 +11,4 @@
   = "(#{event.venue_name})"
 
 %p.description
-  = event.description
+  = textilize(event.description).html_safe

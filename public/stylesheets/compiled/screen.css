@@ -504,7 +504,7 @@ form.bp textarea {
   height: 250px;
 }
 
-/* line 24, ../../../app/stylesheets/screen.scss */
+/* line 21, ../../../app/stylesheets/screen.scss */
 body {
   line-height: 1.5;
   font-family: TitilliumText25L;
@@ -705,20 +705,19 @@ body .quiet {
 body .loud {
   color: #666666;
 }
-/* line 27, ../../../app/stylesheets/screen.scss */
+/* line 24, ../../../app/stylesheets/screen.scss */
 body #container {
   width: 900px;
   margin: 0 auto;
   overflow: hidden;
   *zoom: 1;
   padding: 2em;
-  padding-bottom: 4em;
   -moz-box-shadow: #dddddd 0 0 25px 10px;
   -webkit-box-shadow: #dddddd 0 0 25px 10px;
   -o-box-shadow: #dddddd 0 0 25px 10px;
   box-shadow: #dddddd 0 0 25px 10px;
 }
-/* line 33, ../../../app/stylesheets/screen.scss */
+/* line 29, ../../../app/stylesheets/screen.scss */
 body header, body footer {
   display: block;
   display: inline;
@@ -730,7 +729,7 @@ body header, body footer {
 * html body header, * html body footer {
   overflow-x: hidden;
 }
-/* line 37, ../../../app/stylesheets/screen.scss */
+/* line 33, ../../../app/stylesheets/screen.scss */
 body aside {
   display: block;
   display: inline;
@@ -742,7 +741,7 @@ body aside {
 * html body aside {
   overflow-x: hidden;
 }
-/* line 42, ../../../app/stylesheets/screen.scss */
+/* line 38, ../../../app/stylesheets/screen.scss */
 body #content {
   display: inline;
   float: left;
@@ -755,95 +754,120 @@ body #content {
 * html body #content {
   overflow-x: hidden;
 }
-/* line 49, ../../../app/stylesheets/screen.scss */
+/* line 45, ../../../app/stylesheets/screen.scss */
 body section h1, body section h2, body section h3, body section h4, body section h5 {
   font-family: TitilliumText25L;
   font-weight: 400;
   padding-bottom: 0;
   margin-bottom: 0;
 }
-/* line 55, ../../../app/stylesheets/screen.scss */
+/* line 51, ../../../app/stylesheets/screen.scss */
 body section h2 {
   font-size: 150%;
 }
-/* line 59, ../../../app/stylesheets/screen.scss */
+/* line 55, ../../../app/stylesheets/screen.scss */
 body section p {
   margin-top: .5em;
   text-align: justify;
 }
 
-/* line 64, ../../../app/stylesheets/screen.scss */
+/* line 60, ../../../app/stylesheets/screen.scss */
 article.event div#map {
   float: right;
-  margin: .5em 0 1em 1em;
+  margin: -1.5em 0 1em 1em;
   border: 1px solid #dddddd;
   width: 260px;
   height: 200px;
 }
+/* line 71, ../../../app/stylesheets/screen.scss */
+article.event header {
+  margin-bottom: 1em;
+}
 
-/* line 75, ../../../app/stylesheets/screen.scss */
+/* line 74, ../../../app/stylesheets/screen.scss */
 ul {
   list-style: outside disc;
   margin: 0;
   padding: 0;
 }
 
-/* line 80, ../../../app/stylesheets/screen.scss */
+/* line 79, ../../../app/stylesheets/screen.scss */
 header {
   margin-top: .6em;
 }
+/* line 82, ../../../app/stylesheets/screen.scss */
+header h1.title {
+  display: inline;
+  font-size: 350%;
+  letter-spacing: -4px;
+  padding: 0;
+  margin: 0;
+}
+/* line 90, ../../../app/stylesheets/screen.scss */
+header h2.subtitle {
+  display: inline;
+  font-size: 175%;
+  color: #666;
+  letter-spacing: -1.5px;
+  padding: 0;
+  margin: 0;
+  padding-left: .1em;
+}
 
-/* line 83, ../../../app/stylesheets/screen.scss */
+/* line 100, ../../../app/stylesheets/screen.scss */
 section {
   display: block;
 }
 
-/* line 86, ../../../app/stylesheets/screen.scss */
+/* line 103, ../../../app/stylesheets/screen.scss */
 section#about {
   clear: both;
 }
 
-/* line 90, ../../../app/stylesheets/screen.scss */
+/* line 107, ../../../app/stylesheets/screen.scss */
 article {
   display: block;
 }
 
-/* line 93, ../../../app/stylesheets/screen.scss */
+/* line 110, ../../../app/stylesheets/screen.scss */
 footer {
-  text-align: center;
-  font-size: 75%;
   border-top: 1px solid #dddddd;
 }
+/* line 113, ../../../app/stylesheets/screen.scss */
+footer p {
+  text-align: center;
+  font-size: 80%;
+  padding-top: 2em;
+}
 
-/* line 98, ../../../app/stylesheets/screen.scss */
+/* line 119, ../../../app/stylesheets/screen.scss */
 nav {
   display: block;
-  border-top: 1px solid #dddddd;
   border-bottom: 1px solid #dddddd;
-  height: 1.25em;
+  height: 0;
   margin-top: .6em;
   line-height: 1.25em;
 }
-/* line 106, ../../../app/stylesheets/screen.scss */
+/* line 128, ../../../app/stylesheets/screen.scss */
 nav ul {
   list-style: none;
   margin: 0 auto;
 }
-/* line 110, ../../../app/stylesheets/screen.scss */
+/* line 132, ../../../app/stylesheets/screen.scss */
 nav li {
   float: left;
   display: inline;
   margin: 0;
 }
-/* line 115, ../../../app/stylesheets/screen.scss */
+/* line 137, ../../../app/stylesheets/screen.scss */
 nav li:after {
   content: "‧";
 }
-/* line 118, ../../../app/stylesheets/screen.scss */
+/* line 140, ../../../app/stylesheets/screen.scss */
 nav li:last-child:after {
   content: none;
 }
-/* line 121, ../../../app/stylesheets/screen.scss */
+/* line 143, ../../../app/stylesheets/screen.scss */
 nav a:link, nav a:visited {
   font-weight: 400;
   color: #666666;
@@ -853,20 +877,20 @@ nav a:link, nav a:visited {
   text-decoration: none;
   border: 0;
 }
-/* line 130, ../../../app/stylesheets/screen.scss */
+/* line 152, ../../../app/stylesheets/screen.scss */
 nav a:hover, nav a:active, nav .active a:link, nav .active a:visited {
   color: #cc232a;
   border: 0;
 }
 
-/* line 134, ../../../app/stylesheets/screen.scss */
+/* line 156, ../../../app/stylesheets/screen.scss */
 a:link, a:visited {
   color: #cc232a;
   text-decoration: none;
   border-bottom: 1px dotted #cc232a;
 }
 
-/* line 139, ../../../app/stylesheets/screen.scss */
+/* line 161, ../../../app/stylesheets/screen.scss */
 a:hover, a:active, .active a:link, .active a:visited {
   color: #cc232a;
   border-bottom: 1px solid #cc232a;

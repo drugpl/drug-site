@@ -10,16 +10,13 @@
 // Combine the partials into a single screen stylesheet.
 @import "partials/page";
 @import "partials/form";
-//@import "partials/two_col";
 @import "compass/css3/font-face";
 @import "compass/css3/box-shadow";
 @import "blueprint/colors";
 @import "blueprint/typography";
 
-
 //@include font-face("Titillium Regular", font-files("../fonts/TitilliumText1.woff", woff, "../fonts/TitilliumText1.ttf", truetype, "../fonts/TitilliumText1.svg", svg), "../fonts/TitilliumText1.eot");
 //@include font-face("Titillium Bold", font-files("../fonts/TitilliumText250wt.woff", woff, "../fonts/TitilliumText250wt.ttf", truetype, "../fonts/TitilliumText250wt.svg", svg), "../fonts/TitilliumText250wt.eot");
-
 
 body {
   @include blueprint_typography(true);
@@ -27,7 +24,6 @@ body {
   #container {
     @include container;
     padding: 2em;
-    padding-bottom: 4em;
     @include box-shadow($quiet-color, 0, 0, 25px, 10px); }
 
   header, footer {
@@ -63,14 +59,17 @@ body {
 article.event {
   div#map {
     float: right;
-    margin: .5em 0 1em 1em;
+    margin: -1.5em 0 1em 1em;
     border: 1px solid $quiet-color;
     width: 260px;
     height: 200px; }
 
   p.description {
     //clear: both;
-  } }
+  } 
+
+  header {
+    margin-bottom: 1em; } }
 
 ul {
   list-style: outside disc;
@@ -78,7 +77,25 @@ ul {
   padding: 0; }
 
 header {
-  margin-top: .6em; }
+  margin-top: .6em; 
+  
+  h1.title {
+    display: inline;
+    font-size: 350%;
+    letter-spacing: -4px;
+    padding: 0;
+    margin: 0;
+  }
+
+  h2.subtitle {
+    display: inline;
+    font-size: 175%;
+    color: #666;
+    letter-spacing: -1.5px;
+    padding: 0;
+    margin: 0;
+    padding-left: .1em;
+  } }
 
 section {
   display: block }
@@ -91,15 +108,20 @@ article {
   display: block }
 
 footer {
-  text-align: center;
-  font-size: 75%;
-  border-top: 1px solid $quiet-color; }
+  border-top: 1px solid $quiet-color;
+
+  p {
+    text-align: center;
+    font-size: 80%;
+    padding-top: 2em;
+  } }
 
 nav {
   display: block;
-  border-top: 1px solid $quiet-color;
+  //border-top: 1px solid $quiet-color;
   border-bottom: 1px solid $quiet-color;
-  height: 1.25em;
+  //height: 1.25em;
+  height: 0;
   margin-top: .6em;
   line-height: 1.25em;
 

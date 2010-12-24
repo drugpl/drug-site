@@ -36,3 +36,12 @@ Factory.define :event do |e|
   e.association :venue
   e.starting_at { Time.now }
 end
+
+Factory.define :snippet, :class => ContentBlocks::Models::Snippet do |s|
+  s.label { Factory.next(:title) }
+  s.content { Factory.next(:description) }
+end
+
+Factory.define :published_snippet, :parent => :snippet do |s|
+  s.status 'published'
+end

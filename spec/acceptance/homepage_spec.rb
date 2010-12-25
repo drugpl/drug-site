@@ -69,4 +69,21 @@ feature "Homepage" do
       @user.should_find_map
     end
   end
+
+  scenario "should show last published news article" do
+    title, body = 'snow', 'snowman'
+    at_time 1.day.ago do
+      @website.has(:published_news_article, :title => title, :body => body)
+    end
+    at_time 1.month.ago do
+      @website.has(:published_news_article)
+    end
+    @website.has(:news_article)
+    @user.visit(homepage)
+    within "aside" do
+      @user.should_see(title).should_see(body)
+      @user.should_see_translated('news_articles.read_more')
+      @user.should_see(1.day.ago.strftime("%d/%m/%y"))
+    end
+  end
 end

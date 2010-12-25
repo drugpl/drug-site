@@ -45,3 +45,12 @@ end
 Factory.define :published_snippet, :parent => :snippet do |s|
   s.status 'published'
 end
+
+Factory.define :news_article, :class => ContentBlocks::Models::NewsArticle do |s|
+  s.title { Factory.next(:title) }
+  s.body { Factory.next(:description) }
+end
+
+Factory.define :published_news_article, :parent => :news_article do |s|
+  s.status 'published'
+end

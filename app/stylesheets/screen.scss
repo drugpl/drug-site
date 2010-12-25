@@ -71,6 +71,15 @@ article.event {
   header {
     margin-bottom: 1em; } }
 
+article.news-article {
+  p {
+    margin-bottom: .2em;
+  } 
+  
+  span.news-article {
+    padding-left: .5em;
+  } }
+
 ul {
   list-style: outside disc;
   margin: 0;

@@ -8,6 +8,7 @@
   = t("events.no_events_published")
 
 = content_for :sidebar do
+  = render_cell :content_blocks, :news_article, :limit => 1, :title => I18n.t('news_articles.latest')
   = render_cell :content_blocks, :snippet, :label => :online, :title => I18n.t('snippets.online')
   = render_cell :content_blocks, :snippet, :label => :community, :title => I18n.t('snippets.community')
 

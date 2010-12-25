@@ -54,6 +54,7 @@ pl:
       short: "%d %b, %H:%M"
       long: "%d %B %Y, %H:%M"
       event: "%A, %d/%m/%y, godz. %H:%M"
+      article: "%d/%m/%y"
     am: "przed południem"
     pm: "po południu"
 
@@ -169,3 +170,7 @@ pl:
     online: DRUG w sieci
     community: Ruby w Polsce
     about: O nas
+  
+  news_articles:
+    latest: Ostatnie aktualności
+    read_more: 'czytaj więcej'

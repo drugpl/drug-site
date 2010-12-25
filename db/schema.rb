@@ -10,7 +10,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101220011141) do
+ActiveRecord::Schema.define(:version => 20101224225458) do
+
+  create_table "content_blocks_news_articles", :force => true do |t|
+    t.string   "title",      :null => false
+    t.text     "body"
+    t.text     "lead"
+    t.string   "status"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "content_blocks_snippets", :force => true do |t|
     t.string   "label",      :null => false

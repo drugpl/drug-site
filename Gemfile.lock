@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/sferik/rails_admin.git
-  revision: ce8d0b2aed1b12141dc92e40b9a092c26f08572b
+  revision: 36b6a5f4e67008ea25ae4db1775421a4aafbd70f
   specs:
     rails_admin (0.0.1)
       builder (~> 2.1.0)
@@ -50,6 +50,12 @@ GEM
     bcrypt-ruby (2.1.3)
     bond (0.3.4)
     builder (2.1.2)
+    capistrano (2.5.19)
+      highline
+      net-scp (>= 1.0.0)
+      net-sftp (>= 2.0.0)
+      net-ssh (>= 2.0.14)
+      net-ssh-gateway (>= 1.0.0)
     capybara (0.4.0)
       celerity (>= 0.7.9)
       culerity (>= 0.2.4)
@@ -74,8 +80,7 @@ GEM
       bcrypt-ruby (~> 2.1.2)
       warden (~> 1.0.2)
     diff-lcs (1.1.2)
-    email_spec (1.1.0)
-      rspec (~> 2.0.0)
+    email_spec (1.0.0)
     erubis (2.6.6)
       abstract (>= 1.0.0)
     factory_girl (1.3.2)
@@ -95,6 +100,7 @@ GEM
       activesupport (~> 3.0)
       haml (~> 3.0)
       railties (~> 3.0)
+    highline (1.6.1)
     hirb (0.3.5)
     hoe (2.8.0)
       rake (>= 0.8.7)
@@ -119,6 +125,13 @@ GEM
       daemons (>= 1.0.3)
       fastthread (>= 1.0.1)
       gem_plugin (>= 0.2.3)
+    net-scp (1.0.4)
+      net-ssh (>= 1.99.1)
+    net-sftp (2.0.5)
+      net-ssh (>= 2.0.9)
+    net-ssh (2.0.23)
+    net-ssh-gateway (1.0.1)
+      net-ssh (>= 1.99.1)
     nokogiri (1.4.4)
     notifier (0.1.2)
     pg (0.10.0)
@@ -144,18 +157,19 @@ GEM
     rake (0.8.7)
     redhillonrails_core (1.0.9.1)
       activerecord
-    rspec (2.0.1)
-      rspec-core (~> 2.0.1)
-      rspec-expectations (~> 2.0.1)
-      rspec-mocks (~> 2.0.1)
-    rspec-core (2.0.1)
-    rspec-expectations (2.0.1)
-      diff-lcs (>= 1.1.2)
-    rspec-mocks (2.0.1)
-      rspec-core (~> 2.0.1)
-      rspec-expectations (~> 2.0.1)
-    rspec-rails (2.0.1)
-      rspec (~> 2.0.0)
+    rspec (2.3.0)
+      rspec-core (~> 2.3.0)
+      rspec-expectations (~> 2.3.0)
+      rspec-mocks (~> 2.3.0)
+    rspec-core (2.3.1)
+    rspec-expectations (2.3.0)
+      diff-lcs (~> 1.1.2)
+    rspec-mocks (2.3.0)
+    rspec-rails (2.3.1)
+      actionpack (~> 3.0)
+      activesupport (~> 3.0)
+      railties (~> 3.0)
+      rspec (~> 2.3.0)
     ruby-debug (0.10.4)
       columnize (>= 0.1)
       ruby-debug-base (~> 0.10.4.0)
@@ -201,6 +215,7 @@ DEPENDENCIES
   autotest-rails
   awesome_print
   bond
+  capistrano
   capybara
   cells
   compass
@@ -221,7 +236,7 @@ DEPENDENCIES
   rails (= 3.0.3)
   rails_admin!
   rspec
-  rspec-rails (>= 2.0.0)
+  rspec-rails (>= 2.3.0)
   ruby-debug
   rvm
   simple_form

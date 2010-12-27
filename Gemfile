@@ -19,7 +19,7 @@ gem 'aasm'
 gem 'RedCloth'
 
 group :test, :development do
-  gem 'rspec-rails', '>= 2.0.0'
+  gem 'rspec-rails', '>= 2.3.0'
   gem 'capybara'
   gem 'steak'
   gem 'factory_girl_rails'
@@ -49,4 +49,5 @@ group :development do
   gem 'interactive_editor'
   gem 'autotest-rails'
   gem 'test_notifier'
+  gem 'capistrano'
 end

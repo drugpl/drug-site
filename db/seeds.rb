@@ -1,3 +1,5 @@
+# encoding: UTF-8
+#
 snippet = Snippet[:about_us]
 snippet.content = <<EOS
 Dolnośląska Grupa Użytkowników Ruby to cykliczne spotkania pasjonatów tego języka programowania. Każde spotkanie jest doskonałą okazją wymiany doświadczeń oraz poznania ludzi, na co dzień zajmujacych się tą technologią.

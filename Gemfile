@@ -23,7 +23,7 @@ group :test, :development do
   gem 'capybara'
   gem 'steak'
   gem 'factory_girl_rails'
-  gem 'mongrel'
+  gem "mongrel", ">= 1.2.0pre2"
   if RUBY_VERSION < '1.9'
     gem 'ruby-debug'
   else

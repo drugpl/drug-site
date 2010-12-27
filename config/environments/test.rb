@@ -35,3 +35,5 @@ Drug::Application.configure do
 
   config.action_mailer.default_url_options = { :host => 'drug.local' }
 end
+
+MAPS_API_KEY = "ABQIAAAARxhDyCAgkxaRS-btAXEOmRS1rKNKCajL_OjXVxcRqG-4FK8BDRRM9BBR1vD4b0biuXxliOmiRrL1hQ"

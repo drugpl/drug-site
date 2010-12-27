@@ -17,4 +17,4 @@
   = render_cell :content_blocks, :snippet, :label => :about_us, :title => I18n.t('snippets.about')
 
 = content_for :head do
-  = javascript_include_tag "http://maps.google.com/maps?file=api&amp;v=2&amp;sensor=true_or_false&amp;key=ABQIAAAARxhDyCAgkxaRS-btAXEOmRS1rKNKCajL_OjXVxcRqG-4FK8BDRRM9BBR1vD4b0biuXxliOmiRrL1hQ"
+  = load_maps

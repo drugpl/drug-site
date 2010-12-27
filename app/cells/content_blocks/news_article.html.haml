@@ -9,9 +9,7 @@
           = link_to news_article.title, '#'
         = (news_article.lead || news_article.body).html_safe
         %p
-          //= news_article.author
           %time
-            = I18n.l(news_article.created_at, :format => :article)
-          = ","
+            = I18n.l(news_article.created_at, :format => :date_with_hour)
           %span.news-article
-          = link_to I18n.t("news_articles.read_more"), '#' #news_article_path(news_article)
+          = link_to I18n.t("news_articles.read_more"), news_article_path(news_article)

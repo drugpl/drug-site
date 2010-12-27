@@ -5,12 +5,24 @@ module NavigationHelpers
     "/"
   end
 
-  def events_index
+  def events_page
     "/events"
   end
 
   def event_page(event)
-    "events/#{event.id}"
+    "/events/#{event.id}"
+  end
+
+  def news_articles_page
+    "/news_articles"
+  end
+
+  def news_article_page(news_article)
+    "/news_articles/#{news_article.id}"
+  end
+
+  def contact_page
+    "/contact"
   end
 end
 

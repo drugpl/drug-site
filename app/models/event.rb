@@ -9,4 +9,9 @@ class Event < ActiveRecord::Base
   validates_datetime :ending_at, :after => :starting_at, :allow_nil => true
 
   delegate :name, :address, :latitude, :longitude, :to => :venue, :prefix => true
+
+  scope :happened, lambda { where("starting_at < ?", Time.zone.now) }
+
+  cattr_accessor :per_page  
+  @@per_page = 5
 end

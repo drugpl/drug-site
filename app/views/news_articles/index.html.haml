@@ -1,0 +1,12 @@
+%header
+  %h2.content-header
+    = I18n.t('site_menu.pages.news_articles')
+%ul.news-articles
+  - @news_articles.each do |news_article|
+    = render :partial => "news_article", :locals => { :news_article => news_article }
+
+= will_paginate @news_articles
+
+= content_for :sidebar do
+  = render_cell :content_blocks, :snippet, :label => :online, :title => I18n.t('snippets.online')
+  = render_cell :content_blocks, :snippet, :label => :community, :title => I18n.t('snippets.community')

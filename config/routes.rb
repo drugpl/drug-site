@@ -1,4 +1,11 @@
 Drug::Application.routes.draw do
+  get "contact/show"
+
+  get "contact/create"
+
+  resources :news_articles, :only => [:index, :show]
+  resources :events, :only => [:index, :show]
+  resource :contact, :only => [:show, :create]
   get "home/index"
 
   devise_for :users

@@ -54,7 +54,7 @@ pl:
       short: "%d %b, %H:%M"
       long: "%d %B %Y, %H:%M"
       event: "%A, %d/%m/%y, godz. %H:%M"
-      article: "%d/%m/%y"
+      date_with_hour: "%d/%m/%y %H:%M"
     am: "przed południem"
     pm: "po południu"
 
@@ -146,7 +146,11 @@ pl:
         odd: "musi być nieparzyste"
         even: "musi być parzyste"
         record_invalid: "Negatywne sprawdzenie poprawności: %{errors}"
-
+    attributes:
+      contact:
+        name: Imię
+        message: Wiadomość
+        email: Email
   support:
     array:
       sentence_connector: "i"
@@ -161,10 +165,17 @@ pl:
     no_events_published: Brak wydarzeń
     last_event: Ostatnie spotkanie
     next_event: Najbliższe spotkanie
+    events_so_far: Dotychczasowe spotkania
+    event_details: Szczegóły spotkania
+    details_link: szczegóły
+    comments_link: komentarze (%{count})
 
   site_menu:
     pages:
       home: Strona główna
+      events: Spotkania
+      news_articles: Aktualności
+      contact: Kontakt
   
   snippets:
     online: DRUG w sieci
@@ -174,3 +185,17 @@ pl:
   news_articles:
     latest: Ostatnie aktualności
     read_more: 'czytaj więcej'
+    news_article_details: Szczegóły aktualności
+
+  contacts:
+    spam_protection: Jesteś człowiekiem?
+    message_sent_successfuly: Wiadomość wysłana pomyślnie
+    message_not_sent_due_to_errors: Wiadomość nie została wysłana z powodu błędów
+  
+  contact_mailer:
+    contact_message:
+      subject: "Nowa wiadomość ze strony drug.org.pl"
+
+  send: Wyślij
+  next_page: "Dalej →"
+  previous_page: "← Wstecz"

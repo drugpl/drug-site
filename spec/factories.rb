@@ -54,3 +54,9 @@ end
 Factory.define :published_news_article, :parent => :news_article do |s|
   s.status 'published'
 end
+
+Factory.define :contact do |c|
+  c.name "test@example.com"
+  c.message "Request For Comments 666"
+  c.email "test@example.net"
+end

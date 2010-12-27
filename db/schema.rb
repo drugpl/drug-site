@@ -10,7 +10,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101224225458) do
+ActiveRecord::Schema.define(:version => 20101225135438) do
+
+  create_table "contacts", :force => true do |t|
+    t.string   "name",       :null => false
+    t.text     "message",    :null => false
+    t.string   "email",      :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "content_blocks_news_articles", :force => true do |t|
     t.string   "title",      :null => false

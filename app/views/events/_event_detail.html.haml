@@ -1,4 +1,4 @@
-%h3.event-title
+%h3
   = event.title
 %div#map
 %p  
@@ -7,7 +7,7 @@
   %br
   %span#map-location{:'data-lng' => event.venue_longitude, :'data-lat' => event.venue_latitude, :'data-depth' => 14}
     = event.venue_address
-  = "(#{event.venue_name})"
+    = "(#{event.venue_name})"
 
 %p.description
   = textilize(event.description).html_safe

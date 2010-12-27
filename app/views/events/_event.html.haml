@@ -1,0 +1,13 @@
+%li.event
+  %header
+    %h2
+      = event.title
+  %p.description
+    = textilize(event.description).html_safe
+  %p.comments
+    %time
+      = I18n.l(event.starting_at, :format => :date_with_hour)
+    %span.comments
+      = link_to I18n.t('events.details_link'), event_path(event)
+//    %span.comments
+//      = link_to I18n.t('events.comments_link', :count => rand(10)), "#{event_path(event)}#comments"

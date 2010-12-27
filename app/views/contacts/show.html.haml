@@ -1,0 +1,16 @@
+%header
+  %h2.content-header
+    = I18n.t('site_menu.pages.contact')
+
+%div.contact
+  = simple_form_for @contact, :url => contact_path do |f|
+    = f.input :name
+    = f.input :email
+    = f.input :message
+    = f.text_field :empty, :style => 'display:none'
+    = f.submit I18n.t('send')
+
+= content_for :sidebar do
+  = render_cell :content_blocks, :news_article, :limit => 1, :title => I18n.t('news_articles.latest')
+  = render_cell :content_blocks, :snippet, :label => :online, :title => I18n.t('snippets.online')
+  = render_cell :content_blocks, :snippet, :label => :community, :title => I18n.t('snippets.community')

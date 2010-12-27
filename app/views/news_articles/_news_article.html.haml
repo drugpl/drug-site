@@ -1,0 +1,10 @@
+%article.news-article
+  %header
+    %h2
+      = news_article.title
+  = (news_article.lead || news_article.body).html_safe
+  %p
+    %time
+      = I18n.l(news_article.created_at, :format => :date_with_hour)
+    %span.news-article
+      = link_to I18n.t("news_articles.read_more"), news_article_path(news_article)

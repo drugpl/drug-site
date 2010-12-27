@@ -31,6 +31,7 @@ body {
     @include column($blueprint-grid-columns); }
 
   aside {
+    margin-top: -0.5em;
     display: block;
     $sidebar-columns: floor($blueprint-grid-columns / 3 - 3);
     @include column($sidebar-columns, true); }
@@ -62,28 +63,51 @@ article.event {
     margin: -1.5em 0 1em 1em;
     border: 1px solid $quiet-color;
     width: 260px;
-    height: 200px; }
-
-  p.description {
-    //clear: both;
-  } 
-
-  header {
-    margin-bottom: 1em; } }
+    height: 200px; } }
 
 article.news-article {
   p {
-    margin-bottom: .2em;
-  } 
+    margin-bottom: .2em; } 
   
   span.news-article {
-    padding-left: .5em;
-  } }
+    padding-left: .5em; } }
+
+li.event {
+  p {
+    text-align: justify;
+    margin-bottom: .5em; } }
+
+span.comments {
+  padding-left: .5em; }
 
 ul {
   list-style: outside disc;
   margin: 0;
   padding: 0; }
+
+ul.events, ul.news-articles {
+  list-style: none;
+  padding: 0;
+  padding-bottom: 2em;
+  margin-top: -0.55em;
+  
+  li {
+    margin: 0;
+    padding: 0; } }
+
+div.pagination {
+  position: absolute;
+  bottom: -2em;
+  left: 0;
+}
+
+.pagination a, .pagination span, .pagination em {
+  padding: 4px 10px;
+  margin-left: 5px; 
+  display: block;
+  border: 1px solid $link-color !important;
+  float: left;
+}
 
 header {
   margin-top: .6em; 
@@ -106,6 +130,59 @@ header {
     padding-left: .1em;
   } }
 
+form.simple_form {
+  span.error {
+    color: $link-color;
+    display: block;
+    margin-left: 7.5em;
+    margin-bottom: .5em;
+  }
+
+  div.field_with_errors {
+    input[type=text], input[type=email], textarea {
+      border: 1px solid $link-color;
+    }
+  }
+  
+  label {
+    vertical-align: top;
+    display: inline-block;
+    width: 7em;
+  }
+
+  input[type=text], input[type=email] {
+    font-family: inherit;
+    font-size: 100%;
+    width: 30em;
+    border: 1px solid $quiet-color;
+    padding: .3em;
+    margin: .2em;
+  }
+  
+  input[type=submit] {
+    margin-left: 7.6em;
+    border: 1px solid $link-color;
+    font-family: inherit;
+    padding: 4px 10px;
+    background-color: transparent;
+    color: $link-color;
+  }
+
+  input[type=submit]:hover {
+    border: 1px solid $link-color;
+    color: $font-color;
+    cursor: pointer;
+  }
+
+  textarea {
+    font-family: inherit;
+    font-size: 100%;
+    width: 30em;
+    padding: .3em;
+    margin: .2em;
+    border: 1px solid $quiet-color;
+  } }
+
 section {
   display: block }
 
@@ -113,8 +190,14 @@ section#about {
   clear: both;
 }
 
+section#body {
+  position: relative; }
+
 article {
-  display: block }
+  display: block;
+
+  header {
+    margin-bottom: 1em; } }
 
 footer {
   border-top: 1px solid $quiet-color;
@@ -127,40 +210,42 @@ footer {
 
 nav {
   display: block;
-  //border-top: 1px solid $quiet-color;
+  border-top: 1px solid $quiet-color;
   border-bottom: 1px solid $quiet-color;
-  //height: 1.25em;
-  height: 0;
+  height: 1.5em;
   margin-top: .6em;
-  line-height: 1.25em;
+  line-height: 1.5em;
+  font-size: 110%;
 
-   ul {
-     list-style: none;
-     margin: 0 auto }
+  ul {
+    list-style: none;
+    margin: 0 auto;
+    padding-left: 14.5em;
+  }
 
-   li {
-     float: left;
-     display: inline;
-     margin: 0 }
+  li {
+    float: left;
+    display: inline;
+    margin: 0 }
 
-   li:after {
-     content: "‧" }
+  li:after {
+    content: "‧" }
 
-   li:last-child:after {
-     content: none }
+  li:last-child:after {
+    content: none }
 
-   a:link, a:visited {
-     font-weight: 400;
-     color: $loud-color;
-     display: inline-block;
-     height: 1em;
-     padding: 0 .75em;
-     text-decoration: none;
-     border: 0 }
+  a:link, a:visited {
+    font-weight: 400;
+    color: $loud-color;
+    display: inline-block;
+    height: 1em;
+    padding: 0 .75em;
+    text-decoration: none;
+    border: 0 }
 
-   a:hover, a:active, .active a:link, .active a:visited {
-     color: $link-color;
-     border: 0 } }
+  a:hover, a:active, .active a:link, .active a:visited {
+    color: $link-color;
+    border: 0 } }
 
 a:link, a:visited {
   color: $link-color;

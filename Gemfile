@@ -13,14 +13,16 @@ gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
 gem 'automatic_foreign_key'
 gem 'validates_timeliness', '~> 3.0.2'
 gem 'geokit'
-gem 'content_blocks', '>= 0.3.0', :git => 'git://github.com/pawelpacana/content_blocks'
+gem 'content_blocks', '>= 0.3.0', :path => '/home/sensei/code/content_blocks' #:git => 'git://github.com/pawelpacana/content_blocks'
 gem 'cells'
+gem 'simple_form'
 
 group :test, :development do
-  gem 'rspec-rails', '>= 2.1.0'
+  gem 'rspec-rails', '>= 2.0.0'
   gem 'capybara'
   gem 'steak'
   gem 'factory_girl_rails'
+  gem 'mongrel'
   if RUBY_VERSION < '1.9'
     gem 'ruby-debug'
   else
@@ -32,6 +34,7 @@ group :test do
   gem 'rspec'
   gem 'database_cleaner'
   gem 'time_travel'
+  gem 'email_spec'
 end
 
 group :development do

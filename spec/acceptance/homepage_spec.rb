@@ -1,7 +1,7 @@
 require File.expand_path(File.dirname(__FILE__) + '/acceptance_helper')
 
 feature "Homepage" do
-  scenario "show past event if no upcoming" do
+  scenario "should show past event if no upcoming" do
     title, description = "Beer chess", "Happy drinking"
     at_time 1.month.ago do
       @website.has(:event, :title => title, :description => description)
@@ -13,7 +13,7 @@ feature "Homepage" do
     end
   end
 
-  scenario "show future event if present" do
+  scenario "should show future event if present" do
     title, description = "Ruby meeting", "Happy hacking"
     at_time 1.month.ago do
       @website.has(:event)
@@ -28,7 +28,7 @@ feature "Homepage" do
     end
   end
 
-  scenario "show message when no events" do
+  scenario "should show message when no events" do
     @user.visit(homepage)
     within "section#body" do
       @user.should_see_translated("events.no_events_published")
@@ -62,7 +62,9 @@ feature "Homepage" do
     end
   end
 
-  scenario "show event on map", :js => true do
+  # XXX: problem with selenium not seeing db record
+  # as a cause from starting async/too early
+  scenario "should show event on map", :js => true do
     @website.expects(:event, :last)
     @user.visit(homepage)
     within "#map" do

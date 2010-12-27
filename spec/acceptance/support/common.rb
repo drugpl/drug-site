@@ -2,6 +2,7 @@ Rspec.configure do |config|
   config.before(:each) do
     @user = Test::User.new(self)
     @website = Test::Website.new(self)
+    @mail_system = Test::MailSystem.new(self)
   end
 end
 
@@ -23,6 +24,7 @@ module Test
       def expects(model_sym, method_sym, options = {})
         stub = Factory.stub(model_sym, options)
         model_sym.to_s.classify.constantize.should_receive(method_sym).and_return(stub)
+        stub
       end
     end
   end
@@ -52,6 +54,13 @@ module Test
       self
     end
 
+    def should_not_see(*args)
+      args.each do |arg|
+        steak.page.should_not(steak.have_content(arg.to_s))
+      end
+      self
+    end
+
     def should_see_translated(*args)
       args.each do |arg|
         should_see(I18n.t(arg.to_s))
@@ -59,9 +68,35 @@ module Test
       self
     end
 
+    def should_not_see_translated(*args)
+      args.each do |arg|
+        should_not_see(I18n.t(arg.to_s))
+      end
+      self
+    end
+
     def should_find_map
       steak.find_link('Click to see this area on Google Maps')
       self
+    end
+
+    def click_translated(link)
+      steak.click_link_or_button(I18n.t(link.to_s))
+      self
+    end
+  end
+  
+  class MailSystem
+    include Base
+    include EmailSpec::Helpers
+    include EmailSpec::Matchers
+    
+    def should_send_email(options = {})
+      email = ActionMailer::Base.deliveries.last
+      email.should deliver_to(options[:to]) if options[:to]
+      email.should deliver_from(options[:from]) if options[:from]
+      # XXX: fix email_spec error with undefined matchers
+      # email.should have_subject(/#{options[:message]}/) if options[:message]
     end
   end
 

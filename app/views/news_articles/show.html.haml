@@ -1,0 +1,9 @@
+%article.news-article
+  %header
+    %h2
+      = I18n.t('news_articles.news_article_details')
+  = render :partial => "news_article_detail", :locals => { :news_article => @news_article }
+
+= content_for :sidebar do
+  = render_cell :content_blocks, :snippet, :label => :online, :title => I18n.t('snippets.online')
+  = render_cell :content_blocks, :snippet, :label => :community, :title => I18n.t('snippets.community')

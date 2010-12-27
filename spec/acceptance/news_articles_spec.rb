@@ -39,7 +39,7 @@ feature "News Articles" do
   end
 
   scenario "should paginate news articles" do
-    ContentBlocks::Models::NewsArticle.per_page = 1
+    NewsArticle.per_page = 1
     2.times do |i|
       @website.has(:news_article, :title => "article #{i}")
     end

@@ -1,4 +1,4 @@
-snippet = ContentBlocks::Models::Snippet[:about_us]
+snippet = Snippet[:about_us]
 snippet.content = <<EOS
 Dolnośląska Grupa Użytkowników Ruby to cykliczne spotkania pasjonatów tego języka programowania. Każde spotkanie jest doskonałą okazją wymiany doświadczeń oraz poznania ludzi, na co dzień zajmujacych się tą technologią.
 
@@ -7,7 +7,7 @@ EOS
 snippet.save!
 snippet.draft? && publish!
 
-snippet = ContentBlocks::Models::Snippet[:community]
+snippet = Snippet[:community]
 snippet.content = <<EOS
 "Forum Ruby On Rails":http://rubyonrails.pl/forum
 "Rubysfera":http://www.rubysfera.pl
@@ -21,7 +21,7 @@ EOS
 snippet.save!
 snippet.draft? && publish!
 
-snippet = ContentBlocks::Models::Snippet[:online]
+snippet = Snippet[:online]
 snippet.content = <<EOS
 "Lista dyskusyjna":http://librelist.org/browser/drug.rb
 "Twitter":http://twitter.com/#!/drug_rb

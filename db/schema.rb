@@ -10,29 +10,12 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101225135438) do
+ActiveRecord::Schema.define(:version => 20101227005629) do
 
   create_table "contacts", :force => true do |t|
     t.string   "name",       :null => false
     t.text     "message",    :null => false
     t.string   "email",      :null => false
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  create_table "content_blocks_news_articles", :force => true do |t|
-    t.string   "title",      :null => false
-    t.text     "body"
-    t.text     "lead"
-    t.string   "status"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  create_table "content_blocks_snippets", :force => true do |t|
-    t.string   "label",      :null => false
-    t.text     "content"
-    t.string   "status"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -60,6 +43,23 @@ ActiveRecord::Schema.define(:version => 20101225135438) do
   end
 
   add_index "histories", ["item", "table", "month", "year"], :name => "index_histories_on_item_and_table_and_month_and_year"
+
+  create_table "news_articles", :force => true do |t|
+    t.string   "title",      :null => false
+    t.text     "body"
+    t.text     "lead"
+    t.string   "status"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "snippets", :force => true do |t|
+    t.string   "label",      :null => false
+    t.text     "content"
+    t.string   "status"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                               :default => "", :null => false

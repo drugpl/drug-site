@@ -13,9 +13,10 @@ gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
 gem 'automatic_foreign_key'
 gem 'validates_timeliness', '~> 3.0.2'
 gem 'geokit'
-gem 'content_blocks', '>= 0.3.0', :path => '/home/sensei/code/content_blocks' #:git => 'git://github.com/pawelpacana/content_blocks'
 gem 'cells'
 gem 'simple_form'
+gem 'aasm'
+gem 'RedCloth'
 
 group :test, :development do
   gem 'rspec-rails', '>= 2.0.0'

@@ -6,17 +6,6 @@ GIT
       builder (~> 2.1.0)
       rails (~> 3.0.3)
 
-PATH
-  remote: /home/sensei/code/content_blocks
-  specs:
-    content_blocks (0.3.1)
-      RedCloth (~> 4.2.3)
-      RedCloth
-      aasm
-      aasm (~> 2.2.0)
-      activerecord (>= 3.0)
-      activerecord (~> 3.0.3)
-
 GEM
   remote: http://rubygems.org/
   specs:
@@ -206,6 +195,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  RedCloth
+  aasm
   automatic_foreign_key
   autotest-rails
   awesome_print
@@ -213,7 +204,6 @@ DEPENDENCIES
   capybara
   cells
   compass
-  content_blocks (>= 0.3.0)!
   database_cleaner
   devise
   email_spec

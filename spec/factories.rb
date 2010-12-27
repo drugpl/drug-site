@@ -37,7 +37,7 @@ Factory.define :event do |e|
   e.starting_at { Time.now }
 end
 
-Factory.define :snippet, :class => ContentBlocks::Models::Snippet do |s|
+Factory.define :snippet do |s|
   s.label { Factory.next(:title) }
   s.content { Factory.next(:description) }
 end
@@ -46,7 +46,7 @@ Factory.define :published_snippet, :parent => :snippet do |s|
   s.status 'published'
 end
 
-Factory.define :news_article, :class => ContentBlocks::Models::NewsArticle do |s|
+Factory.define :news_article do |s|
   s.title { Factory.next(:title) }
   s.body { Factory.next(:description) }
 end

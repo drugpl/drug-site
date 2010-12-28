@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/sferik/rails_admin.git
-  revision: 36b6a5f4e67008ea25ae4db1775421a4aafbd70f
+  revision: bdf3d6fe89402e63f225d8b425f4647b2ac1c9cd
   specs:
     rails_admin (0.0.1)
       builder (~> 2.1.0)
@@ -39,7 +39,6 @@ GEM
       activemodel (= 3.0.3)
       activesupport (= 3.0.3)
     activesupport (3.0.3)
-    archive-tar-minitar (0.5.2)
     arel (2.0.6)
     automatic_foreign_key (1.1.6)
       activerecord (>= 2.2)
@@ -112,8 +111,7 @@ GEM
       rails (~> 3.0)
       thor (~> 0.14.4)
     json_pure (1.4.6)
-    linecache19 (0.5.11)
-      ruby_core_source (>= 0.1.4)
+    linecache (0.43)
     mail (2.2.13)
       activesupport (>= 2.3.6)
       i18n (>= 0.4.0)
@@ -168,16 +166,11 @@ GEM
       activesupport (~> 3.0)
       railties (~> 3.0)
       rspec (~> 2.3.0)
-    ruby-debug-base19 (0.11.24)
-      columnize (>= 0.3.1)
-      linecache19 (>= 0.5.11)
-      ruby_core_source (>= 0.1.4)
-    ruby-debug19 (0.11.6)
-      columnize (>= 0.3.1)
-      linecache19 (>= 0.5.11)
-      ruby-debug-base19 (>= 0.11.19)
-    ruby_core_source (0.1.4)
-      archive-tar-minitar (>= 0.5.2)
+    ruby-debug (0.10.4)
+      columnize (>= 0.1)
+      ruby-debug-base (~> 0.10.4.0)
+    ruby-debug-base (0.10.4)
+      linecache (>= 0.3)
     rubyzip (0.9.4)
     rvm (1.1.7)
     selenium-webdriver (0.1.2)
@@ -188,8 +181,8 @@ GEM
     simple_form (1.3.0)
       rails (~> 3.0.0)
     spoon (0.0.1)
-    steak (1.0.0)
-      rspec
+    steak (1.0.1)
+      rspec (>= 1.3)
     test_notifier (0.3.6)
       notifier
     thor (0.14.6)
@@ -240,7 +233,7 @@ DEPENDENCIES
   rails_admin!
   rspec
   rspec-rails (>= 2.3.0)
-  ruby-debug19
+  ruby-debug
   rvm
   simple_form
   steak

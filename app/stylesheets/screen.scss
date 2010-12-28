@@ -15,11 +15,16 @@
 @import "blueprint/colors";
 @import "blueprint/typography";
 
-//@include font-face("Titillium Regular", font-files("../fonts/TitilliumText1.woff", woff, "../fonts/TitilliumText1.ttf", truetype, "../fonts/TitilliumText1.svg", svg), "../fonts/TitilliumText1.eot");
-//@include font-face("Titillium Bold", font-files("../fonts/TitilliumText250wt.woff", woff, "../fonts/TitilliumText250wt.ttf", truetype, "../fonts/TitilliumText250wt.svg", svg), "../fonts/TitilliumText250wt.eot");
-
+@include font-face('TitilliumText25L800wt', font-files('../fonts/titilliumtext25l001-webfont.woff', woff, '../fonts/titilliumtext25l001-webfont.ttf', truetype, '../fonts/titilliumtext25l001-webfont.svg#webfont7BukLBJZ', svg),'../fonts/titilliumtext25l001-webfont.eot');
+@include font-face('TitilliumText25L600wt', font-files('../fonts/titilliumtext25l002-webfont.woff', woff, '../fonts/titilliumtext25l002-webfont.ttf', truetype, '../fonts/titilliumtext25l002-webfont.svg#webfont7BukLBJZ', svg),'../fonts/titilliumtext25l002-webfont.eot');
+@include font-face('TitilliumText25L400wt', font-files('../fonts/titilliumtext25l003-webfont.woff', woff, '../fonts/titilliumtext25l003-webfont.ttf', truetype, '../fonts/titilliumtext25l003-webfont.svg#webfont7BukLBJZ', svg),'../fonts/titilliumtext25l003-webfont.eot');
+	
 body {
   @include blueprint_typography(true);
+  
+  strong {
+    font-family: TitilliumText25L800wt;
+    font-weight: normal; }
 
   #container {
     @include container;
@@ -44,14 +49,13 @@ body {
 
     section {
       h1, h2, h3, h4, h5 {
-        font-family: TitilliumText25L;
-        font-weight: 400;
+        font-family: TitilliumText25L600wt;
+        //font-weight: normal;
         padding-bottom: 0;
         margin-bottom: 0; }
 
       h2 {
-        font-size: 150%;
-      }
+        font-size: 150%; }
 
       p {
         margin-top: .5em;
@@ -235,7 +239,6 @@ nav {
     content: none }
 
   a:link, a:visited {
-    font-weight: 400;
     color: $loud-color;
     display: inline-block;
     height: 1em;

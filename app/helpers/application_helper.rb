@@ -6,6 +6,6 @@ module ApplicationHelper
   end
 
   def load_maps
-    javascript_include_tag "http://maps.google.com/maps?file=api&amp;v=2&amp;sensor=true_or_false&amp;key=#{MAPS_API_KEY}"
+    javascript_include_tag "http://maps.google.com/maps?file=api&amp;v=2&amp;sensor=false&amp;key=#{MAPS_API_KEY}".html_safe
   end
 end

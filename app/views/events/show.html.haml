@@ -4,10 +4,27 @@
       = I18n.t('events.event_details')
   = render :partial => "event_detail", :locals => { :event => @event }
 
+  %div#disqus_thread
+  :javascript
+    #{'var disqus_developer = 1;' if Rails.env.development?}
+    var disqus_shortname = 'drugpl';
+    var disqus_identifier = 'event_#{@event.id}';
+    var disqus_url = '#{event_url(@event)}';
+    var disqus_title = '#{@event.title}';
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  %noscript 
+    = %Q{Please enable JavaScript to view the #{link_to "comments", "http://disqus.com/?ref_noscript"}.}
+
 = content_for :sidebar do
   = render_cell :content_blocks, :news_article, :limit => 1, :title => I18n.t('news_articles.latest')
   = render_cell :content_blocks, :snippet, :label => :online, :title => I18n.t('snippets.online')
   = render_cell :content_blocks, :snippet, :label => :community, :title => I18n.t('snippets.community')
+  = render_cell :content_blocks, :snippet, :label => :keep_in_touch, :title => I18n.t('snippets.keep_in_touch')
 
 = content_for :head do
   = load_maps

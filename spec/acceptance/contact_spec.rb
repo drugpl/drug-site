@@ -34,6 +34,15 @@ feature "Contact" do
     end
   end
 
+  scenario "should show 'Keep in touch' snippet" do
+    content = "RSS"
+    @website.has(:published_snippet, :label => :community, :content => content)
+    @user.visit(contact_page)
+    within "aside" do
+      @user.should_see(content).should_see_translated('snippets.keep_in_touch')
+    end
+  end
+
   scenario "should show last published news article" do
     title, body = 'snow', 'snowman'
     at_time 1.day.ago do

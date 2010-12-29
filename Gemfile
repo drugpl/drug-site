@@ -36,6 +36,7 @@ group :test do
   gem 'database_cleaner'
   gem 'time_travel'
   gem 'email_spec'
+  gem 'be_valid_asset'
 end
 
 group :development do

@@ -84,6 +84,11 @@ module Test
       steak.click_link_or_button(I18n.t(link.to_s))
       self
     end
+
+    def should_discover_rss(path)
+      steak.page.should(steak.have_selector(%Q{link[rel="alternate"][type="application/rss+xml"][href="#{path}"]}))
+      self
+    end
   end
   
   class MailSystem

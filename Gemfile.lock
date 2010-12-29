@@ -48,6 +48,8 @@ GEM
     awesome_print (0.3.1)
     babosa (0.2.0)
     bcrypt-ruby (2.1.3)
+    be_valid_asset (1.1.1)
+      rspec
     bond (0.3.4)
     builder (2.1.2)
     capistrano (2.5.19)
@@ -210,6 +212,7 @@ DEPENDENCIES
   automatic_foreign_key
   autotest-rails
   awesome_print
+  be_valid_asset
   bond
   capistrano
   capybara

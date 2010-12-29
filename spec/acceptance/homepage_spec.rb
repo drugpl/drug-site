@@ -62,6 +62,21 @@ feature "Homepage" do
     end
   end
 
+  scenario "should show 'Keep in touch' snippet" do
+    content = "RSS"
+    @website.has(:published_snippet, :label => :keep_in_touch, :content => content)
+    @user.visit(homepage)
+    within "aside" do
+      @user.should_see(content).should_see_translated('snippets.keep_in_touch')
+    end
+  end
+
+  scenario "should provide auto discovery links to feeds" do
+    @user.visit(homepage)
+    @user.should_discover_rss("http://www.example.com/news_articles.rss")
+    @user.should_discover_rss("http://www.example.com/events.rss")
+  end
+
   # XXX: problem with selenium not seeing db record
   # as a cause from starting async/too early
   scenario "should show event on map", :js => true do

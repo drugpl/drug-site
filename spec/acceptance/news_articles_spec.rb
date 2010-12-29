@@ -19,6 +19,15 @@ feature "News Articles" do
     end
   end
 
+  scenario "should show 'Keep in touch' snippet" do
+    content = "RSS"
+    @website.has(:published_snippet, :label => :keep_in_touch, :content => content)
+    @user.visit(news_articles_page)
+    within "aside" do
+      @user.should_see(content).should_see_translated('snippets.keep_in_touch')
+    end
+  end
+
   scenario "should list news articles" do
     title, body, lead = "Beer chess", "Happy drinking", "Free taxi"
     @website.has(:news_article, :title => title, :body => body, :lead => lead)

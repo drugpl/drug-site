@@ -36,6 +36,15 @@ feature "Events" do
     end
   end
 
+  scenario "should show 'Keep in touch' snippet" do
+    content = "RSS"
+    @website.has(:published_snippet, :label => :keep_in_touch, :content => content)
+    @user.visit(events_page)
+    within "aside" do
+      @user.should_see(content).should_see_translated('snippets.keep_in_touch')
+    end
+  end
+
   scenario "should list past events" do
     title, description, future_title = "Beer chess", "Happy drinking", "Vodka tasting"
     at_time 1.day.from_now do

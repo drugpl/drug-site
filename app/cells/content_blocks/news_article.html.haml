@@ -7,7 +7,7 @@
       %article.news-article
         %header
           = link_to news_article.title, '#'
-        = (news_article.lead || news_article.body).html_safe
+        = (news_article.textilized_lead || news_article.textilized_body).html_safe
         %p
           %time
             = I18n.l(news_article.created_at, :format => :date_with_hour)

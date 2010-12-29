@@ -3,7 +3,9 @@ require 'spec_helper'
 describe NewsArticle do
   before do
     @valid_attributes = {
-      :title => "new location"
+      :title => "a",
+      :lead =>  "b",
+      :body =>  "c"
     }
     @news_article = NewsArticle.new(@valid_attributes)
   end
@@ -18,23 +20,19 @@ describe NewsArticle do
     @news_article.should have(1).error_on(:title)
   end
 
-  it "should textilize body" do
-    @news_article.body = "*strong*"
-    @news_article.body.should == "<p><strong>strong</strong></p>"
+  context "#textilized_body" do
+    it "should textilize body" do
+      @news_article.body = "*strong*"
+      @news_article.publish!
+      @news_article.textilized_body.should == "<p><strong>strong</strong></p>"
+    end
   end
 
-  it "should textilize lead" do
-    @news_article.lead = "*strong*"
-    @news_article.lead.should == "<p><strong>strong</strong></p>"
-  end
-
-  it "should preserve unformatted body" do
-    @news_article.body = "*strong*"
-    @news_article.raw_body.should == "*strong*"
-  end
-
-  it "should preserve unformatted lead" do
-    @news_article.lead = "*strong*"
-    @news_article.raw_lead.should == "*strong*"
+  context "#textilized_lead" do
+    it "should textilize lead" do
+      @news_article.lead = "*strong*"
+      @news_article.publish!
+      @news_article.textilized_lead.should == "<p><strong>strong</strong></p>"
+    end
   end
 end

@@ -1,4 +1,7 @@
+require 'textilized_attributes'
+
 class Snippet < ActiveRecord::Base
+  include TextilizedAttributes
   include AASM
 
   LABEL_FORMAT = /^[a-zA-Z\d_]+$/
@@ -30,11 +33,9 @@ class Snippet < ActiveRecord::Base
     snippet ? snippet : find_or_create_by_label(label)
   end
 
-  def content
-    textilize(raw_content)
-  end
+  textilized_attrs :content
 
-  def raw_content
+  def content
     self[:content] if published?
-  end   
+  end
 end

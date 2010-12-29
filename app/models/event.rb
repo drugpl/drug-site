@@ -1,4 +1,8 @@
+require 'textilized_attributes'
+
 class Event < ActiveRecord::Base
+  include TextilizedAttributes
+
   belongs_to :user
   belongs_to :venue
 
@@ -16,4 +20,6 @@ class Event < ActiveRecord::Base
 
   cattr_accessor :per_page  
   @@per_page = 5
+
+  textilized_attrs :description
 end

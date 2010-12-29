@@ -1,4 +1,7 @@
+require 'textilized_attributes'
+
 class NewsArticle < ActiveRecord::Base
+  include TextilizedAttributes
   include AASM
 
   has_friendly_id :title, :use_slug => true, :approximate_ascii => true
@@ -25,19 +28,5 @@ class NewsArticle < ActiveRecord::Base
   cattr_accessor :per_page  
   @@per_page = 5
 
-  def body
-    textilize(raw_body)
-  end
-
-  def raw_body
-    self[:body]
-  end
-
-  def lead
-    textilize(raw_lead)
-  end
-
-  def raw_lead
-    self[:lead]
-  end
+  textilized_attrs :body, :lead
 end

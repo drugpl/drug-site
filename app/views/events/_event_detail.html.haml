@@ -10,4 +10,4 @@
     = "(#{event.venue_name})"
 
 %p.description
-  = textilize(event.description).html_safe
+  = event.textilized_description.html_safe

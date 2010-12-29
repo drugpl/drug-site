@@ -41,21 +41,6 @@ describe Snippet do
     @snippet.should have(1).error_on(:label)
   end
 
-  context "#raw_content" do
-    it "should show content only if published" do
-      @snippet.save!
-      @snippet.raw_content.should be_nil
-      @snippet.publish!
-      @snippet.raw_content.should_not be_nil
-    end
-  
-    it "should preserve unformatted content" do
-      @snippet.save!
-      @snippet.publish!
-      @snippet.raw_content.should == @valid_attributes[:content]
-    end
-  end
-
   context "#content" do
     it "should show content only if published" do
       @snippet.save!
@@ -63,11 +48,13 @@ describe Snippet do
       @snippet.publish!
       @snippet.content.should_not be_nil
     end
-
+  end
+  
+  context "#textilized_content" do
     it "should textilize content" do
       @snippet.save!
       @snippet.publish!
-      @snippet.content.should == "<h1>Sidebar links</h1>"
+      @snippet.textilized_content.should == "<h1>Sidebar links</h1>"
     end
   end
 

@@ -1,6 +1,8 @@
 class NewsArticle < ActiveRecord::Base
   include AASM
 
+  has_friendly_id :title, :use_slug => true, :approximate_ascii => true
+
   aasm_initial_state :draft
   aasm_column :status
   

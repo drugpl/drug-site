@@ -17,6 +17,7 @@ gem 'cells'
 gem 'simple_form'
 gem 'aasm'
 gem 'RedCloth'
+gem 'friendly_id'
 
 group :test, :development do
   gem 'rspec-rails', '>= 2.3.0'

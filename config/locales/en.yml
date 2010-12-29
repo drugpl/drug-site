@@ -3,3 +3,18 @@
 
 en:
   hello: "Hello world"
+
+  time:
+    formats:
+      event: "%A, %d/%m/%y, godz. %H:%M"
+      date_with_hour: "%d/%m/%y %H:%M"
+
+  contact_mailer:
+    contact_message:
+      subject: "Nowa wiadomość ze strony drug.org.pl"
+
+  events:
+    no_events_published: No recent events
+    last_event: Last meeting
+    next_event: Next meeting
+

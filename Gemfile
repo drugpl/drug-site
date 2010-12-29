@@ -18,6 +18,7 @@ gem 'simple_form'
 gem 'aasm'
 gem 'RedCloth'
 gem 'friendly_id'
+gem 'i18n_routing'
 
 group :test, :development do
   gem 'rspec-rails', '>= 2.3.0'

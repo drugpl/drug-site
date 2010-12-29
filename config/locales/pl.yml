@@ -206,3 +206,10 @@ pl:
   send: Wyślij
   next_page: "Dalej →"
   previous_page: "← Wstecz"
+
+  resources:
+    news_articles: aktualnosci
+    events: spotkania
+  resource:
+    contact: kontakt
+

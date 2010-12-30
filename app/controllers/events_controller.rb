@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
   def index
-    @events = Event.happened.order("starting_at").paginate(:page => params[:page], :per_page => Event.per_page)
+    @events = Event.happened.order("starting_at DESC").paginate(:page => params[:page], :per_page => Event.per_page)
   end
 
   def show

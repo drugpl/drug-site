@@ -8,7 +8,7 @@ xml.rss :version => "2.0" do
     for news_article in @news_articles
       xml.item do
         xml.title news_article.title
-        xml.description news_article.lead.to_s + news_article.body.to_s
+        xml.description news_article.textilized_lead.to_s + news_article.textilized_body.to_s
         xml.pubDate news_article.created_at.to_s(:rfc822)
         xml.link news_article_url(news_article)
         xml.guid news_article_url(news_article)

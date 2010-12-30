@@ -4,10 +4,19 @@ describe EventsController do
   render_views
 
   context "GET#index" do
-    it "should render valid rss" do
-      Factory(:event)
-      get :index, :format => :rss
-      response.should be_valid_rss
+    context "format rss" do
+      before do
+        Factory(:event, :description => "h1. Description")
+        get :index, :format => :rss
+      end
+
+      it "should render valid rss" do
+        response.should be_valid_rss
+      end
+      
+      it "should textilize item description" do
+        response.body.should match(CGI.escapeHTML("<h1>Description</h1>"))
+      end
     end
   end
 end

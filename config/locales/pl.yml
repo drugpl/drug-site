@@ -170,8 +170,8 @@ pl:
     details_link: szczegóły
     comments_link: komentarze (%{count})
     rss:
-      title: RSS Spotkania
-      description: RSS spotkań ze strony drug.org.pl
+      title: Dolnośląska Grupa Użytkowników Ruby - Spotkania
+      description: Kanał spotkań ze strony drug.org.pl
 
   site_menu:
     pages:
@@ -191,8 +191,8 @@ pl:
     read_more: 'czytaj więcej'
     news_article_details: Szczegóły aktualności
     rss:
-      title: RSS Aktualności
-      description: RSS aktualności ze strony drug.org.pl
+      title: Dolnośląska Grupa Użytkowników Ruby - Aktualności
+      description: Kanał aktualności ze strony drug.org.pl
 
   contacts:
     spam_protection: Jesteś człowiekiem?

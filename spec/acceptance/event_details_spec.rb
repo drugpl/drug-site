@@ -16,7 +16,7 @@ feature "Event Details" do
 
   # XXX: problem with selenium not seeing db record
   # as a cause from starting async/too early
-  scenario "should show map", :js => true do
+  scenario "should show map", :js => true, :net => true do
     event = @website.expects(:event, :find)
     @user.visit(event_page(event))
     within "#map" do

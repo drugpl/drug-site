@@ -76,11 +76,7 @@ module Test
     end
 
     def should_find_map
-      if ENV['NONET'] # no internet connection to load maps
-        steak.pending
-      else
-        steak.find_link('Click to see this area on Google Maps')
-      end
+      steak.find_link('Click to see this area on Google Maps')
       self
     end
 

@@ -79,7 +79,7 @@ feature "Homepage" do
 
   # XXX: problem with selenium not seeing db record
   # as a cause from starting async/too early
-  scenario "should show event on map", :js => true do
+  scenario "should show event on map", :js => true, :net => true do
     @website.expects(:event, :last)
     @user.visit(homepage)
     within "#map" do

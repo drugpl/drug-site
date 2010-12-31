@@ -13,7 +13,7 @@ describe NewsArticlesController do
         get :index, :format => :rss
       end
 
-      it "should render valid rss" do
+      it "should render valid rss", :net => true do
         response.should be_valid_rss
       end
   

@@ -4,21 +4,22 @@
       = I18n.t('news_articles.news_article_details')
   = render :partial => "news_article_detail", :locals => { :news_article => @news_article }
 
-  %div#disqus_thread
-  :javascript
-    #{'var disqus_developer = 1;' if Rails.env.development?}
-    var disqus_shortname = 'drugpl';
-    var disqus_identifier = 'news_article_#{@news_article.id}';
-    var disqus_url = '#{news_article_url(@news_article)}';
-    var disqus_title = '#{@news_article.title}';
+  #comments
+    #disqus_thread
+    :javascript
+      #{'var disqus_developer = 1;' unless Rails.env.production?}
+      var disqus_shortname = 'drugpl';
+      var disqus_identifier = 'news_article_#{@news_article.id}';
+      var disqus_url = '#{news_article_url(@news_article)}';
+      var disqus_title = '#{@news_article.title}';
 
-    (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-  %noscript 
-    = %Q{Please enable JavaScript to view the #{link_to "comments", "http://disqus.com/?ref_noscript"}.}
+      (function() {
+          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+          dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+    %noscript 
+      = %Q{Please enable JavaScript to view the #{link_to "comments", "http://disqus.com/?ref_noscript"}.}
 
 = content_for :sidebar do
   = render_cell :content_blocks, :snippet, :label => :online, :title => I18n.t('snippets.online')

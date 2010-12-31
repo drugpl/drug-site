@@ -80,6 +80,11 @@ module Test
       self
     end
 
+    def should_find_comments
+      steak.page.should(steak.have_selector("#dsq-comments"))
+      steak.page.should(steak.have_selector("#dsq-new-post"))
+    end
+
     def click_translated(link)
       steak.click_link_or_button(I18n.t(link.to_s))
       self

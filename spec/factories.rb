@@ -49,6 +49,7 @@ end
 Factory.define :news_article do |s|
   s.title { Factory.next(:title) }
   s.body { Factory.next(:description) }
+  s.created_at { Time.now }
 end
 
 Factory.define :published_news_article, :parent => :news_article do |s|

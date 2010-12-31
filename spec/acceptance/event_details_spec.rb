@@ -24,6 +24,16 @@ feature "Event Details" do
     end
   end
 
+  # XXX: problem with selenium not seeing db record
+  # as a cause from starting async/too early
+  scenario "should show comments", :js => true, :net => true do
+    event = @website.expects(:event, :find)
+    @user.visit(event_page(event))
+    within "#comments" do
+      @user.should_find_comments
+    end
+  end
+
   scenario "should show 'Drug online' snippet" do
     content = "giithub.com/dopalacze"
     @website.has(:published_snippet, :label => :online, :content => content)

@@ -652,6 +652,9 @@ body #dsq-content {
   font-size: inherit;
 }
 body #dsq-content h3 {
+  font-family: TitilliumText25L800wt;
+  font-size: 100%;
+  font-weight: normal;
   margin-bottom: .2em;
 }
 body #dsq-content #dsq-textarea-wrapper {

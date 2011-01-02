@@ -167,7 +167,7 @@ pl:
     events_so_far: Dotychczasowe spotkania
     event_details: Szczegóły spotkania
     details_link: szczegóły
-    comments_link: komentarze (%{count})
+    comments_link: zobacz komentarze
     rss:
       title: Dolnośląska Grupa Użytkowników Ruby - Spotkania
       description: Kanał spotkań ze strony drug.org.pl

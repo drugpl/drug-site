@@ -648,6 +648,45 @@ body section p {
   margin-top: .5em;
   text-align: justify;
 }
+body #dsq-content {
+  font-size: inherit;
+}
+body #dsq-content h3 {
+  margin-bottom: .2em;
+}
+body #dsq-content #dsq-textarea-wrapper {
+  font-family: inherit;
+  font-size: 100%;
+  padding: .3em;
+  border-radius: 0;
+  background: none;
+  border: 1px solid #dddddd;
+}
+body #dsq-content .dsq-comment-header {
+  border-radius: 0;
+}
+body #dsq-content .dsq-comment-header cite {
+  font-family: TitilliumText25L800wt;
+  font-size: 100%;
+  font-weight: normal;
+}
+body #dsq-content .dsq-subscribe-email, body #dsq-content .dsq-subscribe-rss, body #dsq-content .dsq-comment-footer {
+  font-size: 13px;
+}
+body #dsq-content .dsq-subscribe-email a:link, body #dsq-content .dsq-subscribe-email a:visited, body #dsq-content .dsq-subscribe-rss a:link, body #dsq-content .dsq-subscribe-rss a:visited, body #dsq-content .dsq-comment-footer a:link, body #dsq-content .dsq-comment-footer a:visited {
+  color: #cc232a;
+  text-decoration: none;
+  border-bottom: 1px dotted #cc232a;
+}
+body #dsq-content .dsq-subscribe-email a:hover, body #dsq-content .dsq-subscribe-email a:active, body #dsq-content .dsq-subscribe-email .active a:link, body #dsq-content .dsq-subscribe-email .active a:visited, body #dsq-content .dsq-subscribe-rss a:hover, body #dsq-content .dsq-subscribe-rss a:active, body #dsq-content .dsq-subscribe-rss .active a:link, body #dsq-content .dsq-subscribe-rss .active a:visited, body #dsq-content .dsq-comment-footer a:hover, body #dsq-content .dsq-comment-footer a:active, body #dsq-content .dsq-comment-footer .active a:link, body #dsq-content .dsq-comment-footer .active a:visited {
+  color: #333333;
+  border-bottom: 1px solid #cc232a;
+}
+body #dsq-content .dsq-subscribe-email img, body #dsq-content .dsq-subscribe-rss img, body #dsq-content .dsq-comment-footer img {
+  height: 0;
+  width: 0;
+  visibility: hidden;
+}
 
 article.event div#map {
   float: right;

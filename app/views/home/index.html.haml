@@ -4,9 +4,20 @@
       %h2
         = t("events.#{@event.starting_at > Time.now ? 'next' : 'last'}_event")
     = render :partial => "events/event_detail", :locals => { :event => @event }
+    = link_to I18n.t('events.comments_link'), "#{event_path(@event)}#disqus_thread", :"data-disqus-identifier" => "event_#{@event.id}"
 
 - else
   = t("events.no_events_published")
+
+:javascript
+  #{'var disqus_developer = 1;' unless Rails.env.production?}
+  var disqus_shortname = 'drugpl';
+  (function () {
+      var s = document.createElement('script'); s.async = true;
+      s.type = 'text/javascript';
+      s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
+      (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+  }());
 
 = content_for :sidebar do
   = render_cell :content_blocks, :news_article, :limit => 1, :title => I18n.t('news_articles.latest')

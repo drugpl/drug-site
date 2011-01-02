@@ -59,7 +59,48 @@ body {
 
       p {
         margin-top: .5em;
-        text-align: justify; } } }
+        text-align: justify; } } 
+
+    #dsq-content {
+      font-size: inherit;
+      
+      h3 {
+        margin-bottom: .2em }
+
+      #dsq-textarea-wrapper {
+        font-family: inherit;
+        font-size: 100%;
+        padding: .3em;
+        border-radius: 0;
+        background: none;
+        border: 1px solid $quiet-color;
+      }
+
+
+      .dsq-comment-header { 
+        border-radius: 0;
+
+        cite {
+          font-family: TitilliumText25L800wt;
+          font-size: 100%;
+          font-weight: normal; } }
+
+      .dsq-subscribe-email, .dsq-subscribe-rss, .dsq-comment-footer {
+        font-size: 13px;
+
+        a:link, a:visited {
+          color: $link-color;
+          text-decoration: none;
+          border-bottom: 1px dotted $link-color }
+
+        a:hover, a:active, .active a:link, .active a:visited {
+          color: $font-color;
+          border-bottom: 1px solid $link-color }
+
+        img {
+          height: 0;
+          width: 0;
+          visibility: hidden; } } } }
 
 article.event {
   div#map {

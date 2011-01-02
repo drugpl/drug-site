@@ -18,7 +18,7 @@ role :db,  "somehost", :primary => true # This is where Rails migrations will ru
 
 namespace :utils do
   task :link_configuration_files do
-    ['database.yml'].each do |file|
+    ['database.yml', 'email.yml'].each do |file|
       run "if [ -f #{deploy_to}/shared/#{file} ] ; then ln -s #{deploy_to}/shared/#{file} #{latest_release}/config/; fi" 
     end
   end

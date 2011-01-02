@@ -10,6 +10,6 @@
         = (news_article.textilized_lead || news_article.textilized_body).html_safe
         %p
           %time
-            = I18n.l(news_article.created_at, :format => :date_with_hour)
+            = I18n.l(news_article.created_at.to_date)
           %span.news-article
           = link_to I18n.t("news_articles.read_more"), news_article_path(news_article)

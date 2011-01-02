@@ -37,7 +37,7 @@ pl:
 
   date:
     formats:
-      default: "%Y-%m-%d"
+      default: "%d/%m/%Y"
       short: "%d %b"
       long: "%d %B %Y"
 
@@ -50,11 +50,10 @@ pl:
 
   time:
     formats:
-      default: "%a, %d %b %Y, %H:%M:%S %z"
+      default: "%d/%m/%Y, %H:%M"
       short: "%d %b, %H:%M"
       long: "%d %B %Y, %H:%M"
-      event: "%A, %d/%m/%y, godz. %H:%M"
-      date_with_hour: "%d/%m/%y %H:%M"
+      event: "%A, %d %B %Y, %H:%M"
     am: "przed południem"
     pm: "po południu"
 

@@ -6,7 +6,7 @@
     = textilize(event.description).html_safe
   %p.comments
     %time
-      = I18n.l(event.starting_at, :format => :date_with_hour)
+      = I18n.l(event.starting_at.to_date, :format => :default)
     %span.comments
       = link_to I18n.t('events.details_link'), event_path(event)
 //    %span.comments

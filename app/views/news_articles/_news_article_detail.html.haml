@@ -4,4 +4,4 @@
 = news_article.body.html_safe
 %p
   %time
-    = I18n.l(news_article.created_at, :format => :date_with_hour)
+    = I18n.l(news_article.created_at.to_date)

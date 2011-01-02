@@ -65,7 +65,6 @@ feature "Event Details" do
     within "aside" do
       @user.should_see(title).should_see(body)
       @user.should_see_translated('news_articles.read_more')
-      @user.should_see(1.day.ago.strftime("%d/%m/%y"))
     end
   end
 

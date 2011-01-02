@@ -1,0 +1,11 @@
+defaults: &defaults
+  contact_email: test@example.net
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults

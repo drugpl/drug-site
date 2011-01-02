@@ -10,7 +10,7 @@ describe ContactMailer do
 
     it "renders the headers" do
       mail.subject.should == I18n.t('contact_mailer.contact_message.subject')
-      mail.to.should == ["info@drug.org.pl"]
+      mail.to.should == [AppConfig[:contact_email]]
       mail.from.should == [@contact.email]
     end
 

@@ -8,6 +8,6 @@ class ContactMailer < ActionMailer::Base
   #
   def contact_message(contact)
     @contact = contact
-    mail :to => "info@drug.org.pl", :from => @contact.email
+    mail :to => AppConfig[:contact_email], :from => @contact.email
   end
 end

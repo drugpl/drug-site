@@ -1,5 +1,6 @@
 defaults: &defaults
   contact_email: test@example.net
+  exception_email: test@example.net
 
 development:
   <<: *defaults

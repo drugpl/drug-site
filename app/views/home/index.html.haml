@@ -9,16 +9,6 @@
 - else
   = t("events.no_events_published")
 
-:javascript
-  #{'var disqus_developer = 1;' unless Rails.env.production?}
-  var disqus_shortname = 'drugpl';
-  (function () {
-      var s = document.createElement('script'); s.async = true;
-      s.type = 'text/javascript';
-      s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
-      (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
-  }());
-
 = content_for :sidebar do
   = render_cell :content_blocks, :news_article, :limit => 1, :title => I18n.t('news_articles.latest')
   = render_cell :content_blocks, :snippet, :label => :online, :title => I18n.t('snippets.online')
@@ -30,3 +20,4 @@
 
 = content_for :head do
   = load_maps
+  = load_comments_count

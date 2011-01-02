@@ -5,19 +5,7 @@
   = render :partial => "event_detail", :locals => { :event => @event }
 
   #comments
-    #disqus_thread
-    :javascript
-      #{'var disqus_developer = 1;' unless Rails.env.production?}
-      var disqus_shortname = 'drugpl';
-      var disqus_identifier = 'event_#{@event.id}';
-      var disqus_url = '#{event_url(@event)}';
-      var disqus_title = '#{@event.title}';
-
-      (function() {
-          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-          dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
-          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-      })();
+    #disqus_thread{:"data-title" => @event.title, :"data-url" => event_url(@event), :"data-identifier" => "event_#{@event.id}"}
     %noscript 
       = %Q{Please enable JavaScript to view the #{link_to "comments", "http://disqus.com/?ref_noscript"}.}
 
@@ -28,4 +16,5 @@
   = render_cell :content_blocks, :snippet, :label => :keep_in_touch, :title => I18n.t('snippets.keep_in_touch')
 
 = content_for :head do
+  = load_comments
   = load_maps

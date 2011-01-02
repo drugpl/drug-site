@@ -6,6 +6,14 @@ module ApplicationHelper
   end
 
   def load_maps
-    javascript_include_tag "http://maps.google.com/maps?file=api&amp;v=2&amp;sensor=false&amp;key=#{MAPS_API_KEY}".html_safe
+    javascript_include_tag "http://maps.google.com/maps?file=api&amp;v=2&amp;sensor=false&amp;key=#{MAPS_API_KEY}".html_safe, "google-maps.js"
+  end
+
+  def load_comments
+    javascript_include_tag "disqus-comments.js"
+  end
+
+  def load_comments_count
+    javascript_include_tag "disqus-comments-count.js"
   end
 end

@@ -73,8 +73,8 @@ feature "Homepage" do
 
   scenario "should provide auto discovery links to feeds" do
     @user.visit(homepage)
-    @user.should_discover_rss("http://feeds.feedburner.com/DRUG_Spotkania")
-    @user.should_discover_rss("http://feeds.feedburner.com/DRUG_Aktualnosci")
+    @user.should_discover_rss("http://feeds.feedburner.com/DRUG_Spotkania.xml")
+    @user.should_discover_rss("http://feeds.feedburner.com/DRUG_Aktualnosci.xml")
   end
 
   # XXX: problem with selenium not seeing db record

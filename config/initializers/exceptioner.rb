@@ -19,8 +19,8 @@ Exceptioner.setup do |config|
   # Set delivery method and options.
   # Values are forwarded to underlying mail gem
   # To see available options visit https://github.com/mikel/mail
-  # config.mail.delivery_method = :smtp
-  # config.mail.delivery_options = { :address => 'smtp.example.com' }
+  config.mail.delivery_method = :smtp
+  config.mail.delivery_options = ActionMailer::Base.smtp_settings
   
   # Custom FROM header
   config.mail.sender = 'exceptions@drug.org.pl' 

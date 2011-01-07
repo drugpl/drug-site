@@ -7,7 +7,7 @@ Dolnośląska Grupa Użytkowników Ruby to cykliczne spotkania pasjonatów tego 
 Spotkania mają charakter otwartego panelu dyskusyjnego - uczestnicy włączaja sie w udział w trakcie przygotowanych prelekcji. Zapraszamy zarówno tych zaawansowanych jak i stawiających pierwsze kroki w środowisku Rubiego!
 EOS
 snippet.save!
-snippet.draft? && publish!
+snippet.draft? && snippet.publish!
 
 snippet = Snippet[:community]
 snippet.content = <<EOS
@@ -21,7 +21,7 @@ snippet.content = <<EOS
 "LRUG":http://lrug.pl
 EOS
 snippet.save!
-snippet.draft? && publish!
+snippet.draft? && snippet.publish!
 
 snippet = Snippet[:online]
 snippet.content = <<EOS
@@ -30,4 +30,4 @@ snippet.content = <<EOS
 "Github":http://www.github.com/drug-rb
 EOS
 snippet.save!
-snippet.draft? && publish!
+snippet.draft? && snippet.publish!

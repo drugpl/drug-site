@@ -1,69 +1,75 @@
-body.bp {
+body {
   text-align: center;
 }
-* html body.bp legend {
+* html body legend {
   margin: 0px -8px 16px 0;
   padding: 0;
 }
-html > body.bp p code {
+html > body p code {
   *white-space: normal;
 }
-body.bp .container {
+body .container {
   text-align: left;
 }
-body.bp sup {
+body sup {
   vertical-align: text-top;
 }
-body.bp sub {
+body sub {
   vertical-align: text-bottom;
 }
-body.bp hr {
+body hr {
   margin: -8px auto 11px;
 }
-body.bp img {
+body img {
   -ms-interpolation-mode: bicubic;
 }
-body.bp fieldset {
+body fieldset {
   padding-top: 0;
 }
-body.bp textarea {
+body textarea {
   overflow: auto;
 }
-body.bp input.text {
+body input.text {
   margin: 0.5em 0;
   background-color: white;
   border: 1px solid #bbbbbb;
 }
-body.bp input.text:focus {
+body input.text:focus {
   border: 1px solid #666666;
 }
-body.bp input.title {
+body input.title {
   margin: 0.5em 0;
   background-color: white;
   border: 1px solid #bbbbbb;
 }
-body.bp input.title:focus {
+body input.title:focus {
   border: 1px solid #666666;
 }
-body.bp input.checkbox {
+body input.checkbox {
   position: relative;
   top: 0.25em;
 }
-body.bp input.radio {
+body input.radio {
   position: relative;
   top: 0.25em;
 }
-body.bp input.button {
+body input.button {
   position: relative;
   top: 0.25em;
 }
-body.bp textarea {
+body textarea {
   margin: 0.5em 0;
 }
-body.bp select {
+body select {
   margin: 0.5em 0;
 }
-body.bp button {
+body button {
   position: relative;
   top: 0.25em;
+}
+body #container {
+  text-align: left;
+}
+body nav li {
+  -ie-expr: expression(this.beforeFixParsed ? 0 : (         this !== this.parentNode.firstChild ? (           node = document.createTextNode('‧'),           this.insertBefore(node, this.firstChild)         ) : 0,         this.beforeFixParsed = 1       )     );
 }

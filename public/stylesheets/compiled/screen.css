@@ -857,15 +857,14 @@ nav li {
   display: inline;
   margin: 0;
 }
-nav li:after {
+nav li:before {
   content: "‧";
 }
-nav li:last-child:after {
+nav li:first-child:before {
   content: none;
 }
 nav a:link, nav a:visited {
   color: #666666;
-  display: inline-block;
   height: 1em;
   padding: 0 .75em;
   text-decoration: none;

@@ -276,15 +276,14 @@ nav {
     display: inline;
     margin: 0 }
 
-  li:after {
+  li:before {
     content: "‧" }
 
-  li:last-child:after {
+  li:first-child:before {
     content: none }
 
   a:link, a:visited {
     color: $loud-color;
-    display: inline-block;
     height: 1em;
     padding: 0 .75em;
     text-decoration: none;

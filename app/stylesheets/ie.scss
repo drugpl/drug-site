@@ -4,7 +4,7 @@
 // +blueprint-ie
 
 //Recommended Blueprint configuration with scoping and semantic layout:
-body.bp {
+body {
   @include blueprint-ie(true);
   // Note: Blueprint centers text to fix IE6 container centering.
   // This means all your texts will be centered under all version of IE by default.
@@ -13,4 +13,20 @@ body.bp {
   // Example:
   // .my-container
   //   text-align: left
+
+  #container {
+    text-align: left;
+  }
+
+  nav li {
+    -ie-expr: expression(
+      this.beforeFixParsed ? 0 : (
+        this !== this.parentNode.firstChild ? (
+          node = document.createTextNode('‧'),
+          this.insertBefore(node, this.firstChild)
+        ) : 0,
+        this.beforeFixParsed = 1
+      )
+    );
+  }
 }

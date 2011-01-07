@@ -14,7 +14,8 @@
     = auto_discovery_link_tag :rss, 'http://feeds.feedburner.com/DRUG_Aktualnosci.xml', :title => I18n.t("news_articles.rss.title")
     = auto_discovery_link_tag :rss, 'http://feeds.feedburner.com/DRUG_Spotkania.xml', :title => I18n.t("events.rss.title")
 
-    /[if lt IE 8]
+    /[if lt IE 9]
+      = javascript_include_tag "html5shiv"
       = stylesheet_link_tag 'compiled/ie.css', :media => 'screen, projection'
 
     %title DRUG

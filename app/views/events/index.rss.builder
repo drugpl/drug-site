@@ -5,7 +5,7 @@ xml.rss :version => "2.0" do
     xml.description I18n.t("events.rss.description")
     xml.link events_url(:rss)
     
-    for event in @events
+    for event in @events_for_feed
       xml.item do
         xml.title event.title
         xml.description event.textilized_description

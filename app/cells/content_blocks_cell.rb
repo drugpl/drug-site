@@ -5,7 +5,7 @@ class ContentBlocksCell < Cell::Rails
   end
 
   def news_article
-    @news_articles = NewsArticle.published.limit(@opts[:limit] || 3)
+    @news_articles = NewsArticle.published.order('created_at DESC')limit(@opts[:limit] || 3)
     render
   end
 end

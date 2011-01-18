@@ -885,3 +885,11 @@ a:hover, a:active, .active a:link, .active a:visited {
   color: #cc232a;
   border-bottom: 1px solid #cc232a;
 }
+
+a:focus, a:active {
+  outline: none;
+}
+
+a.logo {
+  border: 0;
+}

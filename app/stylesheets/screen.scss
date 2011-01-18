@@ -301,3 +301,9 @@ a:link, a:visited {
 a:hover, a:active, .active a:link, .active a:visited {
   color: $link-color;
   border-bottom: 1px solid $link-color }
+
+a:focus, a:active {
+  outline: none; }
+
+a.logo {
+  border: 0; }

@@ -20,20 +20,21 @@
 
     %title DRUG
   %body
-    %div#container
+    #container
       %header
-        = image_tag "drug-logo.png"
-        %h1.title
-          = "DRUG"
-        %h2.subtitle
-          = "Dolnośląska Grupa Użytkowników Ruby"
+        = link_to root_url, :class => "logo" do
+          = image_tag "drug-logo.png"
+          %h1.title
+            = "DRUG"
+          %h2.subtitle
+            = "Dolnośląska Grupa Użytkowników Ruby"
         %nav
           = render :partial => "layouts/nav"
         %p.notice
           = notice
         %p.alert
           = alert
-      %div#content
+      #content
         %section#featured
           = yield :featured
         %section#body

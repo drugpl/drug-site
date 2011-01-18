@@ -2,7 +2,7 @@ require 'rvm/capistrano'
 require 'bundler/capistrano'
 
 set :application, "drug"
-set :repository,  "git://github.com/pawelpacana/drug.git"
+set :repository,  "git://github.com/drugpl/drug-site.git"
 set :deploy_to, "/var/lib/#{application}"
 set :user, "someuser"
 set :rvm_ruby_string, "ree"

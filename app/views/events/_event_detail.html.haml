@@ -2,7 +2,7 @@
   = event.title
 %div#map
 %p  
-  %time
+  %time{:datetime => event.starting_at.iso8601}
     = l(event.starting_at, :format => :event)
   %br
   %span#map-location{:'data-lng' => event.venue_longitude, :'data-lat' => event.venue_latitude, :'data-depth' => 14}

@@ -3,5 +3,5 @@
 = news_article.textilized_lead.try(:html_safe) 
 = news_article.textilized_body.html_safe
 %p
-  %time
+  %time{:datetime => news_article.created_at.iso8601.to_date}
     = I18n.l(news_article.created_at.to_date)

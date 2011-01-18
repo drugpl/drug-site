@@ -9,7 +9,7 @@
           = link_to news_article.title, news_article_path(news_article)
         = (news_article.textilized_lead || news_article.textilized_body).html_safe
         %p
-          %time
+          %time{:datetime => news_article.created_at.iso8601.to_date}
             = I18n.l(news_article.created_at.to_date)
           %span.news-article
           = link_to I18n.t("news_articles.read_more"), news_article_path(news_article)

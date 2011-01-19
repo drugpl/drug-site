@@ -1,7 +1,7 @@
 $(document).ready(function() { 
-  var lat = $("#map-location").customdata("lat");
-  var lng = $("#map-location").customdata("lng");
-  var zoom = parseInt($("#map-location").customdata("depth"));
+  var lat = $("#map-location").data("lat");
+  var lng = $("#map-location").data("lng");
+  var zoom = parseInt($("#map-location").data("depth"));
 
   $('#map').googleMaps({
         latitude: lat,

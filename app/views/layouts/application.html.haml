@@ -2,7 +2,7 @@
 %html
   %head
     %meta{:charset => "utf-8"}
-    = javascript_include_tag :defaults, "jquery.customdata"
+    = javascript_include_tag :defaults
     = javascript_include_tag "disqus-developer" unless Rails.env.production?
     = yield :head
     = javascript_include_tag "jquery.googlemaps", "google-analytics"

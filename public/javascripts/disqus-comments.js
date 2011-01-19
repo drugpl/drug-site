@@ -1,9 +1,9 @@
 $(document).ready(function() {
   var disqus = $("#disqus_thread");
   window.disqus_shortname = "drugpl";
-  window.disqus_identifier = disqus.customdata("identifier");
-  window.disqus_url = disqus.customdata("url");
-  window.disqus_title = disqus.customdata("title");
+  window.disqus_identifier = disqus.data("identifier");
+  window.disqus_url = disqus.data("url");
+  window.disqus_title = disqus.data("title");
   
   var dsq = document.createElement('script'); 
   dsq.type = 'text/javascript'; 

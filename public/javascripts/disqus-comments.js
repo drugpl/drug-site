@@ -1,7 +1,6 @@
 $(document).ready(function() {
   var disqus = $("#disqus_thread");
   window.disqus_shortname = "drugpl";
-  window.disqus_identifier = disqus.data("identifier");
   window.disqus_url = disqus.data("url");
   window.disqus_title = disqus.data("title");
   

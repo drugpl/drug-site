@@ -10,6 +10,10 @@ class Venue < ActiveRecord::Base
 
   before_save :geocode_address
 
+  def has_geo?
+    latitude.present? && longitude.present?
+  end
+
   protected
 
   def geocode_address

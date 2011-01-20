@@ -21,6 +21,7 @@ gem 'friendly_id'
 gem 'i18n_routing'
 gem 'app_config'
 gem 'exceptioner'
+gem 'ri_cal'
 
 group :test, :development do
   gem 'rspec-rails', '>= 2.3.0'

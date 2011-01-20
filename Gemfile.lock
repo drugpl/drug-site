@@ -162,6 +162,7 @@ GEM
     rake (0.8.7)
     redhillonrails_core (1.0.9.1)
       activerecord
+    ri_cal (0.8.7)
     rspec (2.3.0)
       rspec-core (~> 2.3.0)
       rspec-expectations (~> 2.3.0)
@@ -246,6 +247,7 @@ DEPENDENCIES
   pg
   rails (= 3.0.3)
   rails_admin!
+  ri_cal
   rspec
   rspec-rails (>= 2.3.0)
   ruby-debug

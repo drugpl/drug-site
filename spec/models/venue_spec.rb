@@ -21,6 +21,12 @@ describe Venue do
     @venue.should have_at_least(1).error_on(:name)
   end
 
+  it "should provide full location" do
+    @venue.name = "A"
+    @venue.address = "B"
+    @venue.full_location.should == "A, B"
+  end
+
   it "should have unique name and address" do
     user = Factory(:user)
     attrs = Factory.attributes_for(:venue).merge(:user => user)

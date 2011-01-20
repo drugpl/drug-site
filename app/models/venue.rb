@@ -11,7 +11,7 @@ class Venue < ActiveRecord::Base
   before_save :geocode_address
 
   def full_location
-    "#{name}, #{location}"
+    "#{name}, #{address}"
   end
 
   def has_geo?

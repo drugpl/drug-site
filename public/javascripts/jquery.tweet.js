@@ -29,6 +29,19 @@
       },
       filter: function(tweet) {                 // [function] whether or not to include a particular tweet (be sure to also set 'fetch')
         return true;
+      },
+      relative_time_formatter: function(time) {
+        var r;
+        if (time.seconds) {
+          r = time.seconds + ' seconds ago';
+        } else if (time.minutes) {
+          r = time.minutes > 1 ? time.minutes + ' minutes ago' : 'a minute ago';
+        } else if (time.hours) {
+          r = time.hours > 1 ? time.hours + ' hours ago' : 'an hour ago';
+        } else if (time.days) {
+          r = time.days > 1 ? time.days + ' days ago' : 'a day ago';
+        }
+        return 'about ' + r;
       }
     }, o);
 
@@ -97,23 +110,23 @@
     function relative_time(date) {
       var relative_to = (arguments.length > 1) ? arguments[1] : new Date();
       var delta = parseInt((relative_to.getTime() - date) / 1000, 10);
-      var r = '';
+      var r = {};
       if (delta < 60) {
-        r = delta + ' seconds ago';
+        r = { seconds: delta };
       } else if(delta < 120) {
-        r = 'a minute ago';
+        r = { minutes: 1 };
       } else if(delta < (45*60)) {
-        r = (parseInt(delta / 60, 10)).toString() + ' minutes ago';
+        r = { minutes: parseInt(delta / 60, 10) };
       } else if(delta < (2*60*60)) {
-        r = 'an hour ago';
+        r = { hours: 1 };
       } else if(delta < (24*60*60)) {
-        r = '' + (parseInt(delta / 3600, 10)).toString() + ' hours ago';
+        r = { hours: parseInt(delta / 3600, 10) };
       } else if(delta < (48*60*60)) {
-        r = 'a day ago';
+        r = { days: 1 };
       } else {
-        r = (parseInt(delta / 86400, 10)).toString() + ' days ago';
+        r = { days: parseInt(delta / 86400, 10) };
       }
-      return 'about ' + r;
+      return s.relative_time_formatter(r);
     }
 
     function build_url() {

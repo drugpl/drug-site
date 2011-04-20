@@ -6,7 +6,7 @@ module ApplicationHelper
   end
 
   def load_maps
-    javascript_include_tag "http://maps.google.com/maps?file=api&amp;v=2&amp;sensor=false&amp;key=#{MAPS_API_KEY}".html_safe, "google-maps.js"
+    javascript_include_tag "http://maps.google.com/maps?file=api&amp;v=2&amp;sensor=false&amp;key=#{AppConfig[:maps_api_key]}".html_safe, "google-maps.js"
   end
 
   def load_comments

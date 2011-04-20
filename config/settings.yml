@@ -1,6 +1,8 @@
 defaults: &defaults
   contact_email: test@example.net
   exception_email: test@example.net
+  twitter_user: andrzejkrzywda
+  twitter_list: drug-org-pl
 
 development:
   <<: *defaults

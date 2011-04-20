@@ -16,4 +16,8 @@ module ApplicationHelper
   def load_comments_count
     javascript_include_tag "disqus-comments-count.js"
   end
+
+  def load_twitter_feed
+    javascript_include_tag "twitter-feed.js"
+  end
 end

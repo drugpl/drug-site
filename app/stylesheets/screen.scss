@@ -307,3 +307,26 @@ a:focus, a:active {
 
 a.logo {
   border: 0; }
+
+#twitter-feed {
+  clear: both;
+
+  .tweet_list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+      margin: 0 0 0.8em 0;
+
+      .tweet_avatar {
+        float: left;
+        border-bottom: none;
+        margin: 0.4em 0.4em 0 0;
+      }
+      .tweet_time {
+        font-size: 0.8em;
+      }
+    }
+  }
+}

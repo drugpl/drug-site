@@ -269,7 +269,7 @@ body.bp .bottom {
   padding-bottom: 0;
 }
 body.bp .showgrid {
-  background: url('/images/grid.png?1292025720');
+  background: url('/images/grid.png?1294421494');
 }
 body.bp .error {
   padding: 0.8em;
@@ -892,4 +892,24 @@ a:focus, a:active {
 
 a.logo {
   border: 0;
+}
+
+#twitter-feed {
+  clear: both;
+}
+#twitter-feed .tweet_list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+#twitter-feed .tweet_list li {
+  margin: 0 0 0.8em 0;
+}
+#twitter-feed .tweet_list li .tweet_avatar {
+  float: left;
+  border-bottom: none;
+  margin: 0.4em 0.4em 0 0;
+}
+#twitter-feed .tweet_list li .tweet_time {
+  font-size: 0.8em;
 }

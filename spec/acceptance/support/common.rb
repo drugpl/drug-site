@@ -85,6 +85,10 @@ module Test
       steak.page.should(steak.have_selector("#dsq-new-post"))
     end
 
+    def should_find_twitter_entries
+      steak.page.should(steak.have_selector(".tweet_list"))
+    end
+
     def click_translated(link)
       steak.click_link_or_button(I18n.t(link.to_s))
       self

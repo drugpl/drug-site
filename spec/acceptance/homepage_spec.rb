@@ -102,4 +102,12 @@ feature "Homepage" do
       @user.should_see_translated('news_articles.read_more')
     end
   end
+
+  scenario "should show Twitter feed", :js => true, :net => true do
+    @user.visit(homepage)
+    within "#twitter-feed" do
+      @user.should_see_translated('twitter_feed.title')
+      @user.should_find_twitter_entries
+    end
+  end
 end

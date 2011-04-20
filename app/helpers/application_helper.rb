@@ -20,4 +20,8 @@ module ApplicationHelper
   def load_twitter_feed
     javascript_include_tag "twitter-feed.js"
   end
+
+  def load_facebook_events
+    javascript_include_tag "facebook-events.js"
+  end
 end

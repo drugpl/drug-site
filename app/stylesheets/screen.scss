@@ -111,7 +111,25 @@ article.event {
     margin: -1.5em 0 1em 1em;
     border: 1px solid $quiet-color;
     width: 260px;
-    height: 200px; } }
+    height: 200px; }
+
+  div.attendants {
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 1em 0;
+
+      li {
+        display: inline;
+        margin: 0 5px 0 0;
+
+        a {
+          border-bottom: none;
+        }
+      }
+    }
+  }
+}
 
 article.news-article {
   p {

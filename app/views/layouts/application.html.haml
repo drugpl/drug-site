@@ -18,6 +18,12 @@
       = javascript_include_tag "html5shiv"
       = stylesheet_link_tag 'compiled/ie.css', :media => 'screen, projection'
 
+    :javascript
+      var FacebookConfig = {
+        appId: "#{AppConfig[:facebook_app_id]}",
+        token: "#{FbGraph::Application.new(AppConfig[:facebook_app_id], :secret => AppConfig[:facebook_app_secret]).get_access_token}"
+      };
+
     %title DRUG
   %body
     #container

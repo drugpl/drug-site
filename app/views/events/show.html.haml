@@ -4,6 +4,10 @@
       = I18n.t('events.event_details')
   = render :partial => "event_detail", :locals => { :event => @event }
 
+  - if @event.facebook_id
+    .attendants
+      %h3 Uczestnicy
+
   #comments
     #disqus_thread{:"data-title" => @event.title, :"data-url" => event_url(@event)}
     %noscript 
@@ -18,3 +22,4 @@
 = content_for :head do
   = load_comments
   = load_maps
+  = load_facebook_events

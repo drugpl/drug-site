@@ -200,6 +200,7 @@ pl:
 
   twitter_feed:
     title: "Twitter"
+    more: "więcej"
   
   contact_mailer:
     contact_message:

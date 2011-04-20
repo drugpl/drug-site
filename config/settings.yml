@@ -3,6 +3,7 @@ defaults: &defaults
   exception_email: test@example.net
   twitter_user: andrzejkrzywda
   twitter_list: drug-org-pl
+  twitter_url: http://twitter.com/andrzejkrzywda/drug-org-pl
 
 development:
   <<: *defaults

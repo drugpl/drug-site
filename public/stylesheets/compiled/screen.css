@@ -897,6 +897,11 @@ a.logo {
 #twitter-feed {
   clear: both;
 }
+#twitter-feed a.more {
+  float: right;
+  position: relative;
+  top: -1.85em;
+}
 #twitter-feed .tweet_list {
   list-style: none;
   margin: 0;

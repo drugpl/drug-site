@@ -604,14 +604,14 @@ body #container {
   -o-box-shadow: #dddddd 0 0 25px 10px;
   box-shadow: #dddddd 0 0 25px 10px;
 }
-body header, body footer {
+body header#top, body footer {
   display: block;
   display: inline;
   float: left;
   margin-right: 10px;
   width: 900px;
 }
-* html body header, * html body footer {
+* html body header#top, * html body footer {
   overflow-x: hidden;
 }
 body aside {

@@ -16,46 +16,25 @@ var EventListener = function () {
   };
 }
 
-var FacebookApi = function () {
-  var self = {};
-  self = $.extend(self, new EventListener());
-
-  self.initialize = function () {
-    window.fbAsyncInit = function () {
-      FB.init({ appId: FacebookConfig.appId, status: true, cookie: false, xfbml: false });
-      self.trigger("initialized");
+var FacebookEventWidget = function (model, view) {
+  return {
+    initialize: function () {
+      view.resetAttendants();
+      model.bind("attendant-loaded", view.addAttendant);
+      model.load();
     }
-    $('<div id="fb-root"></div>').appendTo("body");
-    $('<script src="http://connect.facebook.net/en_US/all.js" async></script>').appendTo("body");
   };
-
-  return self;
 };
 
-var FacebookEventWidget = function (model, view) {
-  view.resetAttendants();
-  model.bind("attendant-loaded", view.addAttendant);
-  model.load();
-}
-
-var FacebookEvent = function (id) {
+var FacebookEvent = function (url) {
   var self = {};
   self = $.extend(self, new EventListener());
   self.load = function () {
-    var query = '\
-      SELECT uid, name, pic_square, profile_url \
-      FROM user \
-      WHERE uid IN ( \
-        SELECT uid FROM event_member WHERE eid="' + id + '" AND rsvp_status="attending" \
-      )\
-    ';
-    FB.api({ method: 'fql.query', query: query, access_token: FacebookConfig.token }, function (response) {
-      if (typeof response.error_code === "undefined") {
-        $.each(response, function (i, person) {
-          self.trigger("attendant-loaded", person);
-        });
-      }
-    });
+    $.get(url, function (response) {
+      $.each(response, function (i, person) {
+        self.trigger("attendant-loaded", person);
+      });
+    })
   };
   return self;
 };
@@ -77,16 +56,12 @@ var FacebookEventView = function (elem) {
 };
 
 $(document).ready(function () {
-  var facebookApi = new FacebookApi();
-
-  var facebookEvents = $(".event[data-facebook-id]");
+  var facebookEvents = $(".event[data-attendants-url]");
   if (facebookEvents.length > 0) {
-    facebookApi.bind("initialized", function () {
-      facebookEvents.each(function () {
-        var id = $(this).data("facebook-id");
-        new FacebookEventWidget(new FacebookEvent(id), new FacebookEventView(this));
-      });
+    facebookEvents.each(function () {
+      var url = $(this).data("attendants-url");
+      var widget = new FacebookEventWidget(new FacebookEvent(url), new FacebookEventView(this));
+      widget.initialize();
     });
-    facebookApi.initialize();
   }
 });

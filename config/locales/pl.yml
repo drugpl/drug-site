@@ -213,5 +213,6 @@ pl:
   resources:
     news_articles: aktualnosci
     events: spotkania
+    attendants: uczestnicy
   resource:
     contact: kontakt

@@ -1,10 +1,10 @@
-%article.event{:"data-facebook-id" => @event.facebook_id}
+%article.event{:"data-attendants-url" => event_attendants_path(@event)}
   %header
     %h2
       = I18n.t('events.event_details')
   = render :partial => "event_detail", :locals => { :event => @event }
 
-  - if @event.facebook_id
+  - if @event.has_facebook_event?
     .attendants
       %h3 Uczestnicy
 

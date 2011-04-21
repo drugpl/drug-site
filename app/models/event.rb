@@ -22,4 +22,20 @@ class Event < ActiveRecord::Base
   @@per_page = 5
 
   textilized_attrs :description
+
+  def has_facebook_event?
+    !! facebook_id
+  end
+
+  def facebook_event
+    @facebook_event ||= FacebookEvent.new(facebook_id)
+  end
+
+  def attendants
+    if has_facebook_event?
+      facebook_event.attendants
+    else
+      []
+    end
+  end
 end

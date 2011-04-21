@@ -4,7 +4,9 @@ Drug::Application.routes.draw do
   
   localized('pl') do
     resources :news_articles, :only => [:index, :show]
-    resources :events, :only => [:index, :show]
+    resources :events, :only => [:index, :show] do
+      resources :attendants, :only => [:index]
+    end
     resource :contact, :only => [:show, :create]
   end
 end

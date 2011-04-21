@@ -94,7 +94,9 @@ var FacebookEventWidget = function (model, view) {
     view.bind("attend-clicked", model.attend);
     view.bind("decline-clicked", model.decline);
     view.initialize();
+    model.bind("attendants-loading", view.onAttendantsLoading);
     model.bind("attendants-loaded", view.showAttendants);
+    model.bind("my-attendance-loading", view.onMyAttendanceLoading);
     model.bind("my-attendance-loaded", view.showMyAttendance);
     model.bind("login-failed", view.loginFailed);
     model.loadAttendants();
@@ -112,12 +114,14 @@ var FacebookEvent = function (facebookApi, params) {
   facebookApi.requirePermission("user_events");
 
   self.loadAttendants = function () {
+    self.trigger("attendants-loading");
     $.get(params.attendantsUrl, function (response) {
       self.trigger("attendants-loaded", response);
     })
   };
 
   self.loadMyAttendance = function () {
+    self.trigger("my-attendance-loading");
     facebookApi.getLoginStatus(
       function onSuccess () {
         facebookApi.getAttendanceStatus(params.facebookId, function (result) {
@@ -194,9 +198,22 @@ var FacebookEventView = function (elem) {
     $.each(people, function (i, person) { showPerson(person) });
   }
 
+  self.onAttendantsLoading = function () {
+    $(elem).find(".attendants ul").empty();
+    $(elem).find(".attendants ul").append('<li><img src="/images/throbber.gif" alt="..." class="throbber" /></li>');
+  }
+
   self.showMyAttendance = function (status) {
-    $(elem).find(".attendants a.attend")[status ? "hide" : "show"]();
-    $(elem).find(".attendants a.decline")[status ? "show" : "hide"]();
+    $(elem).find("p.attendance").find("img.throbber").remove();
+    $(elem).find("p.attendance a.attend")[status ? "hide" : "show"]();
+    $(elem).find("p.attendance a.decline")[status ? "show" : "hide"]();
+  }
+
+  self.onMyAttendanceLoading = function () {
+    var img = '<img src="/images/throbber.gif" alt="..." class="throbber" />'
+    $(elem).find("p.attendance").find("img.throbber").remove();
+    $(elem).find("p.attendance a").hide();
+    $(elem).find("p.attendance").append(img);
   }
 
   self.loginFailed = function () {

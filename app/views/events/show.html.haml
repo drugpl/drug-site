@@ -10,7 +10,7 @@
     .attendants
       %h3 Uczestnicy
       - if @event.future?
-        %p
+        %p.attendance
           = link_to t("events.attend"), "#", :class => "attend"
           = link_to t("events.decline"), "#", :class => "decline"
 

@@ -19,6 +19,7 @@ var EventListener = function () {
 var FacebookApi = function () {
   var self = {};
   self = $.extend(self, new EventListener());
+  var permissions = []
 
   self.initialize = function () {
     window.fbAsyncInit = function () {
@@ -29,14 +30,22 @@ var FacebookApi = function () {
     $('<script src="http://connect.facebook.net/en_US/all.js" async></script>').appendTo("body");
   };
 
-  self.login = function (permissions, success, failure) {
+  self.requirePermission = function (name) {
+    permissions.push(name);
+  }
+
+  var getPermissionsString = function () {
+    return permissions.sort().join(",");
+  }
+
+  self.login = function (success, failure) {
     FB.login(function (response) {
       if (response.session && response.perms) {
         success();
       } else {
         failure();
       }
-    }, { perms: permissions });
+    }, { perms: getPermissionsString() });
   }
 
   self.getAttendanceStatus = function (eventId, callback) {
@@ -83,6 +92,9 @@ var FacebookEvent = function (facebookApi, params) {
   var self = {};
   self = $.extend(self, new EventListener());
 
+  facebookApi.requirePermission("rsvp_event");
+  facebookApi.requirePermission("user_events");
+
   self.loadAttendants = function () {
     $.get(params.attendantsUrl, function (response) {
       self.trigger("attendants-loaded", response);
@@ -102,7 +114,7 @@ var FacebookEvent = function (facebookApi, params) {
   };
 
   self.attend = function () {
-    facebookApi.login("rsvp_event,user_events",
+    facebookApi.login(
       function onSuccess () {
         facebookApi.attendEvent(params.facebookId, function () {
           self.loadAttendants();
@@ -116,7 +128,7 @@ var FacebookEvent = function (facebookApi, params) {
   };
 
   self.decline = function () {
-    facebookApi.login("rsvp_event,user_events",
+    facebookApi.login(
       function onSuccess () {
         facebookApi.declineEvent(params.facebookId, function () {
           self.loadAttendants();

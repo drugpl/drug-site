@@ -223,21 +223,43 @@ var FacebookEventView = function (elem) {
   return self;
 };
 
-$(document).ready(function () {
+var FacebookApplication = function () {
+  var self = {};
   var facebookApi = new FacebookApi();
-  var facebookEvents = $(".event.facebook");
-  if (facebookEvents.length > 0) {
-    facebookApi.bind("initialized", function () {
-      facebookEvents.each(function () {
-        var model = new FacebookEvent(facebookApi, {
-          facebookId: $(this).data("facebook-id"),
-          attendantsUrl: $(this).data("attendants-url")
-        });
-        var view = new FacebookEventView(this);
-        var widget = new FacebookEventWidget(model, view);
-        widget.initialize();
+
+  self.initialize = function () {
+    if (self.hasFacebookWigets()) {
+      facebookApi.bind("initialized", function () {
+        self.createEventWidgets();
       });
-    });
-    facebookApi.initialize();
+      facebookApi.initialize();
+    }
+  };
+
+  self.hasFacebookWigets = function () {
+    return $(".event.facebook").length > 0;
   }
+
+  self.createEventWidgets = function () {
+    $(".event.facebook").each(function () {
+      self.createEventWidget($(this));
+    })
+  };
+
+  self.createEventWidget = function (elem) {
+    var model = new FacebookEvent(facebookApi, {
+      facebookId: elem.data("facebook-id"),
+      attendantsUrl: elem.data("attendants-url")
+    });
+    var view = new FacebookEventView(elem);
+    var widget = new FacebookEventWidget(model, view);
+    widget.initialize();
+  };
+
+  return self;
+};
+
+$(document).ready(function () {
+  var app = new FacebookApplication();
+  app.initialize();
 });

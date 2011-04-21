@@ -58,6 +58,12 @@ var FacebookApi = function () {
     });
   }
 
+  self.loginOrGetStatus = function (success, failure) {
+    self.getLoginStatus(success, function () {
+      self.login(success, failure);
+    });
+  }
+
   self.getAttendanceStatus = function (eventId, callback) {
     FB.api("/me/events", function (response) {
       var status;
@@ -129,7 +135,7 @@ var FacebookEvent = function (facebookApi, params) {
   };
 
   self.attend = function () {
-    facebookApi.login(
+    facebookApi.loginOrGetStatus(
       function onSuccess () {
         facebookApi.attendEvent(params.facebookId, function () {
           self.loadAttendants();
@@ -143,7 +149,7 @@ var FacebookEvent = function (facebookApi, params) {
   };
 
   self.decline = function () {
-    facebookApi.login(
+    facebookApi.loginOrGetStatus(
       function onSuccess () {
         facebookApi.declineEvent(params.facebookId, function () {
           self.loadAttendants();

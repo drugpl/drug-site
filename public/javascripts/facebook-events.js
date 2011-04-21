@@ -48,6 +48,16 @@ var FacebookApi = function () {
     }, { perms: getPermissionsString() });
   }
 
+  self.getLoginStatus = function (success, failure) {
+    FB.getLoginStatus(function(response) {
+      if (response.session) {
+        success();
+      } else {
+        failure();
+      }
+    });
+  }
+
   self.getAttendanceStatus = function (eventId, callback) {
     FB.api("/me/events", function (response) {
       var status;
@@ -102,15 +112,20 @@ var FacebookEvent = function (facebookApi, params) {
   };
 
   self.loadMyAttendance = function () {
-    facebookApi.getAttendanceStatus(params.facebookId, function (result) {
-      if (result === "attending") {
-        self.trigger("my-attendance-loaded", true);
-      } else if (result === "declined") {
-        self.trigger("my-attendance-loaded", false);
-      } else {
-        self.trigger("my-attendance-loaded", undefined);
-      }
-    });
+    facebookApi.getLoginStatus(
+      function onSuccess () {
+        facebookApi.getAttendanceStatus(params.facebookId, function (result) {
+          if (result === "attending") {
+            self.trigger("my-attendance-loaded", true);
+          } else if (result === "declined") {
+            self.trigger("my-attendance-loaded", false);
+          } else {
+            self.trigger("my-attendance-loaded", undefined);
+          }
+        });
+      },
+      function onFailure () { }
+    )
   };
 
   self.attend = function () {

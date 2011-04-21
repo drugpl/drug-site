@@ -1,4 +1,4 @@
-var EventListener = function () {
+var Observable = function () {
   var boundEvents = {};
 
   return {
@@ -18,7 +18,7 @@ var EventListener = function () {
 
 var FacebookApi = function () {
   var self = {};
-  self = $.extend(self, new EventListener());
+  self = $.extend(self, new Observable());
   var permissions = []
 
   self.initialize = function () {
@@ -108,7 +108,7 @@ var FacebookEventWidget = function (model, view) {
 
 var FacebookEvent = function (facebookApi, params) {
   var self = {};
-  self = $.extend(self, new EventListener());
+  self = $.extend(self, new Observable());
 
   facebookApi.requirePermission("rsvp_event");
   facebookApi.requirePermission("user_events");
@@ -171,7 +171,7 @@ var FacebookEvent = function (facebookApi, params) {
 
 var FacebookEventView = function (elem) {
   var self = {};
-  self = $.extend(self, new EventListener());
+  self = $.extend(self, new Observable());
 
   self.initialize = function () {
     $(elem).find(".attendants a.attend").click(function () {

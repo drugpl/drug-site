@@ -134,7 +134,9 @@ var FacebookEvent = function (facebookApi, params) {
           }
         });
       },
-      function onFailure () { }
+      function onFailure () {
+        self.trigger("my-attendance-loaded", undefined);
+      }
     )
   };
 

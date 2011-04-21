@@ -171,6 +171,8 @@ pl:
     rss:
       title: Dolnośląska Grupa Użytkowników Ruby - Spotkania
       description: Kanał spotkań ze strony drug.org.pl
+    attend: Dołącz
+    decline: Zrezygnuj
 
   site_menu:
     pages:

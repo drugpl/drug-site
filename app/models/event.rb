@@ -24,6 +24,10 @@ class Event < ActiveRecord::Base
 
   textilized_attrs :description
 
+  def future?
+    starting_at > Time.now
+  end
+
   def has_facebook_event?
     !! facebook_id
   end

@@ -43,6 +43,7 @@ group :test do
   gem 'time_travel'
   gem 'email_spec'
   gem 'be_valid_asset'
+  gem 'mocha'
 end
 
 group :development do

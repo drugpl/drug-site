@@ -138,6 +138,8 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.16)
+    mocha (0.9.9)
+      rake
     mongrel (1.2.0.pre2)
       daemons (~> 1.0.10)
       gem_plugin (~> 0.2.3)
@@ -264,6 +266,7 @@ DEPENDENCIES
   interactive_editor
   irb_callbacks
   jquery-rails
+  mocha
   mongrel (>= 1.2.0pre2)
   pg
   rails (= 3.0.3)

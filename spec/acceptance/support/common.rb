@@ -20,12 +20,6 @@ module Test
         yield if block_given?
         self
       end
-
-      def expects(model_sym, method_sym, options = {})
-        stub = Factory.stub(model_sym, options)
-        model_sym.to_s.classify.constantize.should_receive(method_sym).and_return(stub)
-        stub
-      end
     end
   end
 

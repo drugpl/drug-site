@@ -14,21 +14,15 @@ feature "Event Details" do
     end
   end
 
-  # XXX: problem with selenium not seeing db record
-  # as a cause from starting async/too early
   scenario "should show map", :js => true, :net => true do
-    event = @website.expects(:event, :find)
-    @user.visit(event_page(event))
+    @user.visit(event_page(@event))
     within "#map" do
       @user.should_find_map
     end
   end
 
-  # XXX: problem with selenium not seeing db record
-  # as a cause from starting async/too early
   scenario "should show comments", :js => true, :net => true do
-    event = @website.expects(:event, :find)
-    @user.visit(event_page(event))
+    @user.visit(event_page(@event))
     within "#comments" do
       @user.should_find_comments
     end

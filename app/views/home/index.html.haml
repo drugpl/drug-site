@@ -14,6 +14,7 @@
   = render_cell :content_blocks, :snippet, :label => :online, :title => I18n.t('snippets.online')
   = render_cell :content_blocks, :snippet, :label => :community, :title => I18n.t('snippets.community')
   = render_cell :content_blocks, :snippet, :label => :keep_in_touch, :title => I18n.t('snippets.keep_in_touch')
+  = render_cell :content_blocks, :twitter_feed
 
 = content_for :about do
   = render_cell :content_blocks, :snippet, :label => :about_us, :title => I18n.t('snippets.about')
@@ -21,3 +22,4 @@
 = content_for :head do
   = load_maps
   = load_comments_count
+  = load_twitter_feed

@@ -31,7 +31,7 @@ body {
     padding: 2em;
     @include box-shadow($quiet-color, 0, 0, 25px, 10px); }
 
-  header, footer {
+  header#top, footer {
     display: block;
     @include column($blueprint-grid-columns); }
 
@@ -307,3 +307,31 @@ a:focus, a:active {
 
 a.logo {
   border: 0; }
+
+#twitter-feed {
+  clear: both;
+
+  a.more {
+    float: right;
+    position: relative;
+    top: -1.85em;
+  }
+  .tweet_list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+      margin: 0 0 0.8em 0;
+
+      .tweet_avatar {
+        float: left;
+        border-bottom: none;
+        margin: 0.4em 0.4em 0 0;
+      }
+      .tweet_time {
+        font-size: 0.8em;
+      }
+    }
+  }
+}

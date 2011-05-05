@@ -2,7 +2,9 @@
 db/*.sqlite3
 log/*.log
 tmp/**/*
+tmp/*
 config/database.yml
 config/email.yml
 config/deploy.rb
 config/initializers/secret_token.rb
+public/stylesheets/compiled/*

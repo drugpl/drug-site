@@ -197,6 +197,10 @@ pl:
     spam_protection: Jesteś człowiekiem?
     message_sent_successfuly: Wiadomość wysłana pomyślnie
     message_not_sent_due_to_errors: Wiadomość nie została wysłana z powodu błędów
+
+  twitter_feed:
+    title: "Twitter"
+    more: "więcej"
   
   contact_mailer:
     contact_message:

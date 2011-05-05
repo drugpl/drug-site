@@ -8,4 +8,11 @@ class ContentBlocksCell < Cell::Rails
     @news_articles = NewsArticle.published.order('created_at DESC').limit(@opts[:limit] || 3)
     render
   end
+
+  def twitter_feed
+    @user = AppConfig[:twitter_user]
+    @list = AppConfig[:twitter_list]
+    @url  = AppConfig[:twitter_url]
+    render
+  end
 end

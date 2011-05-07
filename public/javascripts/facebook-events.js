@@ -172,7 +172,7 @@ var FacebookApplication = function () {
   return self;
 };
 
-$(document).ready(function () {
+$(window).load(function () {
   var app = new FacebookApplication();
   app.initialize();
 });

@@ -3,14 +3,14 @@ class FacebookEvent
     @event_id = event_id
   end
 
-  def attendants
+  def attendants(options = {})
     FbGraph::Query.new("
       SELECT uid, name, pic_square, profile_url
       FROM user
       WHERE uid IN (
         SELECT uid FROM event_member WHERE eid='#{@event_id}' AND rsvp_status='attending'
       )
-    ").fetch(app.get_access_token)
+    ").fetch(options[:access_token] || app.get_access_token)
   end
 
   private

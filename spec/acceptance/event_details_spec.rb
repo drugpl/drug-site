@@ -5,7 +5,7 @@ feature "Event Details" do
     @title, @description = "Beer chess", "Happy drinking"
     @event = @website.has(:event, :title => @title, :description => @description)
   end
-  
+
   scenario "should show event details" do
     @user.visit(event_page(@event))
     within "section#body" do
@@ -25,6 +25,21 @@ feature "Event Details" do
     @user.visit(event_page(@event))
     within "#comments" do
       @user.should_find_comments
+    end
+  end
+
+  scenario "should show attendants", :js => true, :net => true, :facebook => true do
+    @fb_event = @facebook.has_event(:name => @title, :start_time => Date.tomorrow)
+    @event = @website.has(:event, :starting_at => Date.tomorrow, :facebook_id => @fb_event.identifier)
+    @user.login_to_facebook(@facebook)
+    @user.visit(event_page(@event)).wait(5.seconds)
+    within ".attendants" do
+      @user.click_translated("events.attend")
+      # TODO add proper tests to attend/decline links which are hidden via CSS
+      # @user.should_see_translated("events.decline").should_not_see_translated("events.attend")
+      @user.should_see_image(@user.facebook_name)
+      @user.click_translated("events.decline")
+      @user.should_not_see_image(@user.facebook_name)
     end
   end
 

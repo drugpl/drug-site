@@ -36,9 +36,9 @@ class Event < ActiveRecord::Base
     @facebook_event ||= FacebookEvent.new(facebook_id)
   end
 
-  def attendants
+  def attendants(options = {})
     if has_facebook_event?
-      facebook_event.attendants
+      facebook_event.attendants(options)
     else
       []
     end

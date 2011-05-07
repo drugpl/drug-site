@@ -32,15 +32,26 @@ class Event < ActiveRecord::Base
     !! facebook_id
   end
 
-  def facebook_event
-    @facebook_event ||= FacebookEvent.new(facebook_id)
-  end
-
   def attendants(options = {})
     if has_facebook_event?
-      facebook_event.attendants(options)
+      FbGraph::Query.new("
+        SELECT uid, name, pic_square, profile_url
+        FROM user
+        WHERE uid IN (
+          SELECT uid FROM event_member WHERE eid='#{facebook_id}' AND rsvp_status='attending'
+        )
+      ").fetch(options[:access_token] || access_token)
     else
       []
+    end
+  end
+
+  protected
+
+  def access_token
+    @access_token ||= begin
+      app = FbGraph::Application.new(AppConfig[:facebook_app_id], :secret => AppConfig[:facebook_app_secret])
+      app.get_access_token
     end
   end
 end

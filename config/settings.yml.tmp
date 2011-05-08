@@ -8,11 +8,17 @@ defaults: &defaults
 development:
   <<: *defaults
   maps_api_key: ABQIAAAARxhDyCAgkxaRS-btAXEOmRS1rKNKCajL_OjXVxcRqG-4FK8BDRRM9BBR1vD4b0biuXxliOmiRrL1hQ
+  facebook_app_id:
+  facebook_app_secret:
 
 test:
   <<: *defaults
   maps_api_key: ABQIAAAARxhDyCAgkxaRS-btAXEOmRS1rKNKCajL_OjXVxcRqG-4FK8BDRRM9BBR1vD4b0biuXxliOmiRrL1hQ
+  facebook_app_id:
+  facebook_app_secret:
 
 production:
   <<: *defaults
   maps_api_key: ABQIAAAARxhDyCAgkxaRS-btAXEOmRTYcVd6WlBKPyXZXreVpEGKzqDr8hTOsV_H95tbwbjuwVYng7sEbK-pvA
+  facebook_app_id:
+  facebook_app_secret:

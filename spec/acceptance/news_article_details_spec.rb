@@ -14,11 +14,8 @@ feature "News Article Details" do
     end
   end
 
-  # XXX: problem with selenium not seeing db record
-  # as a cause from starting async/too early
   scenario "should show comments", :js => true, :net => true do
-    news_article = @website.expects(:news_article, :find)
-    @user.visit(news_article_page(news_article))
+    @user.visit(news_article_page(@news_article))
     within "#comments" do
       @user.should_find_comments
     end

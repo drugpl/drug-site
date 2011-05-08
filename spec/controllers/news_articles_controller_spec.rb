@@ -4,7 +4,7 @@ describe NewsArticlesController do
   render_views
 
   context "GET#index" do
-    before(:all) do
+    before(:each) do
       Factory(:news_article, :body => "h1. News", :lead => "h2. Article")
     end
 

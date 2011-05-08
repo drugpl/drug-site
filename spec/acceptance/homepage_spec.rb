@@ -77,10 +77,10 @@ feature "Homepage" do
     @user.should_discover_rss("http://feeds.feedburner.com/DRUG_Aktualnosci.xml")
   end
 
-  # XXX: problem with selenium not seeing db record
-  # as a cause from starting async/too early
   scenario "should show event on map", :js => true, :net => true do
-    @website.expects(:event, :last)
+    at_time 1.day.from_now do
+      @website.has(:event)
+    end
     @user.visit(homepage)
     within "#map" do
       @user.should_find_map

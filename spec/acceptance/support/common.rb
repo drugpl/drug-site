@@ -20,12 +20,6 @@ module Test
         yield if block_given?
         self
       end
-
-      def expects(model_sym, method_sym, options = {})
-        stub = Factory.stub(model_sym, options)
-        model_sym.to_s.classify.constantize.should_receive(method_sym).and_return(stub)
-        stub
-      end
     end
   end
 
@@ -46,6 +40,11 @@ module Test
       steak.visit(path)
       self
     end
+
+    def wait(time)
+      sleep(time.to_i)
+      self
+    end
     
     def should_see(*args)
       args.each do |arg|
@@ -56,7 +55,7 @@ module Test
 
     def should_not_see(*args)
       args.each do |arg|
-        steak.page.should_not(steak.have_content(arg.to_s))
+        steak.page.should(steak.have_no_content(arg.to_s))
       end
       self
     end
@@ -72,6 +71,16 @@ module Test
       args.each do |arg|
         should_not_see(I18n.t(arg.to_s))
       end
+      self
+    end
+
+    def should_see_image(alt)
+      steak.page.should(steak.have_css("img[alt='#{alt}']"))
+      self
+    end
+
+    def should_not_see_image(alt)
+      steak.page.should(steak.have_no_css("img[alt='#{alt}']"))
       self
     end
 
@@ -119,6 +128,56 @@ module Test
    
     def has(factory, options = {})
       Factory(factory, options)
+    end
+  end
+
+  module FacebookUser
+    def login_to_facebook(facebook)
+      test_user = facebook.create_test_user
+      visit "https://www.facebook.com"
+      visit test_user.login_url
+      @facebook_user = test_user.fetch
+    end
+
+    def facebook_name
+      @facebook_user.name
+    end
+  end
+
+  class Facebook
+    include Base
+
+    def initialize(*)
+      super
+      @test_users = []
+
+      # For some reason content created by test users is not visible when using
+      # application's access token. Thus we use admin_user's token.
+      AttendantsController.any_instance.stubs(:facebook_access_token).returns(admin_user.access_token)
+    end
+
+    def has_event(options = {})
+      admin_user.event!(options).fetch
+    end
+
+    def create_test_user
+      permissions = "read_stream,create_event,rsvp_event,user_events"
+      @test_users << app.test_user!(:installed => true, :permissions => permissions)
+      @test_users.last
+    end
+
+    def destroy_test_users
+      @test_users.map(&:destroy)
+    end
+
+    protected
+
+    def app
+      @app ||= FbGraph::Application.new(AppConfig[:facebook_app_id], :secret => AppConfig[:facebook_app_secret])
+    end
+
+    def admin_user
+      @admin_user ||= create_test_user
     end
   end
 end

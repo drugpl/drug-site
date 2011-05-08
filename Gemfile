@@ -22,6 +22,7 @@ gem 'i18n_routing'
 gem 'app_config'
 gem 'exceptioner'
 gem 'ri_cal'
+gem 'fb_graph'
 
 group :test, :development do
   gem 'rspec-rails', '>= 2.3.0'
@@ -42,6 +43,7 @@ group :test do
   gem 'time_travel'
   gem 'email_spec'
   gem 'be_valid_asset'
+  gem 'mocha'
 end
 
 group :development do

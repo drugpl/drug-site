@@ -22,7 +22,7 @@ gem 'i18n_routing'
 gem 'app_config'
 gem 'exceptioner'
 gem 'ri_cal'
-gem 'fb_graph'
+gem 'fb_graph', '1.8'
 
 group :test, :development do
   gem 'rspec-rails', '>= 2.3.0'

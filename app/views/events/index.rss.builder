@@ -9,7 +9,7 @@ xml.rss :version => "2.0" do
       xml.item do
         xml.title event.title
         xml.description event.textilized_description
-        xml.pubDate event.created_at.to_s(:rfc822)
+        xml.pubDate event.updated_at.to_s(:rfc822)
         xml.link event_url(event)
         xml.guid event_url(event)
       end

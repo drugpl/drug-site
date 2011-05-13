@@ -3,6 +3,7 @@ ENV["RAILS_ENV"] ||= 'test'
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 require 'email_spec'
+require 'factories'
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
@@ -25,6 +26,9 @@ RSpec.configure do |config|
   # examples within a transaction, remove the following line or assign false
   # instead of true.
   config.use_transactional_fixtures = false
+
+  # do not spam with notices form postgres
+  ActiveRecord::Base.connection.client_min_messages = "warning"
 
   DatabaseCleaner.strategy = :truncation
   config.after do

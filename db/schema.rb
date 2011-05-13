@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110420221620) do
+ActiveRecord::Schema.define(:version => 20110513140430) do
 
   create_table "contacts", :force => true do |t|
     t.string   "name",       :null => false
@@ -32,7 +32,16 @@ ActiveRecord::Schema.define(:version => 20110420221620) do
     t.string   "facebook_id"
   end
 
-  create_table "histories", :force => true do |t|
+  create_table "news_articles", :force => true do |t|
+    t.string   "title",      :null => false
+    t.text     "body"
+    t.text     "lead"
+    t.string   "status"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "rails_admin_histories", :force => true do |t|
     t.string   "message"
     t.string   "username"
     t.integer  "item"
@@ -43,16 +52,7 @@ ActiveRecord::Schema.define(:version => 20110420221620) do
     t.datetime "updated_at"
   end
 
-  add_index "histories", ["item", "table", "month", "year"], :name => "index_histories_on_item_and_table_and_month_and_year"
-
-  create_table "news_articles", :force => true do |t|
-    t.string   "title",      :null => false
-    t.text     "body"
-    t.text     "lead"
-    t.string   "status"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
+  add_index "rails_admin_histories", ["item", "table", "month", "year"], :name => "index_histories_on_item_and_table_and_month_and_year"
 
   create_table "sessions", :force => true do |t|
     t.string   "session_id", :null => false

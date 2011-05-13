@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.3'
+gem 'rails', '3.0.7'
 gem 'pg'
 gem 'haml'
 gem 'haml-rails'
@@ -28,8 +28,7 @@ group :test, :development do
   gem 'rspec-rails', '>= 2.3.0'
   gem 'capybara'
   gem 'steak'
-  gem 'factory_girl_rails'
-  gem "mongrel", ">= 1.2.0pre2"
+  gem 'factory_girl', '1.3.3'
   if RUBY_VERSION < '1.9'
     gem 'ruby-debug'
   else
@@ -47,7 +46,7 @@ group :test do
 end
 
 group :development do
-  gem 'rvm'
+  gem 'rvm', '1.6.9'
   gem 'awesome_print', :require => 'ap'
   gem 'bond'
   gem 'what_methods'

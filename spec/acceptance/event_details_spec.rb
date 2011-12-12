@@ -2,8 +2,8 @@ require File.expand_path(File.dirname(__FILE__) + '/acceptance_helper')
 
 feature "Event Details" do
   before do
-    @title, @description = "Beer chess", "Happy drinking"
-    @event = @website.has(:event, :title => @title, :description => @description)
+    @title, @description, @starting_at = "Beer chess", "Happy drinking", '03-03-1989 15:53'.to_time
+    @event = @website.has(:event, :title => @title, :description => @description, :starting_at => @starting_at)
   end
 
   scenario "should show event details" do
@@ -18,6 +18,13 @@ feature "Event Details" do
     @user.visit(event_page(@event))
     within "#map" do
       @user.should_find_map
+    end
+  end
+
+  scenario "should show time" do
+    @user.visit(event_page(@event))
+    within "section#body" do
+      @user.should_see('Piątek, 03 marca 1989, 16:53')
     end
   end
 

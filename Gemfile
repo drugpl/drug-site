@@ -23,6 +23,7 @@ gem 'app_config'
 gem 'exceptioner'
 gem 'ri_cal'
 gem 'fb_graph', '1.8'
+gem 'polish', '=0.1.1'
 
 group :test, :development do
   gem 'rspec-rails', '>= 2.3.0'

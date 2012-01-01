@@ -4,7 +4,7 @@ gem 'rails', '~> 3.1.0'
 gem 'pg'
 gem 'haml'
 gem 'haml-rails'
-gem 'will_paginate', '>= 3.0.pre2'
+gem 'will_paginate', '~> 3.0.2'
 gem 'friendly_id'
 gem 'jquery-rails'
 gem 'devise'
@@ -52,4 +52,5 @@ end
 group :development do
   gem 'capistrano'
   gem 'ruby-debug19'
+  gem 'active_reload'
 end

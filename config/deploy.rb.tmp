@@ -5,7 +5,7 @@ set :application, "drug"
 set :repository,  "git://github.com/drugpl/drug-site.git"
 set :deploy_to, "/var/lib/#{application}"
 set :user, "drug"
-set :rvm_ruby_string, "1.9.2"
+set :rvm_ruby_string, "1.9.3"
 set :scm, :git
 set :bundle_without, [:test, :development]
 

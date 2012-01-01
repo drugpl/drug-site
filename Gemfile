@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.7'
+gem 'rails', '~> 3.0.7'
 gem 'pg'
 gem 'haml'
 gem 'haml-rails'
@@ -26,6 +26,7 @@ gem 'fb_graph', '1.8'
 gem 'polish', '=0.1.1'
 
 group :test, :development do
+  gem 'thin'
   gem 'rspec-rails', '>= 2.3.0'
   gem 'capybara'
   gem 'steak'

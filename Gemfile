@@ -31,11 +31,6 @@ group :test, :development do
   gem 'capybara'
   gem 'steak'
   gem 'factory_girl', '1.3.3'
-  if RUBY_VERSION < '1.9'
-    gem 'ruby-debug'
-  else
-    gem 'ruby-debug19'
-  end
 end
 
 group :test do

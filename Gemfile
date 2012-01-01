@@ -20,7 +20,6 @@ gem 'exceptioner'
 gem 'ri_cal'
 gem 'fb_graph', '1.8'
 gem 'polish', '=0.1.1'
-gem 'unicorn'
 gem 'i18n_routing'
 
 group :assets do
@@ -29,6 +28,10 @@ group :assets do
   gem 'uglifier'
 end
 
+group :production do
+  gem 'unicorn'
+  gem 'therubyracer'
+end
 
 group :test, :development do
   gem 'thin'

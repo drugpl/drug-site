@@ -41,3 +41,6 @@ namespace :deploy do
 end
 
 after "deploy:finalize_update", "utils:link_configuration_files"
+after 'deploy:update_code' do
+  run "cd #{release_path}; RAILS_ENV=production rake assets:precompile"
+end

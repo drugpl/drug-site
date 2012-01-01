@@ -1,4 +1,4 @@
-source 'http://rubygems.org'
+source 'http://production.cf.rubygems.org'
 
 gem 'rails', '~> 3.0.7'
 gem 'pg'
@@ -24,6 +24,7 @@ gem 'exceptioner'
 gem 'ri_cal'
 gem 'fb_graph', '1.8'
 gem 'polish', '=0.1.1'
+gem 'unicorn'
 
 group :test, :development do
   gem 'thin'

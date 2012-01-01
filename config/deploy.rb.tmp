@@ -4,7 +4,7 @@ require 'bundler/capistrano'
 set :application, "drug"
 set :repository,  "git://github.com/drugpl/drug-site.git"
 set :deploy_to, "/var/lib/#{application}"
-set :user, "someuser"
+set :user, "drug"
 set :rvm_ruby_string, "ree"
 set :scm, :git
 set :bundle_without, [:test, :development]
@@ -12,34 +12,32 @@ set :bundle_without, [:test, :development]
 set :ssh_options, {:forward_agent => true}
 set :use_sudo, false
 
-role :web, "somehost"                   # Your HTTP server, Apache/etc
-role :app, "somehost"                   # This may be the same as your `Web` server
-role :db,  "somehost", :primary => true # This is where Rails migrations will run
+role :web, "drug"                   # Your HTTP server, Apache/etc
+role :app, "drug"                   # This may be the same as your `Web` server
+role :db,  "drug", :primary => true # This is where Rails migrations will run
 
 namespace :utils do
   task :link_configuration_files do
     ['database.yml', 'email.yml', 'settings.yml'].each do |file|
-      run "if [ -f #{deploy_to}/shared/#{file} ] ; then ln -s #{deploy_to}/shared/#{file} #{latest_release}/config/; fi" 
+      run "if [ -f #{deploy_to}/shared/#{file} ] ; then ln -sf #{deploy_to}/shared/#{file} #{latest_release}/config/; fi"
     end
   end
-  
-  task :copy_admin_assets do
-    run "cd #{latest_release} && RAILS_ENV=production rake admin:copy_assets"
+
+  task :link_secret_token do
+    run "if [ -f #{deploy_to}/shared/secret_token.rb ] ; then ln -sf #{deploy_to}/shared/secret_token.rb #{latest_release}/config/initializers/; fi"
   end
 end
 
 namespace :deploy do
   task :start, :roles => :app do
-    run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}" 
+    run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
   end
   task :stop, :roles => :app do
     # nothing
   end
   task :restart, :roles => :app, :except => { :no_release => true } do
-    run "touch #{File.join(current_path,'tmp','restart.txt')}" 
+    run "touch #{File.join(current_path,'tmp','restart.txt')}"
   end
 end
 
-after "deploy:finalize_update", "utils:link_configuration_files" 
-after "deploy:update_code", "utils:copy_admin_assets" 
-
+after "deploy:finalize_update", "utils:link_configuration_files"

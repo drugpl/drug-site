@@ -1,6 +1,6 @@
 %header
   %h2
-    = I18n.t('events.events_so_far')
+    = t('events.events_so_far')
   = will_paginate @events
 %ul.events
   - @events.each do |event|
@@ -9,7 +9,7 @@
 = will_paginate @events
 
 = content_for :sidebar do
-  = render_cell :content_blocks, :news_article, :limit => 1, :title => I18n.t('news_articles.latest')
-  = render_cell :content_blocks, :snippet, :label => :online, :title => I18n.t('snippets.online')
-  = render_cell :content_blocks, :snippet, :label => :community, :title => I18n.t('snippets.community')
-  = render_cell :content_blocks, :snippet, :label => :keep_in_touch, :title => I18n.t('snippets.keep_in_touch')
+  = render_cell :content_blocks, :news_article, t('news_articles.latest'), 1
+  = render_cell :content_blocks, :snippet, :online, t('snippets.online')
+  = render_cell :content_blocks, :snippet, :community, t('snippets.community')
+  = render_cell :content_blocks, :snippet, :keep_in_touch, t('snippets.keep_in_touch')

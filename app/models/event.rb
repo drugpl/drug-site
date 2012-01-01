@@ -6,8 +6,9 @@ class Event < ActiveRecord::Base
   belongs_to :user
   belongs_to :venue
 
-  has_friendly_id :title, :use_slug => true, :approximate_ascii => true
-  
+  extend FriendlyId
+  friendly_id :title, :use => :slugged
+
   validates :title, :presence => true
   validates :description, :presence => true
   validates :starting_at, :presence => true
@@ -19,7 +20,7 @@ class Event < ActiveRecord::Base
 
   scope :happened, lambda { where("starting_at < ?", Time.zone.now) }
 
-  cattr_accessor :per_page  
+  cattr_accessor :per_page
   @@per_page = 5
 
   textilized_attrs :description

@@ -4,11 +4,12 @@ class NewsArticle < ActiveRecord::Base
   include TextilizedAttributes
   include AASM
 
-  has_friendly_id :title, :use_slug => true, :approximate_ascii => true
+  extend FriendlyId
+  friendly_id :title, :use => :slugged
 
   aasm_initial_state :draft
   aasm_column :status
-  
+
   aasm_state :draft
   aasm_state :published
 
@@ -25,7 +26,7 @@ class NewsArticle < ActiveRecord::Base
 
   validates :title, :presence => true
 
-  cattr_accessor :per_page  
+  cattr_accessor :per_page
   @@per_page = 5
 
   textilized_attrs :body, :lead

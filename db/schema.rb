@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110513140430) do
+ActiveRecord::Schema.define(:version => 20120101174401) do
 
   create_table "contacts", :force => true do |t|
     t.string   "name",       :null => false
@@ -31,7 +31,21 @@ ActiveRecord::Schema.define(:version => 20110513140430) do
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
     t.string   "facebook_id"
+    t.string   "slug"
   end
+
+  add_index "events", ["slug"], :name => "index_events_on_slug", :unique => true
+
+  create_table "friendly_id_slugs", :force => true do |t|
+    t.string   "slug",                         :null => false
+    t.integer  "sluggable_id",                 :null => false
+    t.string   "sluggable_type", :limit => 40
+    t.datetime "created_at"
+  end
+
+  add_index "friendly_id_slugs", ["slug", "sluggable_type"], :name => "index_friendly_id_slugs_on_slug_and_sluggable_type", :unique => true
+  add_index "friendly_id_slugs", ["sluggable_id"], :name => "index_friendly_id_slugs_on_sluggable_id"
+  add_index "friendly_id_slugs", ["sluggable_type"], :name => "index_friendly_id_slugs_on_sluggable_type"
 
   create_table "news_articles", :force => true do |t|
     t.string   "title",      :null => false
@@ -40,7 +54,10 @@ ActiveRecord::Schema.define(:version => 20110513140430) do
     t.string   "status"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "slug"
   end
+
+  add_index "news_articles", ["slug"], :name => "index_news_articles_on_slug", :unique => true
 
   create_table "rails_admin_histories", :force => true do |t|
     t.string   "message"
@@ -115,10 +132,5 @@ ActiveRecord::Schema.define(:version => 20110513140430) do
   end
 
   add_index "venues", ["name", "address"], :name => "venues_name_address_unique_index", :unique => true
-
-  add_foreign_key "events", ["user_id"], "users", ["id"], :name => "events_user_id_fkey"
-  add_foreign_key "events", ["venue_id"], "venues", ["id"], :name => "events_venue_id_fkey"
-
-  add_foreign_key "venues", ["user_id"], "users", ["id"], :name => "venues_user_id_fkey"
 
 end

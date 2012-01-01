@@ -8,14 +8,14 @@ feature "Contact" do
     @user.visit(contact_page)
     @user.fill_in("contact_name", :with => "Wincenty Kadłubek")
     @user.fill_in("contact_email", :with => email)
-    @user.click("contact_submit")
+    @user.click("Wyślij")
     @user.should_see_translated("contacts.message_not_sent_due_to_errors")
     @user.fill_in("contact_message", :with => message)
-    @user.click("contact_submit")
+    @user.click("Wyślij")
     @user.should_see_translated("contacts.message_sent_successfuly")
     @mail_system.should_send_email(:to => AppConfig[:contact_email], :from => email, :message => message)
   end
-  
+
   scenario "should show 'Drug online' snippet" do
     content = "giithub.com/dopalacze"
     @website.has(:published_snippet, :label => :online, :content => content)

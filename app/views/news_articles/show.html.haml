@@ -10,9 +10,9 @@
       = %Q{Please enable JavaScript to view the #{link_to "comments", "http://disqus.com/?ref_noscript"}.}
 
 = content_for :sidebar do
-  = render_cell :content_blocks, :snippet, :label => :online, :title => I18n.t('snippets.online')
-  = render_cell :content_blocks, :snippet, :label => :community, :title => I18n.t('snippets.community')
-  = render_cell :content_blocks, :snippet, :label => :keep_in_touch, :title => I18n.t('snippets.keep_in_touch')
+  = render_cell :content_blocks, :snippet, :online, t('snippets.online')
+  = render_cell :content_blocks, :snippet, :community, t('snippets.community')
+  = render_cell :content_blocks, :snippet, :keep_in_touch, t('snippets.keep_in_touch')
 
 = content_for :head do
   = load_comments

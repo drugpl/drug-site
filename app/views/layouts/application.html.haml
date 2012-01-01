@@ -9,8 +9,8 @@
     = csrf_meta_tag
     = stylesheet_link_tag 'compiled/screen.css', :media => 'screen, projection'
     = stylesheet_link_tag 'compiled/print.css', :media => 'print'
-    //= auto_discovery_link_tag :rss, news_articles_url(:rss), :title => I18n.t("news_articles.rss.title")
-    //= auto_discovery_link_tag :rss, events_url(:rss), :title => I18n.t("events.rss.title")
+    = auto_discovery_link_tag :rss, news_articles_url(:rss), :title => I18n.t("news_articles.rss.title")
+    = auto_discovery_link_tag :rss, events_url(:rss), :title => I18n.t("events.rss.title")
     = auto_discovery_link_tag :rss, 'http://feeds.feedburner.com/DRUG_Aktualnosci.xml', :title => I18n.t("news_articles.rss.title")
     = auto_discovery_link_tag :rss, 'http://feeds.feedburner.com/DRUG_Spotkania.xml', :title => I18n.t("events.rss.title")
 

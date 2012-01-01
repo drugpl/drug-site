@@ -1,11 +1,13 @@
 class ContentBlocksCell < Cell::Rails
-  def snippet
-    @snippet = Snippet[@opts[:label]]
+  def snippet(label, title)
+    @snippet = Snippet[label]
+    @title   = title
     render
   end
 
-  def news_article
-    @news_articles = NewsArticle.published.order('created_at DESC').limit(@opts[:limit] || 3)
+  def news_article(title, limit = nil)
+    @news_articles = NewsArticle.published.order('created_at DESC').limit(limit || 3)
+    @title         = title
     render
   end
 

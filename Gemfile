@@ -1,4 +1,4 @@
-source 'http://production.cf.rubygems.org'
+source 'http://rubygems.org'
 
 gem 'rails', '~> 3.1.0'
 gem 'pg'
@@ -9,8 +9,6 @@ gem 'friendly_id'
 gem 'jquery-rails'
 gem 'devise'
 gem 'compass'
-gem 'rails_admin'
-# gem 'automatic_foreign_key'
 gem 'validates_timeliness', '~> 3.0.2'
 gem 'geokit'
 gem 'cells'
@@ -26,9 +24,9 @@ gem 'unicorn'
 gem 'i18n_routing'
 
 group :assets do
-#  gem 'sass-rails', " ~> 3.1.0"
-#  gem 'coffee-rails', " ~> 3.1.0"
-#  gem 'uglifier'
+  gem 'sass-rails'
+  gem 'coffee-rails'
+  gem 'uglifier'
 end
 
 

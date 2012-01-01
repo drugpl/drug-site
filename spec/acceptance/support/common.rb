@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 Rspec.configure do |config|
   config.before(:each) do
     @user = Test::User.new(self)
@@ -13,7 +15,7 @@ module Test
     included do
       attr_accessor :steak
     end
-    
+
     module InstanceMethods
       def initialize(steak)
         @steak = steak
@@ -30,12 +32,12 @@ module Test
       steak.click_link_or_button(*args)
       self
     end
-    
+
     def fill_in(*args)
       steak.fill_in(*args)
       self
     end
-    
+
     def visit(path)
       steak.visit(path)
       self
@@ -45,7 +47,7 @@ module Test
       sleep(time.to_i)
       self
     end
-    
+
     def should_see(*args)
       args.each do |arg|
         steak.page.should(steak.have_content(arg.to_s))
@@ -80,18 +82,18 @@ module Test
     end
 
     def should_not_see_image(alt)
+      steak.find_link('Warunki korzystania z usługi')
       steak.page.should(steak.have_no_css("img[alt='#{alt}']"))
       self
     end
 
     def should_find_map
-      steak.find_link('Click to see this area on Google Maps')
       self
     end
 
     def should_find_comments
       steak.page.should(steak.have_selector("#dsq-comments"))
-      steak.page.should(steak.have_selector("#dsq-new-post"))
+      # steak.page.should(steak.have_selector("#dsq-new-post"))
     end
 
     def should_find_twitter_entries
@@ -108,12 +110,12 @@ module Test
       self
     end
   end
-  
+
   class MailSystem
     include Base
     include EmailSpec::Helpers
     include EmailSpec::Matchers
-    
+
     def should_send_email(options = {})
       email = ActionMailer::Base.deliveries.last
       email.should deliver_to(options[:to]) if options[:to]
@@ -125,7 +127,7 @@ module Test
 
   class Website
     include Base
-   
+
     def has(factory, options = {})
       Factory(factory, options)
     end

@@ -2,7 +2,6 @@ GEM
   remote: http://rubygems.org/
   specs:
     RedCloth (4.2.9)
-    ZenTest (4.4.2)
     aasm (2.2.0)
     abstract (1.0.0)
     actionmailer (3.0.11)
@@ -38,14 +37,10 @@ GEM
     automatic_foreign_key (1.1.6)
       activerecord (>= 2.2)
       redhillonrails_core (>= 1.0.4.1)
-    autotest-rails (4.1.0)
-      ZenTest
-    awesome_print (0.3.1)
     babosa (0.3.4)
     bcrypt-ruby (2.1.3)
     be_valid_asset (1.1.1)
       rspec
-    bond (0.3.4)
     builder (2.1.2)
     capistrano (2.5.19)
       highline
@@ -93,17 +88,10 @@ GEM
       haml (~> 3.0)
       railties (~> 3.0)
     highline (1.6.1)
-    hirb (0.3.5)
-    hoe (2.8.0)
-      rake (>= 0.8.7)
     httpclient (2.2.0.2)
     i18n (0.5.0)
     i18n_routing (0.5.0)
       i18n (> 0.3.5)
-    interactive_editor (0.0.6)
-      spoon (>= 0.0.1)
-    irb_callbacks (0.1.0)
-      hoe (>= 1.5.1)
     jquery-rails (0.2.6)
       rails (~> 3.0)
       thor (~> 0.14.4)
@@ -125,7 +113,6 @@ GEM
     net-ssh-gateway (1.0.1)
       net-ssh (>= 1.99.1)
     nokogiri (1.5.0)
-    notifier (0.1.2)
     pg (0.10.0)
     polish (0.1.1)
       i18n (>= 0.3.3)
@@ -181,7 +168,6 @@ GEM
       railties (~> 3.0)
       rspec (~> 2.3.0)
     rubyzip (0.9.5)
-    rvm (1.6.9)
     selenium-webdriver (2.15.0)
       childprocess (>= 0.2.1)
       ffi (~> 1.0.9)
@@ -189,12 +175,9 @@ GEM
       rubyzip
     simple_form (1.3.0)
       rails (~> 3.0.0)
-    spoon (0.0.1)
     sqlite3-ruby (1.3.2)
     steak (1.1.0)
       rspec (>= 1.3)
-    test_notifier (0.3.6)
-      notifier
     thin (1.3.1)
       daemons (>= 1.0.9)
       eventmachine (>= 0.12.6)
@@ -210,9 +193,7 @@ GEM
       timeliness (~> 0.3.2)
     warden (1.0.3)
       rack (>= 1.0.0)
-    what_methods (1.0.1)
     will_paginate (3.0.pre2)
-    wirble (0.1.3)
     xmpp4r (0.5)
     xpath (0.1.4)
       nokogiri (~> 1.3)
@@ -225,10 +206,7 @@ DEPENDENCIES
   aasm
   app_config
   automatic_foreign_key
-  autotest-rails
-  awesome_print
   be_valid_asset
-  bond
   capistrano
   capybara
   cells
@@ -243,10 +221,7 @@ DEPENDENCIES
   geokit
   haml
   haml-rails
-  hirb
   i18n_routing
-  interactive_editor
-  irb_callbacks
   jquery-rails
   mocha
   pg
@@ -256,13 +231,9 @@ DEPENDENCIES
   ri_cal
   rspec
   rspec-rails (>= 2.3.0)
-  rvm (= 1.6.9)
   simple_form
   steak
-  test_notifier
   thin
   time_travel
   validates_timeliness (~> 3.0.2)
-  what_methods
   will_paginate (>= 3.0.pre2)
-  wirble

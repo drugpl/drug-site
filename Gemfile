@@ -43,15 +43,5 @@ group :test do
 end
 
 group :development do
-  gem 'rvm', '1.6.9'
-  gem 'awesome_print', :require => 'ap'
-  gem 'bond'
-  gem 'what_methods'
-  gem 'wirble'
-  gem 'hirb'
-  gem 'irb_callbacks'
-  gem 'interactive_editor'
-  gem 'autotest-rails'
-  gem 'test_notifier'
   gem 'capistrano'
 end

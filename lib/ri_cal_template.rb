@@ -1,9 +1,8 @@
-class RiCalTemplate < ActionView::Template::Handler
-  include ActionView::Template::Handlers::Compilable
-
+class RiCalTemplate
+  class_attribute :default_format
   self.default_format = Mime::ICS
 
-  def compile(template)
+  def self.call(template)
     "RiCal.Calendar { |cal| #{template.source} }.to_s"
   end
 end

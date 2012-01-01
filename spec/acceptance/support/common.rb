@@ -1,6 +1,6 @@
 # encoding: utf-8
 
-Rspec.configure do |config|
+RSpec.configure do |config|
   config.before(:each) do
     @user = Test::User.new(self)
     @website = Test::Website.new(self)

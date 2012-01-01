@@ -1,6 +1,6 @@
 Capybara.server_port = 3100
 
-Rspec.configure do |config|
+RSpec.configure do |config|
   config.before(:each) do
     if example.metadata[:facebook]
       @facebook = Test::Facebook.new(self)

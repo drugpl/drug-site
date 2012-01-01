@@ -1,4 +1,4 @@
-Rspec.configure do |config|
+RSpec.configure do |config|
   config.before(:each) do
     Capybara.current_driver = :selenium if example.metadata[:js]
   end

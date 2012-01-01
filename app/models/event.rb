@@ -7,16 +7,16 @@ class Event < ActiveRecord::Base
   belongs_to :venue
 
   extend FriendlyId
-  friendly_id :title, :use => :slugged
+  friendly_id :title, use: :slugged
 
-  validates :title, :presence => true
-  validates :description, :presence => true
-  validates :starting_at, :presence => true
-  validates :user, :presence => true
-  validates :venue, :presence => true
-  validates_datetime :ending_at, :after => :starting_at, :allow_nil => true
+  validates :title, presence: true
+  validates :description, presence: true
+  validates :starting_at, presence: true
+  validates :user, presence: true
+  validates :venue, presence: true
+  validates_datetime :ending_at, after: :starting_at, allow_nil: true
 
-  delegate :name, :address, :latitude, :longitude, :to => :venue, :prefix => true
+  delegate :name, :address, :latitude, :longitude, to: :venue, prefix: true
 
   scope :happened, lambda { where("starting_at < ?", Time.zone.now) }
 
@@ -51,7 +51,7 @@ class Event < ActiveRecord::Base
 
   def access_token
     @access_token ||= begin
-      app = FbGraph::Application.new(AppConfig[:facebook_app_id], :secret => AppConfig[:facebook_app_secret])
+      app = FbGraph::Application.new(AppConfig[:facebook_app_id], secret: AppConfig[:facebook_app_secret])
       app.get_access_token
     end
   end

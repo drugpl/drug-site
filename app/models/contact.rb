@@ -3,9 +3,9 @@ class Contact < ActiveRecord::Base
 
   attr_accessor :empty
 
-  validates :email, :presence => true, :format => { :with => EMAIL_FORMAT }
-  validates :name, :presence => true
-  validates :message, :presence => true
+  validates :email, presence: true, format: { with: EMAIL_FORMAT }
+  validates :name, presence: true
+  validates :message, presence: true
   validate :empty_field
 
   after_create :send_notification

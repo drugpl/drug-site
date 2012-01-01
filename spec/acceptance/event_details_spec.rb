@@ -5,7 +5,7 @@ require File.expand_path(File.dirname(__FILE__) + '/acceptance_helper')
 feature "Event Details" do
   before do
     @title, @description, @starting_at = "Beer chess", "Happy drinking", '03-03-1989 15:53'.to_time
-    @event = @website.has(:event, :title => @title, :description => @description, :starting_at => @starting_at)
+    @event = @website.has(:event, title: @title, description: @description, starting_at: @starting_at)
   end
 
   scenario "should show event details" do
@@ -16,7 +16,7 @@ feature "Event Details" do
     end
   end
 
-  scenario "should show map", :js => true, :net => true do
+  scenario "should show map", js: true, net: true do
     @user.visit(event_page(@event))
     within "#map" do
       @user.should_find_map
@@ -30,16 +30,16 @@ feature "Event Details" do
     end
   end
 
-  scenario "should show comments", :js => true, :net => true do
+  scenario "should show comments", js: true, net: true do
     @user.visit(event_page(@event))
     within "#comments" do
       @user.should_find_comments
     end
   end
 
-  scenario "should show attendants", :js => true, :net => true, :facebook => true do
-    @fb_event = @facebook.has_event(:name => @title, :start_time => Date.tomorrow)
-    @event = @website.has(:event, :starting_at => Date.tomorrow, :facebook_id => @fb_event.identifier)
+  scenario "should show attendants", js: true, net: true, facebook: true do
+    @fb_event = @facebook.has_event(name: @title, start_time: Date.tomorrow)
+    @event = @website.has(:event, starting_at: Date.tomorrow, facebook_id: @fb_event.identifier)
     @user.login_to_facebook(@facebook)
     @user.visit(event_page(@event)).wait(5.seconds)
     within ".attendants" do
@@ -54,7 +54,7 @@ feature "Event Details" do
 
   scenario "should show 'Drug online' snippet" do
     content = "giithub.com/dopalacze"
-    @website.has(:published_snippet, :label => :online, :content => content)
+    @website.has(:published_snippet, label: :online, content: content)
     @user.visit(event_page(@event))
     within "aside" do
       @user.should_see(content).should_see_translated('snippets.online')
@@ -63,7 +63,7 @@ feature "Event Details" do
 
   scenario "should show 'Ruby in Poland' snippet" do
     content = "forum Ruby"
-    @website.has(:published_snippet, :label => :community, :content => content)
+    @website.has(:published_snippet, label: :community, content: content)
     @user.visit(event_page(@event))
     within "aside" do
       @user.should_see(content).should_see_translated('snippets.community')
@@ -73,7 +73,7 @@ feature "Event Details" do
   scenario "should show last published news article" do
     title, body = 'snow', 'snowman'
     at_time 1.day.ago do
-      @website.has(:published_news_article, :title => title, :body => body)
+      @website.has(:published_news_article, title: title, body: body)
     end
     at_time 1.month.ago do
       @website.has(:published_news_article)
@@ -88,7 +88,7 @@ feature "Event Details" do
 
   scenario "should show 'Keep in touch' snippet" do
     content = "RSS"
-    @website.has(:published_snippet, :label => :keep_in_touch, :content => content)
+    @website.has(:published_snippet, label: :keep_in_touch, content: content)
     @user.visit(event_page(@event))
     within "aside" do
       @user.should_see(content).should_see_translated('snippets.keep_in_touch')

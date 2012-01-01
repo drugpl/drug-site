@@ -29,7 +29,7 @@ describe Venue do
 
   it "should have unique name and address" do
     user = Factory(:user)
-    attrs = Factory.attributes_for(:venue).merge(:user => user)
+    attrs = Factory.attributes_for(:venue).merge(user: user)
     venue, copy = Venue.create(attrs), Venue.new(attrs)
     copy.save
     copy.should_not be_valid

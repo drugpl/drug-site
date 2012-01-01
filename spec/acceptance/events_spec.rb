@@ -4,7 +4,7 @@ feature "Events" do
   scenario "should show last published news article" do
     title, body = 'snow', 'snowman'
     at_time 1.day.ago do
-      @website.has(:published_news_article, :title => title, :body => body)
+      @website.has(:published_news_article, title: title, body: body)
     end
     at_time 1.month.ago do
       @website.has(:published_news_article)
@@ -19,7 +19,7 @@ feature "Events" do
 
   scenario "should show 'Drug online' snippet" do
     content = "giithub.com/dopalacze"
-    @website.has(:published_snippet, :label => :online, :content => content)
+    @website.has(:published_snippet, label: :online, content: content)
     @user.visit(events_page)
     within "aside" do
       @user.should_see(content).should_see_translated('snippets.online')
@@ -28,7 +28,7 @@ feature "Events" do
 
   scenario "should show 'Ruby in Poland' snippet" do
     content = "forum Ruby"
-    @website.has(:published_snippet, :label => :community, :content => content)
+    @website.has(:published_snippet, label: :community, content: content)
     @user.visit(events_page)
     within "aside" do
       @user.should_see(content).should_see_translated('snippets.community')
@@ -37,7 +37,7 @@ feature "Events" do
 
   scenario "should show 'Keep in touch' snippet" do
     content = "RSS"
-    @website.has(:published_snippet, :label => :keep_in_touch, :content => content)
+    @website.has(:published_snippet, label: :keep_in_touch, content: content)
     @user.visit(events_page)
     within "aside" do
       @user.should_see(content).should_see_translated('snippets.keep_in_touch')
@@ -47,10 +47,10 @@ feature "Events" do
   scenario "should list past events" do
     title, description, future_title = "Beer chess", "Happy drinking", "Vodka tasting"
     at_time 1.day.from_now do
-      @website.has(:event, :title => future_title)
+      @website.has(:event, title: future_title)
     end
     at_time 1.month.ago do
-      @website.has(:event, :title => title, :description => description)
+      @website.has(:event, title: title, description: description)
     end
     @user.visit(events_page)
     within "section#body" do
@@ -62,7 +62,7 @@ feature "Events" do
   scenario "should paginate events" do
     Event.per_page = 1
     2.times do |i|
-      @website.has(:event, :title => "event #{i}")
+      @website.has(:event, title: "event #{i}")
     end
     @user.visit(events_page)
     within "section#body" do
@@ -76,7 +76,7 @@ feature "Events" do
 
   scenario "should present link to event details" do
     title, description = "Beer chess", "Happy drinking"
-    @website.has(:event, :title => title, :description => description)
+    @website.has(:event, title: title, description: description)
     @user.visit(events_page)
     within "section#body" do
       @user.should_see_translated("events.details_link")

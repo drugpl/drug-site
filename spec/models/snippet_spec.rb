@@ -3,8 +3,8 @@ require 'spec_helper'
 describe Snippet do
   before do
     @valid_attributes = {
-      :label => "sidebar",
-      :content => "h1. Sidebar links"
+      label: "sidebar",
+      content: "h1. Sidebar links"
     }
     @snippet = Snippet.new(@valid_attributes)
   end  

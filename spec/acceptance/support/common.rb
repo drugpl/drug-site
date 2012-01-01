@@ -164,7 +164,7 @@ module Test
 
     def create_test_user
       permissions = "read_stream,create_event,rsvp_event,user_events"
-      @test_users << app.test_user!(:installed => true, :permissions => permissions)
+      @test_users << app.test_user!(installed: true, permissions: permissions)
       @test_users.last
     end
 
@@ -175,7 +175,7 @@ module Test
     protected
 
     def app
-      @app ||= FbGraph::Application.new(AppConfig[:facebook_app_id], :secret => AppConfig[:facebook_app_secret])
+      @app ||= FbGraph::Application.new(AppConfig[:facebook_app_id], secret: AppConfig[:facebook_app_secret])
     end
 
     def admin_user

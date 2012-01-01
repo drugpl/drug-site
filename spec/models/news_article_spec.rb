@@ -3,9 +3,9 @@ require 'spec_helper'
 describe NewsArticle do
   before do
     @valid_attributes = {
-      :title => "a",
-      :lead =>  "b",
-      :body =>  "c"
+      title: "a",
+      lead:  "b",
+      body:  "c"
     }
     @news_article = NewsArticle.new(@valid_attributes)
   end

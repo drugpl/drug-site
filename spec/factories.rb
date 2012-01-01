@@ -42,7 +42,7 @@ Factory.define :snippet do |s|
   s.content { Factory.next(:description) }
 end
 
-Factory.define :published_snippet, :parent => :snippet do |s|
+Factory.define :published_snippet, parent: :snippet do |s|
   s.status 'published'
 end
 
@@ -52,7 +52,7 @@ Factory.define :news_article do |s|
   s.created_at { Time.now }
 end
 
-Factory.define :published_news_article, :parent => :news_article do |s|
+Factory.define :published_news_article, parent: :news_article do |s|
   s.status 'published'
 end
 

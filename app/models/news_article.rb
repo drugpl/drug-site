@@ -5,7 +5,7 @@ class NewsArticle < ActiveRecord::Base
   include AASM
 
   extend FriendlyId
-  friendly_id :title, :use => :slugged
+  friendly_id :title, use: :slugged
 
   aasm_initial_state :draft
   aasm_column :status
@@ -14,17 +14,17 @@ class NewsArticle < ActiveRecord::Base
   aasm_state :published
 
   aasm_event :preview do
-    transitions :from => :published, :to => :draft
+    transitions from: :published, to: :draft
   end
 
   aasm_event :publish do
-    transitions :from => :draft, :to => :published
+    transitions from: :draft, to: :published
   end
 
-  scope :published, where(:status => 'published')
-  scope :draft, where(:status => 'draft')
+  scope :published, where(status: 'published')
+  scope :draft, where(status: 'draft')
 
-  validates :title, :presence => true
+  validates :title, presence: true
 
   cattr_accessor :per_page
   @@per_page = 5

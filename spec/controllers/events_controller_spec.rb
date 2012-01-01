@@ -6,11 +6,11 @@ describe EventsController do
   context "GET#index" do
     context "format rss" do
       before do
-        Factory(:event, :description => "h1. Description")
-        get :index, :format => :rss
+        Factory(:event, description: "h1. Description")
+        get :index, format: :rss
       end
 
-      it "should render valid rss", :net => true do
+      it "should render valid rss", net: true do
         response.should be_valid_rss
       end
       
@@ -22,7 +22,7 @@ describe EventsController do
     context "format ics (iCalendar)" do
       before do
         @event = Factory(:event)
-        get :index, :format => :ics
+        get :index, format: :ics
       end
 
       it "should set text/calendar MIME type" do

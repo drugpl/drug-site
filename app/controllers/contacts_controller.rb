@@ -6,7 +6,7 @@ class ContactsController < ApplicationController
   def create
     @contact = Contact.new(params[:contact])
     if @contact.save
-      redirect_to contact_path, :notice => I18n.t('contacts.message_sent_successfuly')
+      redirect_to contact_path, notice: I18n.t('contacts.message_sent_successfuly')
     else
       flash.now[:alert] = I18n.t("contacts.message_not_sent_due_to_errors")
       render :show

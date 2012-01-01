@@ -13,20 +13,20 @@ class Snippet < ActiveRecord::Base
   aasm_state :published
 
   aasm_event :preview do
-    transitions :from => :published, :to => :draft
+    transitions from: :published, to: :draft
   end
 
   aasm_event :publish do
-    transitions :from => :draft, :to => :published
+    transitions from: :draft, to: :published
   end
 
-  scope :published, where(:status => 'published')
-  scope :draft, where(:status => 'draft')
+  scope :published, where(status: 'published')
+  scope :draft, where(status: 'draft')
 
   validates :label, 
-    :presence => true, 
-    :format => { :with => LABEL_FORMAT }, 
-    :uniqueness => { :scope => :status, :if => :published? }
+    presence: true, 
+    format: { with: LABEL_FORMAT }, 
+    uniqueness: { scope: :status, if: :published? }
 
   def self.[](label)
     snippet = published.find_by_label(label)

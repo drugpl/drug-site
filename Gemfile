@@ -55,4 +55,5 @@ group :development do
   gem 'capistrano'
   gem 'ruby-debug19'
   gem 'active_reload'
+  gem 'rvm'
 end

@@ -21,6 +21,7 @@ gem 'ri_cal'
 gem 'fb_graph', '1.8'
 gem 'polish', '=0.1.1'
 gem 'i18n_routing'
+gem 'rails_admin', :git => 'https://github.com/sferik/rails_admin.git'
 
 group :assets do
   gem 'sass-rails'

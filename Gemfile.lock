@@ -1,3 +1,19 @@
+GIT
+  remote: https://github.com/sferik/rails_admin.git
+  revision: 77784c80bc900cf9041a0bd608a17bc87ac5bffe
+  specs:
+    rails_admin (0.0.1)
+      bbenezech-nested_form (~> 0.0)
+      bootstrap-sass (~> 1.4, >= 1.4.1)
+      builder (~> 3.0)
+      coffee-rails (~> 3.1)
+      haml (~> 3.1)
+      jquery-rails (>= 1.0)
+      kaminari (~> 0.12)
+      rack-pjax (~> 0.5)
+      rails (~> 3.1)
+      remotipart (~> 1.0)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -37,9 +53,12 @@ GEM
     archive-tar-minitar (0.5.2)
     arel (2.2.1)
     attr_required (0.0.3)
+    bbenezech-nested_form (0.0.2)
     bcrypt-ruby (3.0.1)
     be_valid_asset (1.1.2)
       rspec
+    bootstrap-sass (1.4.3)
+      sass-rails (~> 3.1)
     builder (3.0.0)
     capistrano (2.9.0)
       highline
@@ -105,6 +124,7 @@ GEM
       railties (~> 3.0)
     highline (1.6.9)
     hike (1.2.1)
+    hpricot (0.8.5)
     httpclient (2.2.4)
     i18n (0.6.0)
     i18n_routing (0.5.0)
@@ -113,6 +133,10 @@ GEM
       railties (~> 3.0)
       thor (~> 0.14)
     json (1.6.4)
+    kaminari (0.13.0)
+      actionpack (>= 3.0.0)
+      activesupport (>= 3.0.0)
+      railties (>= 3.0.0)
     kgio (2.7.0)
     libv8 (3.3.10.4)
     linecache19 (0.5.12)
@@ -152,6 +176,9 @@ GEM
       i18n
       json (>= 1.4.3)
       rack (>= 1.1)
+    rack-pjax (0.5.5)
+      hpricot (~> 0.8.4)
+      rack (~> 1.3)
     rack-ssl (1.3.2)
       rack
     rack-test (0.6.1)
@@ -177,6 +204,7 @@ GEM
       rake
     rdoc (3.12)
       json (~> 1.4)
+    remotipart (1.0.1)
     ri_cal (0.8.8)
     rspec (2.7.0)
       rspec-core (~> 2.7.0)
@@ -283,6 +311,7 @@ DEPENDENCIES
   pg
   polish (= 0.1.1)
   rails (~> 3.1.0)
+  rails_admin!
   ri_cal
   rspec
   rspec-rails (>= 2.3.0)

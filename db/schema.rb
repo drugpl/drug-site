@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120101174401) do
+ActiveRecord::Schema.define(:version => 20120108032845) do
 
   create_table "contacts", :force => true do |t|
     t.string   "name",       :null => false
@@ -47,18 +47,6 @@ ActiveRecord::Schema.define(:version => 20120101174401) do
   add_index "friendly_id_slugs", ["sluggable_id"], :name => "index_friendly_id_slugs_on_sluggable_id"
   add_index "friendly_id_slugs", ["sluggable_type"], :name => "index_friendly_id_slugs_on_sluggable_type"
 
-  create_table "news_articles", :force => true do |t|
-    t.string   "title",      :null => false
-    t.text     "body"
-    t.text     "lead"
-    t.string   "status"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-    t.string   "slug"
-  end
-
-  add_index "news_articles", ["slug"], :name => "index_news_articles_on_slug", :unique => true
-
   create_table "rails_admin_histories", :force => true do |t|
     t.string   "message"
     t.string   "username"
@@ -93,6 +81,7 @@ ActiveRecord::Schema.define(:version => 20120101174401) do
   create_table "users", :force => true do |t|
     t.string   "email",                               :default => "", :null => false
     t.string   "encrypted_password",   :limit => 128, :default => "", :null => false
+    t.string   "password_salt",                       :default => "", :null => false
     t.string   "reset_password_token"
     t.string   "remember_token"
     t.datetime "remember_created_at"

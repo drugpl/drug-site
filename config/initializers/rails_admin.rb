@@ -31,10 +31,10 @@ RailsAdmin.config do |config|
 
   #  ==> Included models
   # Add all excluded models here:
-  # config.excluded_models = [Contact, Event, NewsArticle, Snippet, User, Venue]
+  # config.excluded_models = [Contact, Event, Snippet, User, Venue]
 
   # Add models here if you want to go 'whitelist mode':
-  # config.included_models = [Contact, Event, NewsArticle, Snippet, User, Venue]
+  # config.included_models = [Contact, Event, Snippet, User, Venue]
 
   # Application wide tried label methods for models' instances
   # config.label_methods << :description # Default is [:name, :title]
@@ -109,24 +109,6 @@ RailsAdmin.config do |config|
   #     configure :created_at, :datetime 
   #     configure :updated_at, :datetime 
   #     configure :facebook_id, :string 
-  #     configure :slug, :string   #   # Sections:
-  #   list do; end
-  #   export do; end
-  #   show do; end
-  #   edit do; end
-  #   create do; end
-  #   update do; end
-  # end
-  # config.model NewsArticle do
-  #   # Found associations:
-  #   # Found columns:
-  #     configure :id, :integer 
-  #     configure :title, :string 
-  #     configure :body, :text 
-  #     configure :lead, :text 
-  #     configure :status, :string 
-  #     configure :created_at, :datetime 
-  #     configure :updated_at, :datetime 
   #     configure :slug, :string   #   # Sections:
   #   list do; end
   #   export do; end

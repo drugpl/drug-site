@@ -20,7 +20,6 @@
       = %Q{Please enable JavaScript to view the #{link_to "comments", "http://disqus.com/?ref_noscript"}.}
 
 = content_for :sidebar do
-  = render_cell :content_blocks, :news_article, t('news_articles.latest'), 1
   = render_cell :content_blocks, :snippet, :online, t('snippets.online')
   = render_cell :content_blocks, :snippet, :community, t('snippets.community')
   = render_cell :content_blocks, :snippet, :keep_in_touch, t('snippets.keep_in_touch')

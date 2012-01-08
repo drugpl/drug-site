@@ -14,7 +14,6 @@ class Event < ActiveRecord::Base
   validates :starting_at, presence: true
   validates :user, presence: true
   validates :venue, presence: true
-  validates_datetime :ending_at, after: :starting_at, allow_nil: true
 
   delegate :name, :address, :latitude, :longitude, to: :venue, prefix: true
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120108032845) do
+ActiveRecord::Schema.define(:version => 20120108180458) do
 
   create_table "contacts", :force => true do |t|
     t.string   "name",       :null => false
@@ -27,7 +27,6 @@ ActiveRecord::Schema.define(:version => 20120108032845) do
     t.integer  "user_id",     :null => false
     t.integer  "venue_id",    :null => false
     t.datetime "starting_at", :null => false
-    t.datetime "ending_at"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
     t.string   "facebook_id"

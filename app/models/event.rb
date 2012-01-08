@@ -3,7 +3,6 @@ require 'textilized_attributes'
 class Event < ActiveRecord::Base
   include TextilizedAttributes
 
-  belongs_to :user
   belongs_to :venue
 
   extend FriendlyId

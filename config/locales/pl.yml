@@ -167,13 +167,13 @@ pl:
       events: Spotkania
       news_articles: Aktualności
       contact: Kontakt
-  
+
   snippets:
     online: DRUG w sieci
     community: Ruby w Polsce
     about: O nas
     keep_in_touch: Na bieżąco
-  
+
   news_articles:
     latest: Ostatnie aktualności
     read_more: 'czytaj więcej'
@@ -187,10 +187,6 @@ pl:
     message_sent_successfuly: Wiadomość wysłana pomyślnie
     message_not_sent_due_to_errors: Wiadomość nie została wysłana z powodu błędów
 
-  twitter_feed:
-    title: "Twitter"
-    more: "więcej"
-  
   contact_mailer:
     contact_message:
       subject: "Nowa wiadomość ze strony drug.org.pl"
@@ -203,9 +199,3 @@ pl:
       previous: "&larr; Wstecz"
       truncate: "..."
 
-  resources:
-    news_articles: aktualnosci
-    events: spotkania
-    attendants: uczestnicy
-  resource:
-    contact: kontakt

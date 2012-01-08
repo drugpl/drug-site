@@ -8,7 +8,6 @@ gem 'friendly_id'
 gem 'kaminari'
 gem 'cells'
 gem 'RedCloth'
-gem 'i18n_routing'
 
 # event goodies
 gem 'ri_cal'

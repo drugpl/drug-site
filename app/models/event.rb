@@ -20,8 +20,7 @@ class Event < ActiveRecord::Base
 
   scope :happened, lambda { where("starting_at < ?", Time.zone.now) }
 
-  cattr_accessor :per_page
-  @@per_page = 5
+  paginates_per 5
 
   textilized_attrs :description
 

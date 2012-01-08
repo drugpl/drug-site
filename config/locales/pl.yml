@@ -196,8 +196,12 @@ pl:
       subject: "Nowa wiadomość ze strony drug.org.pl"
 
   send: Wyślij
-  next_page: "Dalej →"
-  previous_page: "← Wstecz"
+
+  views:
+    pagination:
+      next: "Dalej &rarr;"
+      previous: "&larr; Wstecz"
+      truncate: "..."
 
   resources:
     news_articles: aktualnosci

@@ -1,12 +1,11 @@
 %header
   %h2
     = t('events.events_so_far')
-  = will_paginate @events
 %ul.events
   - @events.each do |event|
     = render :partial => "event", :locals => { :event => event }
 
-= will_paginate @events
+= paginate @events
 
 = content_for :sidebar do
   = render_cell :content_blocks, :snippet, :online, t('snippets.online')

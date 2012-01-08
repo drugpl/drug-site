@@ -1,5 +1,7 @@
 - if @event
-  %article.event
+  - options = {:class => "event"}
+  - options = {:class => "event facebook", :"data-facebook-id" => @event.facebook_id, :"data-attendants-url" => event_attendants_path(@event)} if @event.has_facebook_event?
+  %article.event{options}
     %header
       %h2
         = t("events.#{@event.starting_at > Time.now ? 'next' : 'last'}_event")

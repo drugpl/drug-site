@@ -1,3 +1,5 @@
+//= require jquery.tweet
+
 $(document).ready(function() {
   var polish_time_formatter = function(time) {
     var r;

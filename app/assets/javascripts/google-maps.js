@@ -1,3 +1,5 @@
+//= require jquery.googlemaps
+
 $(document).ready(function() { 
   var lat = $("#map-location").data("lat");
   var lng = $("#map-location").data("lng");

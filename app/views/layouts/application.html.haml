@@ -3,8 +3,8 @@
   %head
     %meta{:charset => "utf-8"}
     = javascript_include_tag :application
+    = load_maps
     //= javascript_include_tag "disqus-developer" unless Rails.env.production?
-    = yield :head
     = csrf_meta_tag
     = stylesheet_link_tag 'application'
     = auto_discovery_link_tag :rss, news_articles_url(:rss), :title => I18n.t("news_articles.rss.title")

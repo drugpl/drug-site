@@ -1,3 +1,6 @@
+//= require observable
+//= require facebook-api
+
 var FacebookEventWidget = function (model, view) {
   var self = {};
 

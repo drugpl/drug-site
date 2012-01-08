@@ -1,5 +1,7 @@
-require 'rvm/capistrano'
 require 'bundler/capistrano'
+
+$:.unshift(File.expand_path('./lib', ENV['rvm_path']))
+require 'rvm/capistrano'
 
 set :application, "drug"
 set :repository,  "git://github.com/drugpl/drug-site.git"
@@ -18,13 +20,17 @@ role :db,  "drug", :primary => true # This is where Rails migrations will run
 
 namespace :utils do
   task :link_configuration_files do
-    ['database.yml', 'email.yml', 'settings.yml'].each do |file|
+    ['database.yml', 'email.yml', 'facebook.yml', 'google_maps.yml'].each do |file|
       run "if [ -f #{deploy_to}/shared/#{file} ] ; then ln -sf #{deploy_to}/shared/#{file} #{latest_release}/config/; fi"
     end
   end
 
   task :link_secret_token do
     run "if [ -f #{deploy_to}/shared/secret_token.rb ] ; then ln -sf #{deploy_to}/shared/secret_token.rb #{latest_release}/config/initializers/; fi"
+  end
+
+  task :precompile_assets do
+    run "cd #{release_path}; RAILS_ENV=production rake assets:precompile"
   end
 end
 
@@ -40,7 +46,6 @@ namespace :deploy do
   end
 end
 
+after "deploy:update_code", "utils:precompile_assets"
 after "deploy:finalize_update", "utils:link_configuration_files"
-after 'deploy:update_code' do
-  run "cd #{release_path}; RAILS_ENV=production rake assets:precompile"
-end
+after "deploy:finalize_update", "utils:link_secret_token"

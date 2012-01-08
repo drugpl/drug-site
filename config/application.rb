@@ -51,5 +51,8 @@ module Drug
       g.test_framework :rspec, :fixture => false, :view_specs => false, :controller_specs => false, :helper_specs => false
       g.helper false
     end
-   end
+
+    # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
+    config.assets.precompile += %w( ie.js ie.css screen.css print.css )
+  end
 end

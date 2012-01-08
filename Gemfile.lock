@@ -87,7 +87,7 @@ GEM
       execjs
     coffee-script-source (1.2.0)
     columnize (0.3.6)
-    compass (0.11.6)
+    compass (0.12.alpha.4)
       chunky_png (~> 1.2)
       fssm (>= 0.2.7)
       sass (~> 3.1)
@@ -114,7 +114,7 @@ GEM
       rack-oauth2 (>= 0.6.9)
     ffi (1.0.11)
     friendly_id (4.0.0)
-    fssm (0.2.7)
+    fssm (0.2.8.1)
     geokit (1.6.0)
     haml (3.1.4)
     haml-rails (0.3.4)
@@ -295,7 +295,7 @@ DEPENDENCIES
   capybara
   cells
   coffee-rails
-  compass
+  compass (~> 0.12.alpha.4)
   database_cleaner
   devise
   email_spec

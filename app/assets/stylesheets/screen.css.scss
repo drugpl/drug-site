@@ -29,7 +29,7 @@ body {
   #container {
     @include container;
     padding: 2em;
-    @include box-shadow($quiet-color, 0, 0, 25px, 10px); }
+    @include box-shadow($quiet-color 0 0 25px 10px); }
 
   header#top, footer {
     display: block;
@@ -352,4 +352,11 @@ a.logo {
       }
     }
   }
+}
+
+span.throbber {
+  display: inline-block;
+  width: 16px;
+  height: 11px;
+  background: url(/assets/throbber.gif);
 }

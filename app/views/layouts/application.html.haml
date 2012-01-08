@@ -3,21 +3,22 @@
   %head
     %meta{:charset => "utf-8"}
     = javascript_include_tag :application
-    //= javascript_include_tag "disqus-developer" unless Rails.env.production?
-    = yield :head
+    = load_maps
     = csrf_meta_tag
-    = stylesheet_link_tag 'application'
+    = stylesheet_link_tag 'screen', :media => "screen, projection"
+    = stylesheet_link_tag 'print', :media => "print"
     = auto_discovery_link_tag :rss, news_articles_url(:rss), :title => I18n.t("news_articles.rss.title")
     = auto_discovery_link_tag :rss, events_url(:rss), :title => I18n.t("events.rss.title")
     = auto_discovery_link_tag :rss, 'http://feeds.feedburner.com/DRUG_Aktualnosci.xml', :title => I18n.t("news_articles.rss.title")
     = auto_discovery_link_tag :rss, 'http://feeds.feedburner.com/DRUG_Spotkania.xml', :title => I18n.t("events.rss.title")
 
     /[if lt IE 9]
-      = javascript_include_tag "html5shiv"
-      = stylesheet_link_tag 'compiled/ie.css', :media => 'screen, projection'
+      = javascript_include_tag 'ie'
+      = stylesheet_link_tag 'ie', :media => 'screen, projection'
 
     :javascript
       var FacebookConfig = { appId: "#{AppConfig[:facebook_app_id]}" };
+      #{"var disqus_developer = 1;" unless Rails.env.production?}
 
     %title DRUG
   %body

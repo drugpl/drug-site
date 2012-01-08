@@ -5,14 +5,12 @@
     = javascript_include_tag :application
     = load_maps
     = csrf_meta_tag
-    = stylesheet_link_tag 'screen', :media => "screen, projection"
-    = stylesheet_link_tag 'print', :media => "print"
+    = stylesheet_link_tag :application
     = auto_discovery_link_tag :rss, events_url(:rss), :title => I18n.t("events.rss.title")
     = auto_discovery_link_tag :rss, 'http://feeds.feedburner.com/DRUG_Spotkania.xml', :title => I18n.t("events.rss.title")
 
     /[if lt IE 9]
-      = javascript_include_tag 'ie'
-      = stylesheet_link_tag 'ie', :media => 'screen, projection'
+      = javascript_include_tag "http://html5shiv.googlecode.com/svn/trunk/html5.js"
 
     :javascript
       var FacebookConfig = { appId: "#{Settings.facebook[:app_id]}" };
@@ -20,29 +18,29 @@
 
     %title DRUG
   %body
-    #container
-      %header#top
-        = link_to root_url, :class => "logo" do
-          = image_tag "drug-logo.png"
-          %h1.title
-            = "DRUG"
-          %h2.subtitle
-            = "Dolnośląska Grupa Użytkowników Ruby"
-        %nav
-          = render :partial => "layouts/nav"
-        %p.notice
-          = notice
-        %p.alert
-          = alert
-      #content
-        %section#featured
-          = yield :featured
-        %section#body
-          = yield
-        %section#about
-          = yield :about
-      %aside
-        = yield :sidebar
-      %footer
-        = render :partial => "layouts/footer"
+    .container
+      .row
+        .span16
+          %header
+            = link_to root_url, :class => 'logo' do
+              %h1.title= 'DRUG'
+              %h2.subtitle= 'Dolnośląska Grupa Użytkowników Ruby'
+            %nav
+              = render :partial => "layouts/nav"
+            %p.notice
+              = notice
+            %p.alert
+              = alert
+      .row
+        .span16
+          %section#featured
+            = yield :featured
+          %section#body
+            = yield
+          %section#about
+            = yield :about
+      .row
+        .span16
+          %footer
+            = render :partial => "layouts/footer"
 

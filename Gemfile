@@ -23,6 +23,7 @@ group :assets do
   gem 'coffee-rails'
   gem 'uglifier'
   gem 'compass', '~> 0.12.alpha.4'
+  gem 'compass-bootstrap'
 end
 
 group :production do

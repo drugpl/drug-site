@@ -1,0 +1,252 @@
+@import 'blueprint/reset';
+@import 'compass/css3/box-shadow';
+@import 'compass/typography/lists/horizontal-list';
+
+$primary-color: #333;
+$secondary-color: #666;
+$light-color: #ddd;
+$link-color: #cc232a;
+
+// bootstrap vars
+$basefont: 15px;
+@import 'compass-bootstrap/compass_bootstrap';
+
+body {
+  font-family: 'TitilliumText25L400wt';
+  color: $primary-color;
+}
+
+strong {
+  font-family: TitilliumText25L800wt;
+  font-weight: normal;
+}
+
+.container {
+  @include single-box-shadow($light-color, 0, 0, 25px, 10px);
+  padding: 2em;
+  margin: 0 auto;
+}
+
+section {
+  h1, h2, h3, h4, h5 {
+    font-family: TitilliumText25L600wt;
+    font-weight: normal;
+    padding-bottom: 0;
+    margin-bottom: 0;
+  }
+
+  h2 {
+    font-size: 150%;
+
+    p {
+      margin-top: .5em;
+      text-align: justify;
+    }
+  }
+}
+
+header {
+  margin-top: .6em;
+
+  h1.title {
+    display: inline;
+    font-size: 350%;
+    letter-spacing: -4px;
+    padding: 0;
+    margin: 0;
+  }
+
+  h2.subtitle {
+    display: inline;
+    color: $secondary-color;
+    font-size: 175%;
+    letter-spacing: -1.5px;
+    padding: 0;
+    margin: 0;
+    padding-left: .1em;
+  }
+
+  a.logo {
+    background: url(<%= asset_data_uri 'drug-logo.png' %>) no-repeat;
+    display: inline-block;
+    padding-left: 38px;
+    border: 0;
+  }
+}
+
+article {
+  header { margin-bottom: 1em; } 
+}
+
+footer {
+  border-top: 1px solid $light-color;
+
+  p {
+    text-align: center;
+    font-size: 80%;
+  }
+}
+
+nav {
+  border-top: 1px solid $light-color;
+  border-bottom: 1px solid $light-color;
+  margin-top: .6em;
+  font-size: 110%;
+
+  ul {
+    @include horizontal-list-container;
+    padding: 0.25em 0 0.25em 270px;
+  }
+
+  li {
+    @include horizontal-list-item(0px);
+  }
+
+  li:before {
+    content: "‧";
+  }
+
+  li:first-child:before {
+    content: none;
+  }
+
+  a:link, a:visited {
+    color: $secondary-color;
+    height: 1em;
+    padding: 0 .75em;
+    text-decoration: none;
+    border: 0;
+  }
+
+  a:hover, a:active, .active a:link, .active a:visited {
+    color: $link-color;
+    border: 0 
+  } 
+}
+
+a:link, a:visited {
+  color: $link-color;
+  text-decoration: none;
+  border-bottom: 1px dotted $link-color;
+}
+
+a:hover, a:active, .active a:link, .active a:visited {
+  color: $link-color;
+  border-bottom: 1px solid $link-color
+}
+
+a:focus, a:active {
+  outline: none;
+}
+
+section#about {
+  clear: both;
+}
+
+section#body {
+  position: relative; 
+}
+
+article.event {
+  div#map {
+    float: right;
+    margin: -1.5em 0 1em 1em;
+    border: 1px solid $light-color;
+    width: 260px;
+    height: 200px; 
+  }
+
+  div.attendants {
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 1em 0;
+      li {
+        display: inline;
+        margin: 0 5px 0 0;
+        a {
+          border-bottom: none;
+        }
+      }
+    }
+  }
+}
+
+.pagination a, .pagination span, .pagination em {
+  height: 34px;
+  padding: 0px 14px;
+  margin-left: 5px;
+  display: block;
+  border: 1px solid $link-color !important;
+  float: left;
+  vertical-align: middle;
+}
+
+li {
+  color: $primary-color;
+}
+
+del {
+  color: $secondary-color;
+}
+
+form {
+  span.error {
+    color: $link-color;
+    display: block;
+    margin-left: 7.5em;
+    margin-bottom: .5em;
+  }
+
+  div.field_with_errors {
+    input[type=text], input[type=email], textarea {
+      border: 1px solid $link-color;
+    }
+  }
+
+  label {
+    vertical-align: top;
+    display: inline-block;
+    width: 7em;
+  }
+
+  input[type=text], input[type=email] {
+    font-family: inherit;
+    font-size: 100%;
+    width: 30em;
+    border: 1px solid $light-color;
+    padding: .3em;
+    margin: .2em;
+  }
+
+  input[type=submit] {
+    margin-left: 8.1em;
+    border: 1px solid $link-color;
+    font-family: inherit;
+    padding: 4px 10px;
+    background-color: transparent;
+    color: $link-color;
+  }
+
+  input[type=submit]:hover {
+    border: 1px solid $link-color;
+    color: $primary-color;
+    cursor: pointer;
+  }
+
+  textarea {
+    font-family: inherit;
+    font-size: 100%;
+    width: 30em;
+    padding: .3em;
+    margin: .2em;
+    border: 1px solid $light-color;
+  }
+}
+
+span.throbber {
+  display: inline-block;
+  width: 16px;
+  height: 11px;
+  background: url(<%= asset_path 'throbber.gif' %>);
+}

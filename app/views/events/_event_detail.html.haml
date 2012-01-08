@@ -1,7 +1,5 @@
-%h3
-  = event.title
 %div#map
-%p  
+%p
   %time{:datetime => event.starting_at.iso8601}
     = l(event.starting_at, :format => :event)
   %br
@@ -11,3 +9,11 @@
 
 %p.description
   = event.textilized_description.html_safe
+
+- if @event.has_facebook_event?
+  .attendants
+    %h4 Uczestnicy
+    - if @event.future?
+      %p.attendance
+        = link_to t("events.attend"), "#", :class => "attend"
+        = link_to t("events.decline"), "#", :class => "decline"

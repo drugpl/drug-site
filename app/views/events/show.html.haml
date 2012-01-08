@@ -2,17 +2,8 @@
 - options = {:class => "event facebook", :"data-facebook-id" => @event.facebook_id, :"data-attendants-url" => event_attendants_path(@event)} if @event.has_facebook_event?
 %article{options}
   %header
-    %h2
-      = I18n.t('events.event_details')
-  = render :partial => "event_detail", :locals => { :event => @event }
-
-  - if @event.has_facebook_event?
-    .attendants
-      %h3 Uczestnicy
-      - if @event.future?
-        %p.attendance
-          = link_to t("events.attend"), "#", :class => "attend"
-          = link_to t("events.decline"), "#", :class => "decline"
+    %h2= @event.title
+  = render :partial => "event_detail", :locals => {event: @event}
 
   #comments
     #disqus_thread{:"data-title" => @event.title, :"data-url" => event_url(@event)}

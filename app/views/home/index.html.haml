@@ -3,7 +3,7 @@
     %header
       %h2
         = t("events.#{@event.starting_at > Time.now ? 'next' : 'last'}_event")
-    = render :partial => "events/event_detail", :locals => { :event => @event }
+    = render :partial => "events/event_detail", :locals => {event: @event}
     = link_to t('events.comments_link'), "#{event_url(@event)}#disqus_thread"
 
 - else

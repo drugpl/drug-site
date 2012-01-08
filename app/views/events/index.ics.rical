@@ -3,7 +3,6 @@
     entry.summary = event.title
     entry.description = event.description
     entry.dtstart = event.starting_at
-    entry.dtend = event.ending_at if event.ending_at
     entry.location = event.venue.full_location
     entry.geo = "#{event.venue.latitude};#{event.venue.longitude}" if event.venue.has_geo?
     entry.url = event_url(event)

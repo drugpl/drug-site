@@ -1,25 +1,8 @@
-# RailsAdmin config file. Generated on January 06, 2012 04:05
-# See github.com/sferik/rails_admin for more informations
-
 RailsAdmin.config do |config|
+  I18n.default_locale = :en
 
-  # If your default_local is different from :en, uncomment the following 2 lines and set your default locale here:
-  # require 'i18n'
-  # I18n.default_locale = :de
-
-  config.current_user_method { current_user } # auto-generated
-  
-  # If you want to track changes on your models:
-  # config.audit_with :history, User
-  
-  # Or with a PaperTrail: (you need to install it first)
-  # config.audit_with :paper_trail, User
-  
-  # Set the admin name here (optional second array element will appear in a beautiful RailsAdmin red ©)
-  config.main_app_name = ['Drug', 'Admin']
-  # or for a dynamic name:
-  # config.main_app_name = Proc.new { |controller| [Rails.application.engine_name.titleize, controller.params['action'].titleize] }
-
+  config.current_user_method { current_user }
+  config.main_app_name = ['DRUG', 'Admin']
 
   #  ==> Global show view settings
   # Display empty fields in show views
@@ -75,106 +58,41 @@ RailsAdmin.config do |config|
   #   end
   # end
 
-  # Your model's configuration, to help you get started:
-
-  # All fields marked as 'hidden' won't be shown anywhere in the rails_admin unless you mark them as visible. (visible(true))
-
-  # config.model Contact do
-  #   # Found associations:
-  #   # Found columns:
-  #     configure :id, :integer 
-  #     configure :name, :string 
-  #     configure :message, :text 
-  #     configure :email, :string 
-  #     configure :created_at, :datetime 
-  #     configure :updated_at, :datetime   #   # Sections:
-  #   list do; end
-  #   export do; end
-  #   show do; end
-  #   edit do; end
-  #   create do; end
-  #   update do; end
-  # end
-  # config.model Event do
-  #   # Found associations:
-  #     configure :user, :belongs_to_association 
-  #     configure :venue, :belongs_to_association   #   # Found columns:
-  #     configure :id, :integer 
-  #     configure :title, :string 
-  #     configure :description, :text 
-  #     configure :user_id, :integer         # Hidden 
-  #     configure :venue_id, :integer         # Hidden 
-  #     configure :starting_at, :datetime 
-  #     configure :ending_at, :datetime 
-  #     configure :created_at, :datetime 
-  #     configure :updated_at, :datetime 
-  #     configure :facebook_id, :string 
-  #     configure :slug, :string   #   # Sections:
-  #   list do; end
-  #   export do; end
-  #   show do; end
-  #   edit do; end
-  #   create do; end
-  #   update do; end
-  # end
-  # config.model Snippet do
-  #   # Found associations:
-  #   # Found columns:
-  #     configure :id, :integer 
-  #     configure :label, :string 
-  #     configure :content, :text 
-  #     configure :status, :string 
-  #     configure :created_at, :datetime 
-  #     configure :updated_at, :datetime   #   # Sections:
-  #   list do; end
-  #   export do; end
-  #   show do; end
-  #   edit do; end
-  #   create do; end
-  #   update do; end
-  # end
-  # config.model User do
-  #   # Found associations:
-  #     configure :events, :has_many_association 
-  #     configure :venues, :has_many_association   #   # Found columns:
-  #     configure :id, :integer 
-  #     configure :email, :string 
-  #     configure :password, :password         # Hidden 
-  #     configure :password_confirmation, :password         # Hidden 
-  #     configure :reset_password_token, :string         # Hidden 
-  #     configure :remember_token, :string         # Hidden 
-  #     configure :remember_created_at, :datetime 
-  #     configure :sign_in_count, :integer 
-  #     configure :current_sign_in_at, :datetime 
-  #     configure :last_sign_in_at, :datetime 
-  #     configure :current_sign_in_ip, :string 
-  #     configure :last_sign_in_ip, :string 
-  #     configure :created_at, :datetime 
-  #     configure :updated_at, :datetime   #   # Sections:
-  #   list do; end
-  #   export do; end
-  #   show do; end
-  #   edit do; end
-  #   create do; end
-  #   update do; end
-  # end
-  # config.model Venue do
-  #   # Found associations:
-  #     configure :events, :has_many_association 
-  #     configure :user, :belongs_to_association   #   # Found columns:
-  #     configure :id, :integer 
-  #     configure :address, :string 
-  #     configure :name, :string 
-  #     configure :user_id, :integer         # Hidden 
-  #     configure :created_at, :datetime 
-  #     configure :updated_at, :datetime 
-  #     configure :latitude, :decimal 
-  #     configure :longitude, :decimal   #   # Sections:
-  #   list do; end
-  #   export do; end
-  #   show do; end
-  #   edit do; end
-  #   create do; end
-  #   update do; end
-  # end
+  config.model Contact do
+    list do
+      field :name
+      field :message
+      field :email
+    end
+  end
+  config.model Event do
+    list do
+      field :title
+      field :description
+      field :venue
+      field :starting_at
+      field :facebook_id
+    end
+  end
+  config.model Snippet do
+    list do
+      field :label
+      field :content
+      field :status
+    end
+  end
+  config.model User do
+    list do
+      field :email
+      field :sign_in_count
+    end
+  end
+  config.model Venue do
+    list do
+      field :address
+      field :name
+      field :latitude
+      field :longitude
+    end
+  end
 end

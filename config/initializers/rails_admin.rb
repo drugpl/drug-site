@@ -78,7 +78,6 @@ RailsAdmin.config do |config|
     list do
       field :label
       field :content
-      field :status
     end
   end
   config.model User do

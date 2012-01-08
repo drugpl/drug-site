@@ -12,7 +12,6 @@ class Event < ActiveRecord::Base
   validates :title, presence: true
   validates :description, presence: true
   validates :starting_at, presence: true
-  validates :user, presence: true
   validates :venue, presence: true
 
   delegate :name, :address, :latitude, :longitude, to: :venue, prefix: true

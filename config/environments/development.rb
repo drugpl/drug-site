@@ -29,5 +29,5 @@ Drug::Application.configure do
   config.assets.debug = true
 
   # Local domain
-  config.action_mailer.default_url_options = { :host => "drug.local" }
+  config.action_mailer.default_url_options = { :host => "drug.dev" }
 end

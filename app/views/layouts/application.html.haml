@@ -13,8 +13,8 @@
     = auto_discovery_link_tag :rss, 'http://feeds.feedburner.com/DRUG_Spotkania.xml', :title => I18n.t("events.rss.title")
 
     /[if lt IE 9]
-      = javascript_include_tag "html5shiv"
-      = stylesheet_link_tag 'ie.css', :media => 'screen, projection'
+      = javascript_include_tag 'ie'
+      = stylesheet_link_tag 'ie', :media => 'screen, projection'
 
     :javascript
       var FacebookConfig = { appId: "#{AppConfig[:facebook_app_id]}" };

@@ -116,20 +116,20 @@ var FacebookEventView = function (elem) {
 
   self.onAttendantsLoading = function () {
     $(elem).find(".attendants ul").empty();
-    $(elem).find(".attendants ul").append('<li><img src="/images/throbber.gif" alt="..." class="throbber" /></li>');
+    $(elem).find(".attendants ul").append('<li><span class="throbber"></span></li>');
   }
 
   self.showMyAttendance = function (status) {
-    $(elem).find("p.attendance").find("img.throbber").remove();
+    $(elem).find("p.attendance").find(".throbber").remove();
     $(elem).find("p.attendance a.attend")[status ? "hide" : "show"]();
     $(elem).find("p.attendance a.decline")[status ? "show" : "hide"]();
   }
 
   self.onMyAttendanceLoading = function () {
-    var img = '<img src="/images/throbber.gif" alt="..." class="throbber" />'
-    $(elem).find("p.attendance").find("img.throbber").remove();
+    var throbber = '<span class="throbber"></span>'
+    $(elem).find("p.attendance").find(".throbber").remove();
     $(elem).find("p.attendance a").hide();
-    $(elem).find("p.attendance").append(img);
+    $(elem).find("p.attendance").append(throbber);
   }
 
   self.loginFailed = function () {

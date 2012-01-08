@@ -353,3 +353,10 @@ a.logo {
     }
   }
 }
+
+span.throbber {
+  display: inline-block;
+  width: 16px;
+  height: 11px;
+  background: url(/assets/throbber.gif);
+}

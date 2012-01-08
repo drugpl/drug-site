@@ -1,3 +1,5 @@
+require 'settings'
+
 class ContactMailer < ActionMailer::Base
   default from: "from@example.com"
 
@@ -8,6 +10,6 @@ class ContactMailer < ActionMailer::Base
   #
   def contact_message(contact)
     @contact = contact
-    mail to: AppConfig[:contact_email], from: @contact.email
+    mail to: Settings.email[:contact_address], from: @contact.email
   end
 end

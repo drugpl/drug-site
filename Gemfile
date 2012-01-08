@@ -9,7 +9,6 @@ gem 'kaminari'
 gem 'cells'
 gem 'simple_form'
 gem 'RedCloth'
-gem 'app_config'
 gem 'i18n_routing'
 
 # event goodies

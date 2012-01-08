@@ -15,7 +15,7 @@
       = stylesheet_link_tag 'ie', :media => 'screen, projection'
 
     :javascript
-      var FacebookConfig = { appId: "#{AppConfig[:facebook_app_id]}" };
+      var FacebookConfig = { appId: "#{Settings.facebook[:app_id]}" };
       #{"var disqus_developer = 1;" unless Rails.env.production?}
 
     %title DRUG

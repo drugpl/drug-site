@@ -1,4 +1,5 @@
 require 'textilized_attributes'
+require 'settings'
 
 class Event < ActiveRecord::Base
   include TextilizedAttributes
@@ -48,7 +49,7 @@ class Event < ActiveRecord::Base
 
   def access_token
     @access_token ||= begin
-      app = FbGraph::Application.new(AppConfig[:facebook_app_id], secret: AppConfig[:facebook_app_secret])
+      app = FbGraph::Application.new(Settings.facebook[:app_id], secret: Settings.facebook[:app_secret])
       app.get_access_token
     end
   end

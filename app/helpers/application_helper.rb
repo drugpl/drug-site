@@ -1,3 +1,5 @@
+require 'settings'
+
 module ApplicationHelper
   PAGES = %w(home events contact)
 
@@ -6,7 +8,7 @@ module ApplicationHelper
   end
 
   def load_maps
-    uri = "http://maps.google.com/maps?file=api&amp;v=2&amp;sensor=false&amp;key=#{AppConfig[:maps_api_key]}"
+    uri = "http://maps.google.com/maps?file=api&amp;v=2&amp;sensor=false&amp;key=#{Settings.google_maps[:api_key]}"
     javascript_include_tag uri.html_safe
   end
 end

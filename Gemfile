@@ -7,7 +7,6 @@ gem 'jquery-rails'
 gem 'friendly_id'
 gem 'kaminari'
 gem 'cells'
-gem 'simple_form'
 gem 'RedCloth'
 gem 'i18n_routing'
 

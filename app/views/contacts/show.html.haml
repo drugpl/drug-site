@@ -3,12 +3,19 @@
     = I18n.t('site_menu.pages.contact')
 
 %div.contact
-  = simple_form_for @contact, :url => contact_path do |f|
-    = f.input :name
-    = f.input :email
-    = f.input :message
+  = form_for @contact, :url => contact_path do |f|
+    .input
+      = f.label :name
+      = f.text_field :name
+    .input
+      = f.label :email
+      = f.text_field :email
+    .input
+      = f.label :message
+      = f.text_area :message
     = f.text_field :empty, :style => 'display:none'
-    = f.submit I18n.t('send')
+    .input
+      = f.submit I18n.t('send')
 
 = content_for :sidebar do
   = render_cell :content_blocks, :snippet, :online, t('snippets.online')

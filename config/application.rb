@@ -45,13 +45,6 @@ module Drug
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
 
-    # Have some generators
-    config.generators do |g|
-      g.template_engine :haml
-      g.test_framework :rspec, :fixture => false, :view_specs => false, :controller_specs => false, :helper_specs => false
-      g.helper false
-    end
-
     # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
     config.assets.precompile += %w( ie.js ie.css screen.css print.css )
   end

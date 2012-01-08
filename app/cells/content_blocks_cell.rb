@@ -4,11 +4,4 @@ class ContentBlocksCell < Cell::Rails
     @title   = title
     render
   end
-
-  def twitter_feed
-    @user = AppConfig[:twitter_user]
-    @list = AppConfig[:twitter_list]
-    @url  = AppConfig[:twitter_url]
-    render
-  end
 end

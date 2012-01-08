@@ -22,17 +22,17 @@ var FacebookApi = function () {
 
   self.login = function (success, failure) {
     FB.login(function (response) {
-      if (response.session && response.perms) {
+      if (response.status === 'connected') {
         success();
       } else {
         failure();
       }
-    }, { perms: getPermissionsString() });
+    }, { scope: getPermissionsString() });
   }
 
   self.getLoginStatus = function (success, failure) {
     FB.getLoginStatus(function(response) {
-      if (response.session) {
+      if (response.status === 'connected') {
         success();
       } else {
         failure();

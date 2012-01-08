@@ -34,23 +34,6 @@ group :production do
   gem 'therubyracer'
 end
 
-group :test, :development do
-  gem 'thin'
-  gem 'rspec-rails', '>= 2.3.0'
-  gem 'capybara'
-  gem 'steak'
-  gem 'factory_girl', '1.3.3'
-end
-
-group :test do
-  gem 'rspec'
-  gem 'database_cleaner'
-  gem 'time_travel'
-  gem 'email_spec'
-  gem 'be_valid_asset'
-  gem 'mocha'
-end
-
 group :development do
   gem 'capistrano'
   gem 'ruby-debug19'

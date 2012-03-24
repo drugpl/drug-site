@@ -1,3 +1,10 @@
+GIT
+  remote: git://github.com/hecbuma/compass-bootstrap.git
+  revision: b3c1cf55e8a898da29c21ab04e65b303e0291d2a
+  specs:
+    compass-bootstrap (0.1.4)
+      compass (>= 0.11.6)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -54,8 +61,8 @@ GEM
       chunky_png (~> 1.2)
       fssm (>= 0.2.7)
       sass (~> 3.1)
-    compass-bootstrap (0.1.3)
-      compass (>= 0.10.0)
+    compass-rails (1.0.1)
+      compass (~> 0.12.0)
     erubis (2.7.0)
     execjs (1.3.0)
       multi_json (~> 1.0)
@@ -156,8 +163,8 @@ DEPENDENCIES
   capistrano
   cells (~> 3.8)
   coffee-rails
-  compass (~> 0.12)
-  compass-bootstrap
+  compass-bootstrap!
+  compass-rails
   friendly_id (~> 4.0)
   haml (~> 3.1)
   jquery-rails

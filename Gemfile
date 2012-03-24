@@ -11,8 +11,8 @@ gem 'ri_cal'
 gem 'puma'
 
 group :assets do
-  gem 'compass', '~> 0.12'
-  gem 'compass-bootstrap'
+  gem 'compass-rails'
+  gem 'compass-bootstrap', git: 'git://github.com/hecbuma/compass-bootstrap.git'
   gem 'sass-rails'
   gem 'coffee-rails'
   gem 'uglifier'

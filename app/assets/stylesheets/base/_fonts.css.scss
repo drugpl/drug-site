@@ -1,0 +1,7 @@
+@import 'compass/css3/font-face';
+
+@include font-face('TitilliumText25L400wt', font-files(
+  font-path('titillium_text_400.woff'), woff,
+  font-path('titillium_text_400.ttf'), truetype,
+  font-path('titillium_text_400.svg#webfont7BukLBJZ'), svg),
+  font-path('titillium_text_400.eot'));

@@ -5,11 +5,6 @@
     %h2= @event.title
   = render :partial => "event_detail", :locals => {event: @event}
 
-  #comments
-    #disqus_thread{:"data-title" => @event.title, :"data-url" => event_url(@event)}
-    %noscript 
-      = %Q{Please enable JavaScript to view the #{link_to "comments", "http://disqus.com/?ref_noscript"}.}
-
 = content_for :sidebar do
   = render_cell :content_blocks, :snippet, :events, t('snippets.events')
   = render_cell :content_blocks, :snippet, :online, t('snippets.online')

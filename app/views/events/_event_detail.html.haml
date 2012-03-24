@@ -8,7 +8,7 @@
     = "(#{event.venue_name})"
 
 %p.description
-  = event.textilized_description.html_safe
+  = event.description.html_safe
 
 - if @event.has_facebook_event?
   .attendants

@@ -1,8 +1,4 @@
-require 'textilized_attributes'
-
 class Snippet < ActiveRecord::Base
-  include TextilizedAttributes
-
   LABEL_FORMAT = /^[a-zA-Z\d_]+$/
 
   validates :label,
@@ -13,6 +9,4 @@ class Snippet < ActiveRecord::Base
   def self.[](label)
     find_or_create_by_label(label)
   end
-
-  textilized_attrs :content
 end

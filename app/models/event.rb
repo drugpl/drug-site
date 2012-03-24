@@ -1,9 +1,6 @@
-require 'textilized_attributes'
 require 'settings'
 
 class Event < ActiveRecord::Base
-  include TextilizedAttributes
-
   belongs_to :venue
 
   extend FriendlyId
@@ -19,8 +16,6 @@ class Event < ActiveRecord::Base
   scope :happened, lambda { where("starting_at < ?", Time.zone.now) }
 
   paginates_per 5
-
-  textilized_attrs :description
 
   def future?
     starting_at > Time.now

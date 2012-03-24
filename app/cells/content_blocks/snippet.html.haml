@@ -2,4 +2,4 @@
   %header
     %h2
       = @title
-  = @snippet.textilized_content.try(:html_safe)
+  = @snippet.content.try(:html_safe)

@@ -14,10 +14,6 @@ gem 'ri_cal'
 gem 'fb_graph', '1.8'
 gem 'polish', '~> 0.1.4'
 
-# admin dependencies
-gem 'devise'
-gem 'rails_admin', :git => 'https://github.com/sferik/rails_admin.git'
-
 group :assets do
   gem 'sass-rails', '~> 3.2.3'
   gem 'coffee-rails'

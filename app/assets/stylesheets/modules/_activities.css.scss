@@ -1,0 +1,11 @@
+section.activities {
+  .dinner, .hack, .meetup, .showoff {
+    border: 1px solid #EBEBEB;
+    min-height: 12em;
+    background-image: url('http://placehold.it/220x158');
+
+    h1 {
+      padding-left: .3em;
+    }
+  }
+}

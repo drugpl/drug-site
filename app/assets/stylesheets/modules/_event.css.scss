@@ -1,0 +1,64 @@
+.event {
+  padding: 2em 0;
+
+  h1 {
+    margin-bottom: .5em;
+  }
+
+  span.buttons {
+    text-align: center;
+    display: block;
+    margin: 1.5em auto;
+  }
+
+  .speakers {
+    padding: 1em 0 0;
+
+    h1 {
+      font-size: 150%;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+
+      img {
+        float: left;
+        vertical-align: top;
+        margin-bottom: 5px;
+      }
+
+      p {
+        float: left;
+        padding-left: .7em;
+      }
+
+      li {
+        clear: both;
+      }
+    }
+  }
+
+  .attendees {
+    padding: 1em 0 0;
+
+    h1 {
+      font-size: 150%;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+
+      li {
+        display: inline;
+
+        a {
+          border-bottom: none;
+        }
+      }
+    }
+  }
+}

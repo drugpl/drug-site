@@ -1,21 +1,94 @@
-- if @event
-  - options = {:class => "event"}
-  - options = {:class => "event facebook", :"data-facebook-id" => @event.facebook_id, :"data-attendants-url" => event_attendants_path(@event)} if @event.has_facebook_event?
-  %article.event{options}
-    %header
-      %h2
-        = t("events.#{@event.starting_at > Time.now ? 'next' : 'last'}_event")
-    = render :partial => "events/event_detail", :locals => {event: @event}
-    = link_to t('events.comments_link'), "#{event_url(@event)}"
+%section.activities
+  .container
+    .row
+      .span3
+        %section.meetup
+          %h1
+            Meetup
+      .span3
+        %section.hack
+          %h1
+            Hack
+      .span3
+        %section.dinner
+          %h1
+            Dinner
+      .span3
+        %section.showoff
+          %h1
+            Hall of fame
 
-- else
-  = t("events.no_events_published")
+%section.event
+  .container
+    .row
+      .span6
+        %h1 DRUG #33
 
-= content_for :sidebar do
-  = render_cell :content_blocks, :snippet, :events, t('snippets.events')
-  = render_cell :content_blocks, :snippet, :online, t('snippets.online')
-  = render_cell :content_blocks, :snippet, :community, t('snippets.community')
-  = render_cell :content_blocks, :snippet, :keep_in_touch, t('snippets.keep_in_touch')
+        %p
+          %time{datetime: 'datetime="2012-04-16T19:00:00Z'}
+            16 kwietnia 2012
+            %br
+            19:00
 
-= content_for :about do
-  = render_cell :content_blocks, :snippet, :about_us, t('snippets.about')
+        %address
+          Pub Jaskinia
+          %br
+          Wrocław, ul. Kościuszki 34 (Pałacyk)
+
+        %p{style: 'text-align: justify;'}
+          Zapraszamy na kolejną edycję DRUGa, w pubie w samym centrum Wrocławia. Czekamy na zgłoszenia prezentacji oraz krótkich lightning talków. Po prezentacjach część nieoficjalna do ostatniego gościa.
+
+        %span.buttons
+          = link_to 'Speak', '#', class: 'btn btn-large'
+          = link_to 'Attend', '#', class: 'btn btn-large'
+
+      .span6
+        %img{src: 'http://placehold.it/460x315'}
+
+    .row
+      .span6
+        %section.speakers
+          %h1
+            Speaking
+
+          %ul
+            %li
+              %img{src: 'http://placehold.it/47x47'}
+              %p
+                %strong
+                  SQL: Spooky Query Language
+                %br
+                Michał Łomnicki
+            %li
+              %img{src: 'http://placehold.it/47x47'}
+              %p
+                %strong
+                  Rails from beginners perspective
+                %br
+                Jan Dudulski
+            %li
+              %img{src: 'http://placehold.it/47x47'}
+              %p
+                %strong
+                  DCI: Data, Context, Interaction
+                %br
+                Andrzej Krzywda
+            %li
+              %img{src: 'http://placehold.it/47x47'}
+              //%strong
+              %p
+                %strong
+                  EventMachine lessons learned (in production)
+                %br
+                Robert Pankowecki
+
+      .span6
+        %section.attendees
+          %h1
+            Attending
+
+          %ul
+            - 25.times do
+              %li
+                %img{src: 'http://placehold.it/47x47'}
+

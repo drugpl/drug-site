@@ -1,5 +1,15 @@
 @import 'compass';
 @import 'compass/reset';
 
+@import 'base/variables'; // before bootstrap!
+@import 'base/bootstrap';
 @import 'base/fonts';
+
+@import 'generic/text';
+
+@import 'modules/top_bar';
+@import 'modules/main';
+@import 'modules/activities';
+@import 'modules/event';
+@import 'modules/bottom_bar';
 

@@ -1,3 +1,50 @@
-%p
-  = "#{link_to 'Kod źródłowy', 'http://github.com/drugpl/drug-site'} tej strony dostępny na licencji MIT.".html_safe
-  = "Dziękujemy wszystkim #{link_to 'kontrybutorom', 'http://github.com/drugpl/drug-site/contributors'}!".html_safe
+.container
+  .row
+    .span3
+      %section.tweets
+        %h1 Tweets
+        %ul
+          %li
+            lipsum lipsum
+          %li
+            lipsum lipsum
+          %li
+            lipsum lipsum
+          %li
+            lipsum lipsum
+    .span3
+      %section.links
+        %h1 Elsewere
+        %ul
+          %li
+            github
+          %li
+            facebook
+          %li
+            forum
+          %li
+            freenode
+    .span3
+      %section.ruby-in-poland
+        %h1 Ruby in Poland
+        %ul
+          %li
+            wrug
+          %li
+            prug
+          %li
+            krug
+    .span3
+      %section.related-events
+        %h1 Events
+        %ul
+          %li
+            wroc_love.rb
+
+.inner
+  .container
+    .row
+      .span12
+        %p
+          = "#{link_to 'Kod źródłowy', 'http://github.com/drugpl/drug-site'} tej strony dostępny na licencji MIT.".html_safe
+          = "Dziękujemy wszystkim #{link_to 'kontrybutorom', 'http://github.com/drugpl/drug-site/contributors'}!".html_safe

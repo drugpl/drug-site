@@ -1,7 +1,14 @@
 @import 'compass/css3/font-face';
 
-@include font-face('TitilliumText25L400wt', font-files(
-  font-path('titillium_text_400.woff'), woff,
-  font-path('titillium_text_400.ttf'), truetype,
-  font-path('titillium_text_400.svg#webfont7BukLBJZ'), svg),
-  font-path('titillium_text_400.eot'));
+@include font-face('DroidSansBold', font-files(
+  font-path('DroidSans-Bold-webfont.woff'), woff,
+  font-path('DroidSans-Bold-webfont.ttf'), truetype,
+  font-path('DroidSans-Bold-webfont.svg#DroidSansBold'), svg),
+  font-path('DroidSans-Bold-webfont.eot'));
+
+@include font-face('DroidSansRegular', font-files(
+  font-path('DroidSans-webfont.woff'), woff,
+  font-path('DroidSans-webfont.ttf'), truetype,
+  font-path('DroidSans-webfont.svg#DroidSansRegular'), svg),
+  font-path('DroidSans-webfont.eot'));
+

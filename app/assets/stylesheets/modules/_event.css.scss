@@ -5,9 +5,43 @@
     margin-bottom: .5em;
   }
 
-  span.buttons {
+  .datetime {
+    clear: both;
+
+    img {
+     float: left;
+     vertical-align: top;
+    }
+
+    time {
+      float: left;
+      margin-left: 15px;
+    }
+  }
+
+  .venue {
+    padding-top: .5em;
+    clear: both;
+
+    img {
+     float: left;
+     vertical-align: top;
+      margin-left: 3px;
+    }
+
+    address {
+      float: left;
+      margin-left: 22px;
+    }
+  }
+
+  .description {
+    text-align: justify;
+    clear: both;
+  }
+
+  .buttons {
     text-align: center;
-    display: block;
     margin: 1.5em auto;
   }
 

@@ -26,5 +26,17 @@
   a {
     text-decoration: none;
   }
+
+  ul {
+    float: right;
+    list-style: none;
+    padding: 0;
+    margin: 1em 3.5em 0 0;
+
+    li {
+      margin-left: .3em;
+      display: inline;
+    }
+  }
 }
 

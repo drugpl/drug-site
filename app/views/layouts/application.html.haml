@@ -17,9 +17,10 @@
           %h1
             DRUG
             %small Dolnośląska Grupa Użytkowników Ruby
+        = render 'layouts/links'
     %section.main
       = yield
 
     %footer.bottom-bar
-      = render :partial => "layouts/footer"
+      = render 'layouts/footer'
 

@@ -1,50 +1,39 @@
 .container
   .row
-    .span3
-      %section.tweets
-        %h1 Tweets
+    .span6
+      %section.about
+        %h1 About us
+        %p
+          Dolnośląska Grupa Użytkowników Ruby to cykliczne spotkania pasjonatów tego języka programowania. Każde spotkanie jest doskonałą okazją wymiany doświadczeń oraz poznania ludzi, na co dzień zajmujacych się tą technologią.
+        %p
+          Spotkania mają charakter otwartego panelu dyskusyjnego – uczestnicy włączaja sie w udział w trakcie przygotowanych prelekcji. Zapraszamy zarówno tych zaawansowanych jak i stawiających pierwsze kroki w środowisku Rubiego!
+    .span2
+      %section.contact
+        %h1 Contact
         %ul
-          %li
-            lipsum lipsum
-          %li
-            lipsum lipsum
-          %li
-            lipsum lipsum
-          %li
-            lipsum lipsum
-    .span3
-      %section.links
-        %h1 Elsewere
-        %ul
-          %li
-            github
-          %li
-            facebook
-          %li
-            forum
-          %li
-            freenode
-    .span3
-      %section.ruby-in-poland
-        %h1 Ruby in Poland
-        %ul
-          %li
-            wrug
-          %li
-            prug
-          %li
-            krug
-    .span3
-      %section.related-events
-        %h1 Events
-        %ul
-          %li
-            wroc_love.rb
+          %li= link_to 'anarchy@drug.org.pl', 'mailto:drug@drug.org.pl'
+          %li #drug.pl on freenode
 
-.inner
-  .container
-    .row
-      .span12
+    .span2
+      %section.ruby
+        %h1 Community
+        %ul
+          %li= link_to 'Rubysfera', 'http://wrug.eu'
+          %li= link_to 'Forum RoR', 'http://rubyonrails.pl/forum/'
+          %li= link_to 'Warszawski RUG', 'http://wrug.eu'
+          %li= link_to 'Krakowski RUG', 'http://ruby.org.pl'
+          %li= link_to 'Śląski RUG', 'http://srug.pl'
+          %li= link_to 'Poznański RUG', 'http://prug.pl'
+          %li= link_to 'Łódzki RUG', 'http://lrug.pl'
+          %li= link_to 'Trójmiejski RUG', 'http://trug.pl'
+    .span2
+      %section.events
+        %h1 Other events
+        %ul
+          %li= link_to image_tag('wroc_love_dwarf.png'), 'http://wrocloverb.com'
+  .row
+    .span12
+      .inner
         %p
           = "#{link_to 'Kod źródłowy', 'http://github.com/drugpl/drug-site'} tej strony dostępny na licencji MIT.".html_safe
           = "Dziękujemy wszystkim #{link_to 'kontrybutorom', 'http://github.com/drugpl/drug-site/contributors'}!".html_safe

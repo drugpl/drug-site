@@ -98,8 +98,8 @@ GEM
       net-ssh (>= 1.99.1)
     pg (0.13.2)
     polyglot (0.3.3)
-    puma (0.9.5)
-      rack (>= 1.2, < 2.0)
+    puma (1.0.0)
+      rack (~> 1.2)
     rack (1.4.1)
     rack-cache (1.2)
       rack (>= 0.4)
@@ -170,7 +170,7 @@ DEPENDENCIES
   jquery-rails
   kaminari
   pg (~> 0.12)
-  puma
+  puma (~> 1.0.0)
   rails (~> 3.2.0)
   ri_cal
   ruby-debug19

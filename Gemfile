@@ -5,10 +5,10 @@ gem 'pg',          '~> 0.12'
 gem 'haml',        '~> 3.1'
 gem 'friendly_id', '~> 4.0'
 gem 'cells',       '~> 3.8'
+gem 'puma',        '~> 1.0.0'
 gem 'jquery-rails'
 gem 'kaminari'
 gem 'ri_cal'
-gem 'puma'
 
 group :assets do
   gem 'compass-rails'

@@ -1,5 +1,6 @@
-PATH
-  remote: ../compass-bootstrap
+GIT
+  remote: git://github.com/LTe/compass-bootstrap.git
+  revision: 40a51475bbb50f09467987f5b61fc817ca634a3d
   specs:
     compass-bootstrap (0.1.4)
       compass (>= 0.11.6)

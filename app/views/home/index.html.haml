@@ -2,24 +2,22 @@
   .container
     .row
       .span6
-        %h1 DRUG #33
+        %h1= @event.title
 
         .datetime
           = link_to image_tag('glyphicons_045_calendar.png'), '#'
-          %time{datetime: 'datetime="2012-04-16T19:00:00Z'}
-            16 kwietnia 2012
-            %br
-            19:00
+          %time{datetime: "datetime='#{@event.starting_at}'"}
+            = l @event.starting_at
 
         .venue
           = link_to image_tag('glyphicons_242_google_maps.png'), '#'
           %address
-            Pub Jaskinia
+            = @event.venue_name
             %br
-            Wrocław, ul. Kościuszki 34 (Pałacyk)
+            = @event.venue_address
 
         %p.description
-          Zapraszamy na kolejną edycję DRUGa, w pubie w samym centrum Wrocławia. Czekamy na zgłoszenia prezentacji oraz krótkich lightning talków. Po prezentacjach część nieoficjalna do ostatniego gościa.
+          = @event.description
 
         .buttons
           = link_to 'Speak', '#', class: 'btn btn-large'
@@ -83,33 +81,4 @@
       .span12
         %h1 Previous events
     .row
-      .span2
-        %ul
-          - 5.times do
-            %li
-              = link_to 'DRUG #27', '#'
-      .span2
-        %ul
-          - 5.times do
-            %li
-              = link_to 'DRUG #27', '#'
-      .span2
-        %ul
-          - 5.times do
-            %li
-              = link_to 'DRUG #27', '#'
-      .span2
-        %ul
-          - 5.times do
-            %li
-              = link_to 'DRUG #27', '#'
-      .span2
-        %ul
-          - 5.times do
-            %li
-              = link_to 'DRUG #27', '#'
-      .span2
-        %ul
-          - 5.times do
-            %li
-              = link_to 'DRUG #27', '#'
+      = render partial: "events", collection: @previous_events.in_groups(6, false)

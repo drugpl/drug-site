@@ -14,6 +14,7 @@ class Event < ActiveRecord::Base
   delegate :name, :address, :latitude, :longitude, to: :venue, prefix: true
 
   scope :happened, lambda { where("starting_at < ?", Time.zone.now) }
+  scope :previous, lambda { order("id desc").limit(30).offset(1) }
 
   paginates_per 5
 

@@ -9,3 +9,4 @@ tmp/*
 config/*.yml
 config/deploy.rb
 config/initializers/secret_token.rb
+.idea

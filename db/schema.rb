@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120108181252) do
+ActiveRecord::Schema.define(:version => 20121228191716) do
 
   create_table "contacts", :force => true do |t|
     t.string   "name",       :null => false
@@ -45,6 +45,21 @@ ActiveRecord::Schema.define(:version => 20120108181252) do
   add_index "friendly_id_slugs", ["sluggable_id"], :name => "index_friendly_id_slugs_on_sluggable_id"
   add_index "friendly_id_slugs", ["sluggable_type"], :name => "index_friendly_id_slugs_on_sluggable_type"
 
+  create_table "presentations", :force => true do |t|
+    t.string   "title",                         :null => false
+    t.integer  "event_id",                      :null => false
+    t.boolean  "cancelled",  :default => false, :null => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+  end
+
+  add_index "presentations", ["event_id"], :name => "index_presentations_on_event_id"
+
+  create_table "presentations_users", :force => true do |t|
+    t.integer "user_id",         :null => false
+    t.integer "presentation_id", :null => false
+  end
+
   create_table "rails_admin_histories", :force => true do |t|
     t.string   "message"
     t.string   "username"
@@ -71,9 +86,27 @@ ActiveRecord::Schema.define(:version => 20120108181252) do
   create_table "snippets", :force => true do |t|
     t.string   "label",      :null => false
     t.text     "content"
-    t.string   "status"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "speakers", :force => true do |t|
+    t.string   "name",       :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "speakers_talks", :force => true do |t|
+    t.integer "speaker_id", :null => false
+    t.integer "talk_id",    :null => false
+  end
+
+  create_table "talks", :force => true do |t|
+    t.string   "title",                        :null => false
+    t.integer  "event_id",                     :null => false
+    t.boolean  "performed",  :default => true, :null => false
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
   end
 
   create_table "users", :force => true do |t|
@@ -90,6 +123,7 @@ ActiveRecord::Schema.define(:version => 20120108181252) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "full_name"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

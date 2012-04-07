@@ -5,6 +5,7 @@ class Event < ActiveRecord::Base
   include TextilizedAttributes
 
   belongs_to :venue
+  has_many :presentations
 
   extend FriendlyId
   friendly_id :title, use: :slugged

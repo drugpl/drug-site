@@ -1,6 +1,5 @@
-GIT
-  remote: git://github.com/pawelpacana/compass-bootstrap.git
-  revision: 40a51475bbb50f09467987f5b61fc817ca634a3d
+PATH
+  remote: ../compass-bootstrap
   specs:
     compass-bootstrap (0.1.4)
       compass (>= 0.11.6)
@@ -147,6 +146,9 @@ GEM
       railties (~> 3.2.0)
       sass (>= 3.1.10)
       tilt (~> 1.3)
+    simple_form (2.0.1)
+      actionpack (~> 3.0)
+      activemodel (~> 3.0)
     sprockets (2.1.2)
       hike (~> 1.2)
       rack (~> 1.0)
@@ -184,5 +186,6 @@ DEPENDENCIES
   ri_cal
   ruby-debug19
   sass-rails
+  simple_form
   therubyracer
   uglifier

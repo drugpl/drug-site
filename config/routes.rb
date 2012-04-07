@@ -12,5 +12,6 @@ Drug::Application.routes.draw do
       resources :attendants, only: [:index], path: 'uczestnicy'
     end
     resource :contact, only: [:show, :create], path: 'kontakt'
+    resources :presentations, path: 'prezentacje'
   end
 end

@@ -33,7 +33,7 @@
 @import "compass-bootstrap/base/pager";
 
 // Components: Popovers
-// @import "compass-bootstrap/base/modals"; // wrong number of arguments (1 for 0) for `e'
+@import "compass-bootstrap/base/modals";
 @import "compass-bootstrap/base/tooltip";
 @import "compass-bootstrap/base/popovers";
 

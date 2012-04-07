@@ -9,11 +9,12 @@ gem 'puma',        '~> 1.0.0'
 gem 'jquery-rails'
 gem 'kaminari'
 gem 'ri_cal'
+gem 'simple_form'
 gem 'therubyracer'
 
 group :assets do
   gem 'compass-rails'
-  gem 'compass-bootstrap', git: 'git://github.com/pawelpacana/compass-bootstrap.git'
+  gem 'compass-bootstrap', path: '../compass-bootstrap'
   gem 'sass-rails'
   gem 'coffee-rails'
   gem 'uglifier'

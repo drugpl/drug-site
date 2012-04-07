@@ -1,0 +1,13 @@
+= link_to 'Speak', '#myModal', class: 'btn btn-large', id: 'speak'
+%div{class: "fade modal", id: "myModal"}
+  .modal-header
+    %a.close{"data-dismiss" => "modal"} x
+    %h3 Dodaj prezentację
+  .modal-body
+    %div{class: 'alert alert-error hide'}
+    = simple_form_for(Presentation.new, :html => {:class => 'form-horizontal' }) do |f|
+      = f.input :title
+  .modal-footer
+    %a.btn{href: "#", "data-dismiss" => "modal"} Zamknij
+    %a{class: 'btn btn-success', id: 'speak-submit'} Wyślij
+

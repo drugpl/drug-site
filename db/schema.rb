@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120108181941) do
+ActiveRecord::Schema.define(:version => 20120407135122) do
 
   create_table "contacts", :force => true do |t|
     t.string   "name",       :null => false
@@ -44,6 +44,17 @@ ActiveRecord::Schema.define(:version => 20120108181941) do
   add_index "friendly_id_slugs", ["slug", "sluggable_type"], :name => "index_friendly_id_slugs_on_slug_and_sluggable_type", :unique => true
   add_index "friendly_id_slugs", ["sluggable_id"], :name => "index_friendly_id_slugs_on_sluggable_id"
   add_index "friendly_id_slugs", ["sluggable_type"], :name => "index_friendly_id_slugs_on_sluggable_type"
+
+  create_table "presentations", :force => true do |t|
+    t.string   "title"
+    t.integer  "user_id"
+    t.integer  "event_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "presentations", ["event_id"], :name => "index_presentations_on_event_id"
+  add_index "presentations", ["user_id"], :name => "index_presentations_on_user_id"
 
   create_table "rails_admin_histories", :force => true do |t|
     t.string   "message"
@@ -89,6 +100,7 @@ ActiveRecord::Schema.define(:version => 20120108181941) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "full_name"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

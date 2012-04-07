@@ -2,6 +2,7 @@ require 'settings'
 
 class Event < ActiveRecord::Base
   belongs_to :venue
+  has_many :presentations
 
   extend FriendlyId
   friendly_id :title, use: :slugged

@@ -34,36 +34,7 @@
             Speaking
 
           %ul
-            %li
-              %img{src: 'http://placehold.it/47x47'}
-              %p
-                %strong
-                  SQL: Spooky Query Language
-                %br
-                Michał Łomnicki
-            %li
-              %img{src: 'http://placehold.it/47x47'}
-              %p
-                %strong
-                  Rails from beginners perspective
-                %br
-                Jan Dudulski
-            %li
-              %img{src: 'http://placehold.it/47x47'}
-              %p
-                %strong
-                  DCI: Data, Context, Interaction
-                %br
-                Andrzej Krzywda
-            %li
-              %img{src: 'http://placehold.it/47x47'}
-              //%strong
-              %p
-                %strong
-                  EventMachine lessons learned (in production)
-                %br
-                Robert Pankowecki
-
+            = render partial: "presentation", collection: @presentations
       .span6
         %section.attendees
           %h1

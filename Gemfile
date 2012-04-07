@@ -9,6 +9,7 @@ gem 'puma',        '~> 1.0.0'
 gem 'jquery-rails'
 gem 'kaminari'
 gem 'ri_cal'
+gem 'therubyracer'
 
 group :assets do
   gem 'compass-rails'
@@ -22,5 +23,9 @@ group :development do
   gem 'ruby-debug19'
   gem 'capistrano'
   gem 'awesome_print'
+end
+
+group :test do
+  gem 'factory_girl_rails'
 end
 

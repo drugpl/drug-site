@@ -14,7 +14,7 @@ gem 'therubyracer'
 
 group :assets do
   gem 'compass-rails'
-  gem 'compass-bootstrap', git: 'git://github.com/LTe/compass-bootstrap.git'
+  gem 'compass-bootstrap', git: 'git://github.com/hecbuma/compass-bootstrap.git'
   gem 'sass-rails'
   gem 'coffee-rails'
   gem 'uglifier'

@@ -10,7 +10,6 @@ gem 'jquery-rails'
 gem 'kaminari'
 gem 'ri_cal'
 gem 'simple_form'
-gem 'therubyracer'
 
 group :assets do
   gem 'compass-rails'

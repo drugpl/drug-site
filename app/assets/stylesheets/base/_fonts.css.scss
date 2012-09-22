@@ -1,14 +1,2 @@
-@import 'compass/css3/font-face';
-
-@include font-face('DroidSansBold', font-files(
-  font-path('DroidSans-Bold-webfont.woff'), woff,
-  font-path('DroidSans-Bold-webfont.ttf'), truetype,
-  font-path('DroidSans-Bold-webfont.svg#DroidSansBold'), svg),
-  font-path('DroidSans-Bold-webfont.eot'));
-
-@include font-face('DroidSansRegular', font-files(
-  font-path('DroidSans-webfont.woff'), woff,
-  font-path('DroidSans-webfont.ttf'), truetype,
-  font-path('DroidSans-webfont.svg#DroidSansRegular'), svg),
-  font-path('DroidSans-webfont.eot'));
-
+@include font-face('DroidSansRegular', 'DroidSans-webfont');
+@include font-face('DroidSansBold', 'DroidSans-Bold-webfont', 'bold');

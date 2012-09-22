@@ -1,10 +1,3 @@
-GIT
-  remote: git://github.com/hecbuma/compass-bootstrap.git
-  revision: 0bb98644e89fce40d023ec13969584bf3764d81d
-  specs:
-    compass-bootstrap (0.1.4)
-      compass (>= 0.11.6)
-
 GEM
   remote: http://rubygems.org/
   specs:
@@ -37,6 +30,8 @@ GEM
       multi_json (~> 1.0)
     arel (3.0.2)
     awesome_print (1.0.2)
+    bourbon (2.1.1)
+      sass (>= 3.1)
     builder (3.0.0)
     capistrano (2.11.2)
       highline
@@ -47,7 +42,6 @@ GEM
     cells (3.8.3)
       actionpack (~> 3.0)
       railties (~> 3.0)
-    chunky_png (1.2.5)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
       railties (~> 3.2.0)
@@ -56,12 +50,6 @@ GEM
       execjs
     coffee-script-source (1.2.0)
     columnize (0.3.6)
-    compass (0.12.1)
-      chunky_png (~> 1.2)
-      fssm (>= 0.2.7)
-      sass (~> 3.1)
-    compass-rails (1.0.1)
-      compass (~> 0.12.0)
     debugger (1.2.0)
       columnize (>= 0.3.1)
       debugger-linecache (~> 1.1.1)
@@ -78,7 +66,6 @@ GEM
       factory_girl (~> 2.6.0)
       railties (>= 3.0.0)
     friendly_id (4.0.3)
-    fssm (0.2.8.1)
     haml (3.1.4)
     highline (1.6.11)
     hike (1.2.1)
@@ -163,11 +150,10 @@ PLATFORMS
 
 DEPENDENCIES
   awesome_print
+  bourbon
   capistrano
   cells (~> 3.8)
   coffee-rails
-  compass-bootstrap!
-  compass-rails
   debugger
   factory_girl_rails
   friendly_id (~> 4.0)

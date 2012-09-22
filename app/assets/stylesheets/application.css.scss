@@ -1,9 +1,11 @@
-@import 'compass';
-@import 'compass/reset';
+//= require 'normalize'
+//= require 'bootstrap'
+//= require 'bootstrap-responsive'
 
-@import 'base/variables'; // before bootstrap!
-@import 'base/bootstrap';
+@import 'bourbon';
+
 @import 'base/fonts';
+@import 'base/variables';
 
 @import 'generic/text';
 

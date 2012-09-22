@@ -3,8 +3,6 @@
 //= require alerts
 //= require google-maps
 //= require facebook-events
-//= require bootstrap-transition
-//= require bootstrap-modal
-//= require bootstrap-alert
+//= require bootstrap
 //= require meetup
 

@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails',       '~> 3.2.0'
+gem 'rails',       '~> 3.2.3'
 gem 'haml',        '~> 3.1'
 gem 'friendly_id', '~> 4.0'
 gem 'cells',       '~> 3.8'

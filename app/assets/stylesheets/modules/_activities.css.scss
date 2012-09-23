@@ -1,13 +1,32 @@
 section.activities {
-  padding-top: 2em;
-  background-color: #F0F0F0;
-  border-bottom: 1px solid #E0E0E0;
+  padding-top: 1.5em;
+  background-color: $color1;
+  border-bottom: 1px solid $color3;
 
-  .dinner, .hack, .meetup, .showoff {
-    border: 1px solid #EBEBEB;
+  .hack, .meetup, .people, .projects {
+    margin-top: .5em;
+
+    @include span-columns(3);
     min-height: 12em;
-    background-image: url('http://placehold.it/220x158');
-    max-width: 220px;
+
+    @include breakpoint($smartphone-landscape) {
+      h1 { 
+        font-size: 120%;
+      }
+      min-height: 6em;
+    }
+
+    @include breakpoint($smartphone-portrait) {
+      @include span-columns(6);
+      @include nth-omega(2);
+
+      h1 {
+        font-size: 130%;
+      }
+      min-height: 6em;
+    }
+
+    background-color: $color2;
 
     h1 {
       padding-left: .3em;

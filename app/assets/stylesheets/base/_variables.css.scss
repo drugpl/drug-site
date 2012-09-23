@@ -1,1 +1,7 @@
+$color1: #f0f0f0; // activities bg color
+$color3: #e0e0e0; // activities border color
+$color2: $color3; // activity thumb border color
 
+$tablet-portrait: max-width 906px 12;
+$smartphone-landscape: max-width 738px 12;
+$smartphone-portrait: max-width 340px 12;

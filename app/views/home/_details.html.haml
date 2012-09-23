@@ -1,0 +1,25 @@
+%section.details
+  %h1= @event.title
+
+  .datetime
+    = link_to image_tag('glyphicons_045_calendar.png'), '#'
+    %time{datetime: "datetime='#{@event.starting_at}'"}
+      //= @event.starting_at.strftime('%d/%m/%Y')
+      poniedziałek, 15 października 2012
+      %br
+      = @event.starting_at.strftime('%H:%M')
+
+  .venue
+    = link_to image_tag('glyphicons_242_google_maps.png'), '#'
+    %address
+      = @event.venue_name
+      %br
+      = @event.venue_address
+
+  %p.description
+    = @event.description
+
+  .buttons
+    = link_to 'Attend', '#'
+    = link_to 'Speak', ' #'
+

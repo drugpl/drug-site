@@ -1,8 +1,7 @@
 //= require 'normalize'
-//= require 'bootstrap'
-//= require 'bootstrap-responsive'
 
 @import 'bourbon';
+@import 'neat';
 
 @import 'base/fonts';
 @import 'base/variables';
@@ -13,6 +12,10 @@
 @import 'modules/main';
 @import 'modules/activities';
 @import 'modules/event';
-@import 'modules/event_list';
+//@import 'modules/event_list';
 @import 'modules/bottom_bar';
 
+div.container  {
+  @include outer-container;
+  padding: 0 1.5em;
+}

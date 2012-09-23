@@ -3,5 +3,6 @@
 FactoryGirl.define do
   factory :user do
     sequence(:full_name) { "full_name_#{n}" }
+    sequence(:email) { "full_name_#{n}@example.net" }
   end
 end

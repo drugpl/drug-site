@@ -1,16 +1,32 @@
 .event {
-  padding: 2em 0;
+  section.map, section.details, section.speakers, section.attendees {
+    @include span-columns(6);
+
+    @include breakpoint($smartphone-landscape) {
+      @include span-columns(12);
+    }
+  }
+
+  section.map {
+    @include omega;
+    min-height: 350px;
+    background-image: url('http://wroclove2012.com/files/article/GFMWIHJL/600x402.jpg');
+    margin-top: 1.5em;
+  }
+
+  padding: 1.5em 0;
 
   h1 {
     margin-bottom: .5em;
   }
 
   .datetime {
+    padding: .5em .5em .5em 1em;
     clear: both;
 
     img {
-     float: left;
-     vertical-align: top;
+      padding-top: .5em;
+      float: left;
     }
 
     time {
@@ -20,30 +36,38 @@
   }
 
   .venue {
-    padding-top: .5em;
+    padding: .5em .5em .5em 1em;
     clear: both;
 
     img {
-     float: left;
-     vertical-align: top;
+      padding-top: .5em;
+      float: left;
       margin-left: 3px;
     }
 
     address {
+      font-style: normal;
       float: left;
       margin-left: 22px;
     }
   }
 
   .description {
-    text-align: justify;
+    padding-top: 1.5em;
     clear: both;
   }
 
   .buttons {
-    text-align: center;
-    margin: 1.5em auto;
+    a {
+      @include button(#666);
+      font-size: 100%;
+      color: #f0f0f0;
+    }
+
+    //text-align: center;
+    //margin: 1.5em auto;
   }
+
 
   .speakers {
     padding: 1em 0 0;
@@ -57,24 +81,26 @@
       padding: 0;
       margin: 0;
 
-      img {
-        float: left;
-        vertical-align: top;
-        margin-bottom: 5px;
-      }
-
-      p {
-        float: left;
-        padding-left: .7em;
-      }
-
       li {
-        clear: both;
+        display: table-row;
+
+        img {
+          margin-bottom: .65em;
+          display: table-cell;
+        }
+
+        p {
+          vertical-align: top;
+          display: table-cell;
+          margin: 0;
+          padding: 0 0 0 1em;
+        }
       }
     }
   }
 
-  .attendees {
+  section.attendees {
+    @include omega;
     padding: 1em 0 0;
 
     h1 {
@@ -87,11 +113,12 @@
       margin: 0;
 
       li {
-        display: inline;
+        padding: 0 .2em .2em 0;
+        display: inline-block; 
+      }
 
-        a {
-          border-bottom: none;
-        }
+      a {
+        border-bottom: none;
       }
     }
   }

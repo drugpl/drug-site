@@ -14,6 +14,7 @@ group :assets do
   gem 'coffee-rails'
   gem 'uglifier'
   gem 'bourbon'
+  gem 'neat'
 end
 
 group :development do

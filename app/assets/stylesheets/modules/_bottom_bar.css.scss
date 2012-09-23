@@ -3,11 +3,83 @@
   border-top: 1px solid #E0E0E0;
   padding: .5em 0 0;
 
+
+  section.about {
+    @include span-columns(6);
+
+    @include breakpoint($tablet-portrait) {
+      @include span-columns(9);
+    }
+
+    @include breakpoint($smartphone-landscape) {
+      @include span-columns(12);
+    }
+  }
+
+  section.ruby {
+    @include span-columns(2);
+
+    @include breakpoint($tablet-portrait) {
+      @include span-columns(3);
+      @include omega;
+    }
+
+    @include breakpoint($smartphone-landscape) {
+      @include span-columns(12);
+
+      li {
+        float: left;
+        padding-right: .5em;
+      }
+
+      li:last-child {
+        padding-right: 0;
+      }
+    }
+  }
+
+  section.events {
+    li {
+      float: left;
+      padding-right: 1em;
+    }
+
+    li:last-child {
+      padding-right: 0;
+    }
+
+    @include span-columns(2);
+
+    @include breakpoint($tablet-portrait) {
+      @include span-columns(9);
+    }
+
+    @include breakpoint($smartphone-landscape) {
+      @include span-columns(12);
+    }
+  }
+
+  section.contact {
+    @include span-columns(2);
+    @include omega;
+
+    @include breakpoint($tablet-portrait) {
+      @include span-columns(3);
+      @include omega;
+    }
+
+    @include breakpoint($smartphone-landscape) {
+      @include span-columns(12);
+    }
+  }
+
   h1 {
-    font-size: 150%;
+    font-size: 130%;
   }
 
   .inner {
+    @include span-columns(12);
+
     padding: 1em 0;
 
     p {

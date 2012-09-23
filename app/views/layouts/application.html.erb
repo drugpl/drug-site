@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>DRUG</title>
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,700&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=Droid+Sans:700' rel='stylesheet' type='text/css'>
+    <%= stylesheet_link_tag    "application", media: "all" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+    <!--[if lt IE 9]>
+      <%= javascript_include_tag "//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6/html5shiv.min.js" %>
+    <![endif]-->
+  </head>
+  <body>
+    <header class="top-bar">
+      <div class="container">
+        <%= render "layouts/header" %>
+        <%= render 'layouts/links' %>
+      </div>
+    </header>
+
+    <section class="main">
+      <%= render "layouts/activities" %>
+      <div class="container">
+        <%= yield %>
+      </div>
+    </section>
+
+    <footer class="bottom-bar">
+      <div class="container">
+        <%= render "layouts/footer" %>
+      </div>
+    </footer>
+  </body>
+</html>

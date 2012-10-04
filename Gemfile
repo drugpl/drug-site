@@ -22,6 +22,7 @@ group :development do
   gem 'debugger'
   gem 'capistrano'
   gem 'awesome_print'
+  gem 'factory_girl_rails', require: false
 end
 
 

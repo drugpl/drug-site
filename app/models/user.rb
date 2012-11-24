@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
 
   def self.from_omniauth(auth)
     field = 'facebook_uid' if auth.provider == 'facebook'
+    field = 'github_uid' if auth.provider == 'github'
     # Is there way to do it simpler?
     where_hash = {}
     where_hash[field] = auth.uid

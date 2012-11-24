@@ -114,6 +114,9 @@ GEM
       rack
     omniauth-facebook (1.4.1)
       omniauth-oauth2 (~> 1.1.0)
+    omniauth-github (1.0.3)
+      omniauth (~> 1.0)
+      omniauth-oauth2 (~> 1.1)
     omniauth-oauth2 (1.1.1)
       oauth2 (~> 0.8.0)
       omniauth (~> 1.0)
@@ -188,6 +191,7 @@ DEPENDENCIES
   neat
   omniauth
   omniauth-facebook
+  omniauth-github
   pg
   puma
   rails (~> 3.2.3)

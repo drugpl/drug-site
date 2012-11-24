@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121124215408) do
+ActiveRecord::Schema.define(:version => 20121124234810) do
 
   create_table "contacts", :force => true do |t|
     t.string   "name",       :null => false
@@ -109,6 +109,7 @@ ActiveRecord::Schema.define(:version => 20121124215408) do
     t.datetime "updated_at"
     t.string   "full_name"
     t.decimal  "facebook_uid",                        :precision => 20, :scale => 0
+    t.decimal  "github_uid",                          :precision => 20, :scale => 0
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

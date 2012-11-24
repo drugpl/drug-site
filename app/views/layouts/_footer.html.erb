@@ -34,6 +34,14 @@
 
 <div class="inner">
   <p>
+    <% if current_user %>
+      You are logged as <%= current_user.full_name %>.
+      Now you can <%= link_to "sign out", sessions_path, method: :delete %>.
+    <% else %>
+      <%= link_to "Log in with facebook", "/auth/facebook" %>
+    <% end %>
+  </p>
+  <p>
     <%= link_to 'Kod źródłowy', 'http://github.com/drugpl/drug-site' %> tej strony dostępny na licencji MIT.
     Dziękujemy wszystkim <%= link_to 'kontrybutorom', 'http://github.com/drugpl/drug-site/contributors' %>
   </p>

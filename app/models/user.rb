@@ -3,6 +3,8 @@ class User < ActiveRecord::Base
 
   validates :full_name, presence: true
 
+  scope :publicized, where(publicized: true)
+
   def description
     "Hi my name is and i like doing this and that :)"
   end

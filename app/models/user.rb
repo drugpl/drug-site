@@ -10,8 +10,11 @@ class User < ActiveRecord::Base
   end
 
   def self.from_omniauth(auth)
-    field = 'facebook_uid' if auth.provider == 'facebook'
-    field = 'github_uid' if auth.provider == 'github'
+    field = case auth.provider
+      when 'facebook' then 'facebook_uid'
+      when 'github' then 'github_uid'
+    end
+    
     # Is there way to do it simpler?
     where_hash = {}
     where_hash[field] = auth.uid

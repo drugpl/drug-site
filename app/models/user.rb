@@ -12,6 +12,19 @@ class User < ActiveRecord::Base
     "Hi my name is and i like doing this and that :)"
   end
 
+  def attend(event)
+    if events.include?(event)
+      :already_signed
+    else
+      events << event
+      if save
+        :signed
+      else
+        :error
+      end
+    end
+  end
+
   def self.from_omniauth(auth)
     field = case auth.provider
       when 'facebook' then 'facebook_uid'

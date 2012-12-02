@@ -8,13 +8,13 @@ class AttendantsController < ApplicationController
 
   def create
     @event = Event.find(params[:event_id])
-    
-    if current_user.events.include?(@event)
-      redirect_to root_path, notice: "You already signed up for this event!"
-    else
-      current_user.events << @event
-      current_user.save!
-      redirect_to root_path, notice: "You signed up for this event."
+    case current_user.attend(@event)
+      when :already_signed
+        redirect_to root_path, notice: "You already signed up for this event!"
+      when :signed
+        redirect_to root_path, notice: "You signed up for this event."
+      else
+        redirect_to root_path, notice: "Something went wrong, try again or contact us."  
     end
   end
 end

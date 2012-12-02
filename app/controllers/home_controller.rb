@@ -3,5 +3,6 @@ class HomeController < ApplicationController
     @event           = Event.last
     @previous_events = Event.previous
     @presentations   = Presentation.all
+    @new_presentation = Presentation.new
   end
 end

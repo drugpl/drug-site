@@ -21,4 +21,10 @@ $(document).ready ->
       modal: true
     })
 
-  $('.sign-in').hide()
+  $('.speak-button').click (event)->
+    event.preventDefault()
+    $(".speak").dialog({
+      modal: true
+    })
+
+  $('.modal').hide()

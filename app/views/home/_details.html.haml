@@ -25,9 +25,9 @@
       = link_to 'Speak', ' #logged'
   - else
     .buttons
-      = link_to 'Attend', '#unlogged'
-      = link_to 'Speak', ' #unlogged'
-    .sign-in
+      = link_to 'Attend', '#unlogged', class: 'sign-in-button'
+      = link_to 'Speak', ' #unlogged', class: 'sign-in-button'
+    .sign-in{title: "Log in"}
       = link_to "Log in with facebook", "/auth/facebook", class: 'btn-auth btn-facebook'
       %br
       = link_to "Log in with github", "/auth/github", class: 'btn-auth btn-github'

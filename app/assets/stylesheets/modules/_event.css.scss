@@ -10,7 +10,8 @@
   section.map {
     @include omega;
     min-height: 350px;
-    background-image: url('http://wroclove2012.com/files/article/GFMWIHJL/600x402.jpg');
+    // Commented because it's lagging a page... wroclove2012.com is not responding  
+    // background-image: url('http://wroclove2012.com/files/article/GFMWIHJL/600x402.jpg');
     margin-top: 1.5em;
   }
 
@@ -67,7 +68,6 @@
     //text-align: center;
     //margin: 1.5em auto;
   }
-
 
   .speakers {
     padding: 1em 0 0;

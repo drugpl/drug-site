@@ -19,7 +19,17 @@
   %p.description
     = @event.description
 
-  .buttons
-    = link_to 'Attend', '#'
-    = link_to 'Speak', ' #'
+  - if current_user
+    .buttons
+      = link_to 'Attend', '#logged'
+      = link_to 'Speak', ' #logged'
+  - else
+    .buttons
+      = link_to 'Attend', '#unlogged'
+      = link_to 'Speak', ' #unlogged'
+    .sign-in
+      = link_to "Log in with facebook", "/auth/facebook", class: 'btn-auth btn-facebook'
+      %br
+      = link_to "Log in with github", "/auth/github", class: 'btn-auth btn-github'
+    
 

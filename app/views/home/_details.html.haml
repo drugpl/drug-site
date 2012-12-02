@@ -21,7 +21,7 @@
 
   - if current_user
     .buttons
-      = link_to 'Attend', '#logged'
+      = link_to 'Attend', event_attendants_path(@event), method: :post
       = link_to 'Speak', ' #logged'
   - else
     .buttons

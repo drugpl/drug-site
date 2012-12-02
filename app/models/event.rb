@@ -4,6 +4,9 @@ class Event < ActiveRecord::Base
   belongs_to :venue
   has_many :presentations
 
+  has_many :participations
+  has_many :users, through: :participations
+
   extend FriendlyId
   friendly_id :title, use: :slugged
 
@@ -16,6 +19,7 @@ class Event < ActiveRecord::Base
 
   scope :happened, lambda { where("starting_at < ?", Time.zone.now) }
   scope :previous, lambda { order("id desc").limit(30).offset(1) }
+  scope :recent, lambda { order("starting_at DESC") }
 
   paginates_per 5
 

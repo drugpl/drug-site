@@ -8,7 +8,7 @@ Drug::Application.routes.draw do
   resources :users, only: [:index, :show]
 
   resources :events, only: [:index, :show] do
-    resources :attendants, only: [:index]
+    resources :attendants, only: [:index, :create]
   end
   resource :contact, only: [:show, :create]
 end

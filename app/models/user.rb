@@ -1,6 +1,9 @@
 class User < ActiveRecord::Base
   has_many :presentations
 
+  has_many :participations
+  has_many :events, through: :participations
+
   validates :full_name, presence: true
 
   scope :publicized, where(publicized: true)
@@ -15,7 +18,8 @@ class User < ActiveRecord::Base
       when 'github' then 'github_uid'
     end
     
-    where_hash = { field: auth.uid }
+    where_hash = {}
+    where_hash[field] = auth.uid
 
     if field.present?
       user = where(where_hash).first
@@ -26,7 +30,7 @@ class User < ActiveRecord::Base
           u.full_name = auth.info.name
           u.email = auth.info.email
         end
-        
+
         u.save!
       end
     end

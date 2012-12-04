@@ -7,22 +7,9 @@ module UsersHelper
   end
 
   def github_profile_url(user)
-    if user.github_uid.present?
+    if user.github_uid.present? && user.github_nickname.present?
       link_to image_tag('glyphicons_341_github.png', size: "16x16"),
-        "http://github.com/#{user.github_uid}"
-    end
-  end
-
-  def twitter_profile_url(user)
-    if false
-      link_to image_tag('glyphicons_322_twitter.png', size: "16x16"),
-        "http://twitter.com/#!/#{id}"
-    end
-  end
-
-  def rss_url(user)
-    if false
-      link_to image_tag('glyphicons_327_rss.png', size: "16x16"), ""
+        "http://github.com/#{user.github_nickname}"
     end
   end
 end

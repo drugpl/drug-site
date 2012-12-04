@@ -37,20 +37,26 @@ class User < ActiveRecord::Base
       (self.amount_of_presentations * PresentationsKarma)
   end
 
-  def self.from_omniauth(auth)
-    user = where({ "#{auth.provider}_uid" => auth.uid }).first
-    
-    user ||= where(email: auth.info.email).first_or_initialize.tap do |u|
-      u.send("#{auth.provider}_uid=", auth.uid)
+  def add_omniauth_properties(auth)
+    self.send("#{auth.provider}_uid=", auth.uid)
 
-      if u.new_record?
-        u.full_name = auth.info.name
-        u.email = auth.info.email
-      end
+    if new_record?
+      self.full_name = auth.info.name
+      self.email = auth.info.email
     end
 
-    user.github_nickname = auth.info.nickname
-    user.save!
+    case auth.provider
+      when 'github'
+        self.github_nickname = auth.info.nickname
+    end
+
+    save!
+  end
+
+  def self.from_omniauth(auth)
+    user = where({ "#{auth.provider}_uid" => auth.uid }).first
+    user ||= where(email: auth.info.email).first_or_initialize
+    user.add_omniauth_properties(auth)
     user
   end
 end

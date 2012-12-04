@@ -37,6 +37,7 @@
     <% if current_user %>
       You are logged as <%= current_user.full_name %>.
       Now you can <%= link_to "sign out", sessions_path, method: :delete %>.
+      <%= profiles_auth_links(current_user).html_safe %>
     <% end %>
   </p>
   <p>

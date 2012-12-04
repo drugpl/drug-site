@@ -37,13 +37,9 @@ class User < ActiveRecord::Base
       (self.amount_of_presentations * PresentationsKarma)
   end
 
-  Fields = {
-    github: [],
-    facebook: []
-  }
-
   def self.from_omniauth(auth)
     user = where({ "#{auth.provider}_uid" => auth.uid }).first
+    
     user ||= where(email: auth.info.email).first_or_initialize.tap do |u|
       u.send("#{auth.provider}_uid=", auth.uid)
 
@@ -51,14 +47,10 @@ class User < ActiveRecord::Base
         u.full_name = auth.info.name
         u.email = auth.info.email
       end
-
-      # Provider-specific fields
-      Fields.each do |field|
-        u.send("#{auth.provider}_#{field}=", auth.send(field))
-      end
-
-      u.save!
     end
+
+    user.github_nickname = auth.info.nickname
+    user.save!
     user
   end
 end

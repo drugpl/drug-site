@@ -1,0 +1,22 @@
+%section{class: 'user'}
+  %header
+    = image_tag(avatar_url(@user, 80))
+    %h1
+      = @user.full_name
+  %section{class: 'presentations'}
+    %h2
+      Talks
+    %ul
+      - @user.presentations.done.each do |presentation|
+        %li
+          %strong
+            = presentation.title
+          on 
+          = presentation.event_title
+  %section{class: 'participations'}
+    %h2
+      Presence
+    %p
+      = @user.full_name
+      was on 
+      42 meetups.

@@ -1,0 +1,14 @@
+%section{class: 'edit_user'}
+  %section{class: 'info'}
+    %header
+      = image_tag(avatar_url(@user, 80))
+      %h1
+        = @user.full_name
+
+  %section{class: 'sidebar'}
+    %ul
+      %li
+        - if @user.publicized?
+          = link_to "Conceal membership", change_membership_users_path
+        - else
+          = link_to "Publicize membership", change_membership_users_path

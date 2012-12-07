@@ -9,6 +9,7 @@ class Presentation < ActiveRecord::Base
   scope :done, where(status: 'done')
 
   delegate :full_name, to: :user, prefix: true
+  delegate :title, to: :event, prefix: true
 
   def postpone!
     self.status = 'postponed'

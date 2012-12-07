@@ -28,6 +28,11 @@ class User < ActiveRecord::Base
     end
   end
 
+  def change_membership!
+    self.publicized = !self.publicized
+    save!
+  end
+
   def attend?(event)
     events.include?(event)
   end

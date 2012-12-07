@@ -28,6 +28,10 @@ class User < ActiveRecord::Base
     end
   end
 
+  def attend?(event)
+    events.include?(event)
+  end
+
   def amount_of_presentations
     self.presentations.count
   end

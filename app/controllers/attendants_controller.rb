@@ -13,8 +13,13 @@ class AttendantsController < ApplicationController
         redirect_to root_path, notice: "You already signed up for this event!"
       when :signed
         redirect_to root_path, notice: "You signed up for this event."
-      else
-        redirect_to root_path, notice: "Something went wrong, try again or contact us."  
     end
+  end
+
+  def destroy
+    event = Event.find(params[:event_id])
+    participation = Participation.where(user_id: current_user.id, event_id: event.id).first
+    participation.destroy
+    redirect_to root_path, notice: "You resigned from attending to next DRUG : ("
   end
 end

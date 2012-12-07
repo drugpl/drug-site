@@ -82,6 +82,12 @@
       margin: 0;
 
       li {
+        &.postponed {
+          strong {
+            text-decoration: line-through;
+          }
+        }
+
         display: table-row;
 
         img {

@@ -33,7 +33,7 @@ class User < ActiveRecord::Base
   end
 
   def amount_of_presentations
-    self.presentations.count
+    self.presentations.done.count
   end
 
   def karma

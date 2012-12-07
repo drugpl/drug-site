@@ -20,6 +20,12 @@ class AttendantsController < ApplicationController
     event = Event.find(params[:event_id])
     participation = Participation.where(user_id: current_user.id, event_id: event.id).first
     participation.destroy
+
+    presentations = event.presentations.where(user_id: current_user.id)
+    presentations.each do |presentation|
+      presentation.postpone! unless presentation.postponed?
+    end
+    
     redirect_to root_path, notice: "You resigned from attending to next DRUG : ("
   end
 end

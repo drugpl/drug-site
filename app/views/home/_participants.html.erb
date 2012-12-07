@@ -1,17 +1,21 @@
 <section class="speakers">
   <h1>Speaking</h1>
-  <ul>
-    <% presentations.each do |presentation| %>
-      <%= render partial: 'presentation', locals: {presentation: presentation} %>
-    <% end %>
-  </ul>
+  <% if presentations.present? %>
+    <ul>
+      <% presentations.each do |presentation| %>
+        <%= render partial: 'presentation', locals: {presentation: presentation} %>
+      <% end %>
+    </ul>
+  <% else %>
+    Call for papers! Maybe you want to tell us about something awesome?
+  <% end %>
 </section>
 
 <section class="attendees">
   <h1>Attending</h1>
   <ul>
-    <% 18.times do %>
-      <li><img src="http://placehold.it/64x64"></li>
+    <% participants.each do |participant| %>
+      <li><%= image_tag(avatar_url(participant, 64)) %></li>
     <% end %>
   </ul>
 </section>

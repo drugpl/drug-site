@@ -7,9 +7,7 @@
   </header>
 
   <div style="float: left; width: 150px;">
-    <% avatar = user.id <= 4 ? "avatar.png" : "wroc_love_dwarf.png" %>
-    <% avatar = "monster.png" if user.id >= 8 %>
-    <%= image_tag(avatar, size: "128x128") %>
+    <%= image_tag(avatar_url(user, 128)) %>
   </div>
   <div style="float: left; width: 600px;">
     <p class="description">

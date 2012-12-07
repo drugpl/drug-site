@@ -3,9 +3,8 @@ class PresentationsController < ApplicationController
 
   def create
     event = Event.find(params[:event_id])
-    @presentation = Presentation.new(params[:presentation])
+    @presentation = event.presentations.create(params[:presentation])
     @presentation.user = current_user
-    @presentation.event = event
     current_user.attend(event)
 
     flash[:notice] = "Presentation added" if @presentation.save

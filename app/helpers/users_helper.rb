@@ -28,4 +28,14 @@ module UsersHelper
       "You connected all services. Well done!"
     end
   end
+
+  def avatar_url(user, size=64)
+    gravatar_id = Digest::MD5::hexdigest(user.email).downcase
+    
+    if user.facebook_uid.present?
+      avatar_url = "http://graph.facebook.com/#{user.facebook_uid}/picture?type=square"
+    end
+    
+    "http://gravatar.com/avatar/#{gravatar_id}.png?s=#{size}&d=#{CGI.escape(avatar_url)}"
+  end
 end

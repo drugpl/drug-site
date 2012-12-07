@@ -1,5 +1,8 @@
 <section class="event">
   <%= render 'details' %>
   <%= render 'map' %>
-  <%= render partial: 'participants', locals: {presentations: @presentations} %>
+  <%= render partial: 'participants', locals: {
+    presentations: @presentations,
+    participants: @participants
+  } %>
 </section>

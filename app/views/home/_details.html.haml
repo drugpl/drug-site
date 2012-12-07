@@ -32,8 +32,7 @@
         = f.submit "Submit!"
   - else
     .buttons
-      = link_to 'Attend', '#', class: 'sign-in-button'
-      = link_to 'Speak', ' #', class: 'sign-in-button'
+      = link_to 'Sign in to Attend or Speak', '#', class: 'sign-in-button'
     .sign-in{title: "Log in", class: 'modal'}
       = link_to "Log in with facebook", "/auth/facebook", class: 'btn-auth btn-facebook'
       %br

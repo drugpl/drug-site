@@ -1,11 +1,11 @@
 source 'http://rubygems.org'
 
-gem 'rails', '~> 3.2.0.rc2'
+gem 'rails', '~> 3.2.0'
 gem 'pg', '~> 0.12.2'
 gem 'haml', '~> 3.1.4'
 gem 'friendly_id', '~> 4.0'
 gem 'cells', '~> 3.8'
-gem 'jquery-rails'
+gem 'jquery-rails', '2.0.1'
 gem 'kaminari'
 gem 'RedCloth'
 
@@ -31,5 +31,5 @@ group :production do
 end
 
 group :development do
-  gem 'ruby-debug19'
+  gem 'debugger'
 end

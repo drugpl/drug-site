@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  class AlreadySignedException < StandardError; end
+  
   attr_accessible :full_name, :irc_nickname
 
   has_many :presentations
@@ -17,16 +19,12 @@ class User < ActiveRecord::Base
     "Hi my name is and i like doing this and that :)"
   end
 
-  def attend(event)
+  def attend!(event)
     if events.include?(event)
-      :already_signed
+      raise AlreadySignedException
     else
       events << event
-      if save
-        :signed
-      else
-        :error
-      end
+      save
     end
   end
 

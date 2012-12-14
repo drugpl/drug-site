@@ -8,12 +8,10 @@ class AttendantsController < ApplicationController
 
   def create
     @event = Event.find(params[:event_id])
-    case current_user.attend(@event)
-      when :already_signed
-        redirect_to root_path, notice: "You already signed up for this event!"
-      when :signed
-        redirect_to root_path, notice: "You signed up for this event."
-    end
+    current_user.attend!(@event)
+    redirect_to root_path, notice: "You signed up for this event."
+  rescue User::AlreadySignedException
+    redirect_to root_path, notice: "You already signed up for this event!"
   end
 
   def destroy

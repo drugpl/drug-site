@@ -1,10 +1,9 @@
 class User < ActiveRecord::Base
   class AlreadySignedException < StandardError; end
-  
-  attr_accessible :full_name, :irc_nickname
+
+  attr_accessible :full_name, :irc_nickname, :rss_url, :description
 
   has_many :presentations
-
   has_many :participations
   has_many :events, through: :participations
 
@@ -14,10 +13,6 @@ class User < ActiveRecord::Base
 
   PresentationsKarma = 3
   IrcPointsKarma = 1
-
-  def description
-    "Hi my name is and i like doing this and that :)"
-  end
 
   def attend!(event)
     if events.include?(event)

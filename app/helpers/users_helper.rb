@@ -13,6 +13,12 @@ module UsersHelper
     end
   end
 
+  def rss_url(user)
+    if user.rss_url.present?
+      link_to image_tag('glyphicons_327_rss.png', size: "16x16"), user.rss_url
+    end
+  end
+
   def profiles_auth_links(user)
     blank_providers = ['github', 'facebook'].select do |provider|
       user.send("#{provider}_uid").blank?

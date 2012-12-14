@@ -4,6 +4,7 @@
       <%= user.full_name %>
       <%= facebook_profile_url(user) %>
       <%= github_profile_url(user) %>
+      <%= rss_url(user) %>
   </header>
 
   <div style="float: left; width: 150px;">
@@ -11,10 +12,6 @@
   </div>
   <div style="float: left; width: 600px;">
     <p class="description">
-      <%= user.description.html_safe %>
-    </p>
-
-    <p class="stats">
       <%= user.description.html_safe %>
     </p>
 

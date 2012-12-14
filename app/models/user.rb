@@ -1,10 +1,12 @@
 class User < ActiveRecord::Base
+  attr_accessible :full_name, :irc_nickname
+
   has_many :presentations
 
   has_many :participations
   has_many :events, through: :participations
 
-  validates :full_name, presence: true
+  validates :irc_nickname, uniqueness: true, allow_blank: true
 
   scope :publicized, where(publicized: true)
 

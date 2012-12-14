@@ -1,4 +1,4 @@
-.edit_user {
+section.edit_user {
   margin-top: 1em;
 
   .info {
@@ -17,8 +17,18 @@
       }
     }
 
-    .presentations {
+    form.edit_user {
       clear: both;
+      .field {
+        display: table-row;
+        input {
+          display: table-cell;
+        }
+        label {
+          display: table-cell;
+          padding-right: 1em;
+        }
+      }
     }
   }
 

@@ -8,6 +8,7 @@ Drug::Application.routes.draw do
   resources :users, only: [:index, :show] do
     collection do
       get 'edit'
+      put 'update'
       get 'change_membership'
     end
   end

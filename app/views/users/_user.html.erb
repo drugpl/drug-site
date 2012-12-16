@@ -5,14 +5,15 @@
       <%= facebook_profile_url(user) %>
       <%= github_profile_url(user) %>
       <%= rss_url(user) %>
+    </h2>
   </header>
 
   <div style="float: left; width: 150px;">
-    <%= image_tag(avatar_url(user, 128)) %>
+    <%= image_tag(avatar_url(user, 128), alt: "Avatar not found") %>
   </div>
   <div style="float: left; width: 600px;">
     <p class="description">
-      <%= user.description.html_safe %>
+      <%= user.description.try(:html_safe) %>
     </p>
 
     <% if user.id >= 4 %>

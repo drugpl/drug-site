@@ -1,6 +1,7 @@
 %section{class: 'user'}
   %header
-    = image_tag(avatar_url(@user, 80))
+    = image_tag(avatar_url(@user, 80), alt: "Avatar not found")
+    xxx
     %h1
       = @user.full_name
   %section{class: 'presentations'}

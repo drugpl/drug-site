@@ -40,6 +40,8 @@ module UsersHelper
     
     if user.facebook_uid.present?
       avatar_url = "http://graph.facebook.com/#{user.facebook_uid}/picture?type=square"
+    else
+      avatar_url = root_url + asset_path("avatar.png")
     end
     
     "http://gravatar.com/avatar/#{gravatar_id}.png?s=#{size}&d=#{CGI.escape(avatar_url)}"

@@ -1,12 +1,4 @@
-- options = {:class => "event"}
-- options = {:class => "event facebook", :"data-facebook-id" => @event.facebook_id, :"data-attendants-url" => event_attendants_path(@event)} if @event.has_facebook_event?
-%article{options}
-  %header
-    %h2= @event.title
-  = render :partial => "event_detail", :locals => {event: @event}
-
-= content_for :sidebar do
-  = render_cell :content_blocks, :snippet, :events, t('snippets.events')
-  = render_cell :content_blocks, :snippet, :online, t('snippets.online')
-  = render_cell :content_blocks, :snippet, :community, t('snippets.community')
-  = render_cell :content_blocks, :snippet, :keep_in_touch, t('snippets.keep_in_touch')
+%section.event
+  = render 'events/event_details'
+  = render 'events/event_map'
+  = render 'events/participants', presentations: @presentations, postponed_presentations: @postponed_presentations,participants: @participants

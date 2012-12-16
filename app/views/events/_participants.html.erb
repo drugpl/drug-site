@@ -2,9 +2,7 @@
   <h1>Speaking</h1>
   <% if presentations.present? %>
     <ul>
-      <% presentations.each do |presentation| %>
-        <%= render partial: 'presentation', locals: {presentation: presentation} %>
-      <% end %>
+      <%= render presentations %>
     </ul>
   <% else %>
     Call for papers! Maybe you want to tell us about something awesome?
@@ -13,9 +11,7 @@
   <% if postponed_presentations.present? %>
     <h1>Postponed</h1>
     <ul>
-      <% postponed_presentations.each do |presentation| %>
-        <%= render partial: 'presentation', locals: {presentation: presentation} %>
-      <% end %>
+      <%= render postponed_presentations %>
     </ul>
   <% end %>
 </section>

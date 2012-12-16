@@ -16,15 +16,12 @@
       <%= user.description.try(:html_safe) %>
     </p>
 
-    <% if user.id >= 4 %>
-      <%= image_tag("badge.png", size: "235x33") %>
-    <% end%>
-
     <p class="details">
       <h3><%= user.karma %> karma</h3>
       <span style="font-size: 60%;">
-        <a><%= user.amount_of_presentations %> talks</a>,
-        <a><%= user.irc_points %> irc points</a>
+        <%= user.amount_of_presentations %> talks,
+        <%= user.irc_points %> irc points,
+        <%= user.amount_of_participations %> DRUGs!
       </span>
     </p>
     

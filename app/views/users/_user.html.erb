@@ -1,47 +1,30 @@
 <li class="user">
   <header>
     <h2>
-      <%= user.full_name %>
-      <%= link_to image_tag('glyphicons_322_twitter.png', size: "16x16"), '#' %>
-      <%= link_to image_tag('glyphicons_320_facebook.png', size: "16x16"), '#' %>
-      <%= link_to image_tag('glyphicons_341_github.png', size: "16x16"), '#' %>
-      <%= link_to image_tag('glyphicons_327_rss.png', size: "16x16"), '#' %>
+      <%= link_to user.full_name, user %>
+      <%= facebook_profile_url(user) %>
+      <%= github_profile_url(user) %>
+      <%= rss_url(user) %>
+    </h2>
   </header>
 
   <div style="float: left; width: 150px;">
-    <% avatar = user.id <= 4 ? "avatar.png" : "wroc_love_dwarf.png" %>
-    <% avatar = "monster.png" if user.id >= 8 %>
-    <%= image_tag(avatar, size: "128x128") %>
+    <%= image_tag(avatar_url(user, 128), alt: "Avatar not found") %>
   </div>
   <div style="float: left; width: 600px;">
     <p class="description">
-      <%= user.description.html_safe %>
+      <%= user.description.try(:html_safe) %>
     </p>
-
-    <p class="stats">
-      <%= user.description.html_safe %>
-    </p>
-
-    <% if user.id >= 4 %>
-      <%= image_tag("badge.png", size: "235x33") %>
-    <% end%>
 
     <p class="details">
-      <%= link_to "Talks", "#" %> |
-      <%= link_to "Attachments", "#" %> |
-      <%= link_to "Presence", "#" %> |
+      <h3><%= user.karma %> karma</h3>
+      <span style="font-size: 60%;">
+        <%= user.amount_of_presentations %> talks,
+        <%= user.irc_points %> irc points,
+        <%= user.amount_of_participations %> DRUGs!
+      </span>
     </p>
-
-  </div>
-
-  <div style="float: left; width: 150px;">
-    <h3>128 karma</h3>
-    <span style="font-size: 60%;">
-      <a>3 workshops</a>,
-      <a>33 talks</a>,
-      <a>20 lightnings</a>,
-      <a>3 irc points</a>
-    </span>
+    
   </div>
   <div style="clear:both;"> </div>
 </li>

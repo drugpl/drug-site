@@ -1,0 +1,18 @@
+- if current_user
+  .buttons
+    - if current_user.attend?(@event)
+      = link_to 'Unattend', event_attendants_path(@event), method: :delete
+    - else
+      = link_to 'Attend', event_attendants_path(@event), method: :post
+    = link_to 'Speak', '#', class: 'speak-button'
+  .speak{title: "Speak", class: 'modal'}
+    = form_for([@event, @new_presentation]) do |f|
+      = f.text_field :title, placeholder: "Title of your talk", required: 'required'
+      = f.submit "Submit!"
+- else
+  .buttons
+    = link_to 'Sign in to Attend or Speak', '#', class: 'sign-in-button'
+  .sign-in{title: "Log in", class: 'modal'}
+    = link_to "Log in with facebook", "/auth/facebook", class: 'btn-auth btn-facebook'
+    %br
+    = link_to "Log in with github", "/auth/github", class: 'btn-auth btn-github'

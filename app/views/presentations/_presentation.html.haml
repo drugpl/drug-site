@@ -1,0 +1,16 @@
+%li{class: presentation.status}
+  = link_to image_tag(avatar_url(presentation.user, 80)), presentation.user
+  %p
+    %strong
+      = presentation.title
+    %br
+    = link_to presentation.user_full_name, presentation.user
+    %br
+    - if presentation.user == current_user
+      - if presentation.postponed?
+        = link_to "Cancel postponement",
+          cancel_postponement_event_presentation_path(presentation.event, presentation), method: :post
+      - else
+        = link_to "Postpone", postpone_event_presentation_path(presentation.event, presentation), method: :post
+      | 
+      = link_to "Cancel presentation", event_presentation_path(presentation.event, presentation), method: :delete

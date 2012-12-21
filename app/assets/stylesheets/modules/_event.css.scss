@@ -10,7 +10,8 @@
   section.map {
     @include omega;
     min-height: 350px;
-    background-image: url('http://wroclove2012.com/files/article/GFMWIHJL/600x402.jpg');
+    // Commented because it's lagging a page... wroclove2012.com is not responding  
+    // background-image: url('http://wroclove2012.com/files/article/GFMWIHJL/600x402.jpg');
     margin-top: 1.5em;
   }
 
@@ -68,7 +69,6 @@
     //margin: 1.5em auto;
   }
 
-
   .speakers {
     padding: 1em 0 0;
 
@@ -82,6 +82,12 @@
       margin: 0;
 
       li {
+        &.postponed {
+          strong {
+            text-decoration: line-through;
+          }
+        }
+
         display: table-row;
 
         img {
@@ -121,5 +127,14 @@
         border-bottom: none;
       }
     }
+  }
+}
+
+.speak {
+  input {
+    width: 100%;
+  }
+  input[type="submit"] {
+    @include button(#666);
   }
 }

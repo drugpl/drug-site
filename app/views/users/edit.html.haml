@@ -1,0 +1,30 @@
+%section{class: 'edit_user'}
+  %section{class: 'info'}
+    %header
+      = image_tag(avatar_url(@user, 80))
+      %h1
+        = @user.full_name
+    = form_for @user, url: users_path, method: :put do |f|
+      %br
+      .field
+        = f.label :full_name
+        = f.text_field :full_name
+      .field
+        = f.label :irc_nickname
+        = f.text_field :irc_nickname
+      .field
+        = f.label :rss_url
+        = f.text_field :rss_url
+      .field
+        = f.label :description
+        = f.text_area :description
+      = f.submit
+
+
+  %section{class: 'sidebar'}
+    %ul
+      %li
+        - if @user.publicized?
+          = link_to "Conceal membership", change_membership_users_path
+        - else
+          = link_to "Publicize membership", change_membership_users_path

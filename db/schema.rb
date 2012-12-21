@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121004200124) do
+ActiveRecord::Schema.define(:version => 20121214232756) do
 
   create_table "contacts", :force => true do |t|
     t.string   "name",       :null => false
@@ -45,6 +45,13 @@ ActiveRecord::Schema.define(:version => 20121004200124) do
   add_index "friendly_id_slugs", ["sluggable_id"], :name => "index_friendly_id_slugs_on_sluggable_id"
   add_index "friendly_id_slugs", ["sluggable_type"], :name => "index_friendly_id_slugs_on_sluggable_type"
 
+  create_table "participations", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "event_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "presentation_types", :force => true do |t|
     t.string   "name"
     t.datetime "created_at", :null => false
@@ -55,9 +62,10 @@ ActiveRecord::Schema.define(:version => 20121004200124) do
     t.string   "title"
     t.integer  "user_id"
     t.integer  "event_id"
-    t.datetime "created_at",           :null => false
-    t.datetime "updated_at",           :null => false
+    t.datetime "created_at",                                    :null => false
+    t.datetime "updated_at",                                    :null => false
     t.integer  "presentation_type_id"
+    t.string   "status",               :default => "submitted"
   end
 
   add_index "presentations", ["event_id"], :name => "index_presentations_on_event_id"
@@ -94,9 +102,9 @@ ActiveRecord::Schema.define(:version => 20121004200124) do
   end
 
   create_table "users", :force => true do |t|
-    t.string   "email",                               :default => "", :null => false
-    t.string   "encrypted_password",   :limit => 128, :default => "", :null => false
-    t.string   "password_salt",                       :default => "", :null => false
+    t.string   "email",                               :default => "",    :null => false
+    t.string   "encrypted_password",   :limit => 128, :default => "",    :null => false
+    t.string   "password_salt",                       :default => "",    :null => false
     t.string   "reset_password_token"
     t.string   "remember_token"
     t.datetime "remember_created_at"
@@ -108,6 +116,14 @@ ActiveRecord::Schema.define(:version => 20121004200124) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "full_name"
+    t.string   "facebook_uid"
+    t.string   "github_uid"
+    t.boolean  "publicized",                          :default => false
+    t.integer  "irc_points",                          :default => 0
+    t.string   "irc_nickname"
+    t.string   "github_nickname"
+    t.string   "rss_url"
+    t.text     "description"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

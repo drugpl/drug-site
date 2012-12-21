@@ -14,3 +14,17 @@ $(document).ready ->
         )
         $('#myModal').modal('toggle')
     )
+
+  $('.sign-in-button').click (event)->
+    event.preventDefault()
+    $(".sign-in").dialog({
+      modal: true
+    })
+
+  $('.speak-button').click (event)->
+    event.preventDefault()
+    $(".speak").dialog({
+      modal: true
+    })
+
+  $('.modal').hide()

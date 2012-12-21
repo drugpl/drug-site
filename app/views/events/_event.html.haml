@@ -1,12 +1,12 @@
-%li.event
-  %header
-    %h2
-      = event.title
-  %p.description
-    = event.description.html_safe
-  %p.comments
-    %time{:datetime => event.starting_at.iso8601.to_date}
-      = I18n.l(event.starting_at.to_date, :format => :default)
-    %span.comments
-      = link_to I18n.t('events.details_link'), event_path(event)
-
+%h2
+  = event.title
+%p
+  = event.description
+%ul
+  // chaining is bad, but it's just a sketch
+  - event.presentations.not_postponed.each do |presentation|
+    %li
+      = presentation.user_full_name
+      
+      = presentation.title
+%hr

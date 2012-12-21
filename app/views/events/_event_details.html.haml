@@ -4,8 +4,7 @@
   .datetime
     = link_to image_tag('glyphicons_045_calendar.png'), '#'
     %time{datetime: "datetime='#{@event.starting_at}'"}
-      //= @event.starting_at.strftime('%d/%m/%Y')
-      poniedziałek, 15 października 2012
+      = @event.starting_at.strftime('%d/%m/%Y')
       %br
       = @event.starting_at.strftime('%H:%M')
 
@@ -19,7 +18,5 @@
   %p.description
     = @event.description
 
-  .buttons
-    = link_to 'Attend', '#'
-    = link_to 'Speak', ' #'
-
+  - unless @event.future?
+    = render 'events/event_buttons'

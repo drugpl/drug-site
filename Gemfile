@@ -9,6 +9,10 @@ gem 'kaminari'
 gem 'ri_cal'
 gem 'simple_form'
 
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'omniauth-github'
+
 group :assets do
   gem 'sass-rails'
   gem 'coffee-rails'

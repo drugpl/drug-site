@@ -1,26 +1,44 @@
 require 'bundler/capistrano'
 
-$:.unshift(File.expand_path('./lib', ENV['rvm_path']))
-require 'rvm/capistrano'
-
 set :application, "drug"
-set :repository,  "git://github.com/drugpl/drug-site.git"
-set :deploy_to, "/var/lib/#{application}"
-set :user, "drug"
-set :rvm_ruby_string, "1.9.3"
+set :repository, "git://github.com/drugpl/drug-site.git"
+set :deploy_to, "/srv/#{application}"
+set :user, "#{application}"
 set :scm, :git
-set :bundle_without, [:test, :development]
-
+set :bundle_without, %w(test development)
 set :ssh_options, {:forward_agent => true}
+set :keep_releases, 5
 set :use_sudo, false
+set :unicorn_binary, "unicorn"
+set :unicorn_config, "#{current_path}/config/unicorn.rb"
+set :unicorn_pid, "#{current_path}/tmp/pids/unicorn.pid"
 
-role :web, "drug"                   # Your HTTP server, Apache/etc
-role :app, "drug"                   # This may be the same as your `Web` server
-role :db,  "drug", :primary => true # This is where Rails migrations will run
+server "drug", :app, :web, :db, :primary => true
 
-namespace :utils do
+namespace :deploy do
+  task :start, :roles => :app, :except => { :no_release => true } do
+    run "cd #{current_path} && #{try_sudo} bundle exec #{unicorn_binary} -c #{unicorn_config} -E #{rails_env} -D"
+  end
+
+  task :stop, :roles => :app, :except => { :no_release => true } do
+    run "#{try_sudo} kill `cat #{unicorn_pid}`"
+  end
+
+  task :graceful_stop, :roles => :app, :except => { :no_release => true } do
+    run "#{try_sudo} kill -s QUIT `cat #{unicorn_pid}`"
+  end
+
+  task :reload, :roles => :app, :except => { :no_release => true } do
+    run "#{try_sudo} kill -s USR2 `cat #{unicorn_pid}`"
+  end
+
+  task :restart, :roles => :app, :except => { :no_release => true } do
+    stop
+    start
+  end
+
   task :link_configuration_files do
-    ['database.yml', 'email.yml', 'facebook.yml', 'google_maps.yml'].each do |file|
+    %w(unicorn.rb database.yml email.yml facebook.yml google_maps.yml).each do |file|
       run "if [ -f #{deploy_to}/shared/#{file} ] ; then ln -sf #{deploy_to}/shared/#{file} #{latest_release}/config/; fi"
     end
   end
@@ -28,24 +46,9 @@ namespace :utils do
   task :link_secret_token do
     run "if [ -f #{deploy_to}/shared/secret_token.rb ] ; then ln -sf #{deploy_to}/shared/secret_token.rb #{latest_release}/config/initializers/; fi"
   end
-
-  task :precompile_assets do
-    run "cd #{release_path}; RAILS_ENV=production rake assets:precompile"
-  end
 end
 
-namespace :deploy do
-  task :start, :roles => :app do
-    run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
-  end
-  task :stop, :roles => :app do
-    # nothing
-  end
-  task :restart, :roles => :app, :except => { :no_release => true } do
-    run "touch #{File.join(current_path,'tmp','restart.txt')}"
-  end
-end
-
-after "deploy:update_code", "utils:precompile_assets"
-after "deploy:finalize_update", "utils:link_configuration_files"
-after "deploy:finalize_update", "utils:link_secret_token"
+after "deploy:finalize_update", "deploy:link_configuration_files"
+after "deploy:finalize_update", "deploy:link_secret_token"
+after "deploy:finalize_update", "deploy:migrate"
+after "deploy:restart",         "deploy:cleanup"

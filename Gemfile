@@ -1,9 +1,9 @@
 source 'http://rubygems.org'
 
-gem 'rails', '~> 3.2.0'
+gem 'rails', '~> 3.2.3'
 gem 'pg', '~> 0.12.2'
 gem 'haml', '~> 3.1.4'
-gem 'friendly_id', '~> 4.0'
+gem 'friendly_id', '~> 4.0.1'
 gem 'cells', '~> 3.8'
 gem 'jquery-rails', '2.0.1'
 gem 'kaminari'
@@ -16,7 +16,7 @@ gem 'polish', '~> 0.1.4'
 
 # admin dependencies
 gem 'devise'
-gem 'rails_admin', :git => 'https://github.com/sferik/rails_admin.git'
+# gem 'rails_admin', :git => 'https://github.com/sferik/rails_admin.git'
 
 group :assets do
   gem 'sass-rails', '~> 3.2.3'

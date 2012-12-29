@@ -90,25 +90,6 @@ ActiveRecord::Schema.define(:version => 20121228191716) do
     t.datetime "updated_at", :null => false
   end
 
-  create_table "speakers", :force => true do |t|
-    t.string   "name",       :null => false
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  create_table "speakers_talks", :force => true do |t|
-    t.integer "speaker_id", :null => false
-    t.integer "talk_id",    :null => false
-  end
-
-  create_table "talks", :force => true do |t|
-    t.string   "title",                        :null => false
-    t.integer  "event_id",                     :null => false
-    t.boolean  "performed",  :default => true, :null => false
-    t.datetime "created_at",                   :null => false
-    t.datetime "updated_at",                   :null => false
-  end
-
   create_table "users", :force => true do |t|
     t.string   "email",                               :default => "", :null => false
     t.string   "encrypted_password",   :limit => 128, :default => "", :null => false

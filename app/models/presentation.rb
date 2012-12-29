@@ -1,7 +1,6 @@
 class Presentation < ActiveRecord::Base
   belongs_to :user
   belongs_to :event
-  belongs_to :presentation_type
   validates :title, presence: true
 
   scope :not_postponed, where("status != 'postponed'")

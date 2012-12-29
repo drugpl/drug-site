@@ -52,20 +52,13 @@ ActiveRecord::Schema.define(:version => 20121214232756) do
     t.datetime "updated_at", :null => false
   end
 
-  create_table "presentation_types", :force => true do |t|
-    t.string   "name"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
   create_table "presentations", :force => true do |t|
     t.string   "title"
     t.integer  "user_id"
     t.integer  "event_id"
-    t.datetime "created_at",                                    :null => false
-    t.datetime "updated_at",                                    :null => false
-    t.integer  "presentation_type_id"
-    t.string   "status",               :default => "submitted"
+    t.datetime "created_at",                          :null => false
+    t.datetime "updated_at",                          :null => false
+    t.string   "status",     :default => "submitted"
   end
 
   add_index "presentations", ["event_id"], :name => "index_presentations_on_event_id"

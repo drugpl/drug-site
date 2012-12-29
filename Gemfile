@@ -17,8 +17,8 @@ group :assets do
   gem 'sass-rails'
   gem 'coffee-rails'
   gem 'uglifier'
-  gem 'bourbon'
-  gem 'neat'
+  gem 'bourbon', '~> 3.0.1'
+  gem 'neat',    '~> 1.0.2'
 end
 
 group :development do

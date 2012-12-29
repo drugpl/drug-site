@@ -3,7 +3,14 @@
     %h2
       = event.title
   %p.description
-    = textilize(event.description).html_safe
+    //= textilize(event.description).html_safe
+    %ul
+      - event.presentations.each do |presentation|
+        %li
+          %strong= presentation.title
+          \-
+          = presentation.users.map(&:full_name).join(', ')
+
   %p.comments
     %time{:datetime => event.starting_at.iso8601.to_date}
       = I18n.l(event.starting_at.to_date, :format => :default)

@@ -8,6 +8,7 @@ gem 'jquery-rails'
 gem 'kaminari'
 gem 'ri_cal'
 gem 'simple_form'
+gem 'unicorn'
 
 gem 'omniauth'
 gem 'omniauth-facebook'
@@ -22,6 +23,7 @@ group :assets do
 end
 
 group :development do
+  gem 'foreman'
   gem 'sqlite3'
   gem 'debugger'
   gem 'capistrano'
@@ -32,7 +34,6 @@ end
 
 group :production do
   gem 'pg'
-  gem 'puma'
 end
 
 group :test do

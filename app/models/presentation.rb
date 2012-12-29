@@ -5,4 +5,14 @@ class Presentation < ActiveRecord::Base
   validates :title, presence: true
 
   delegate :full_name, to: :user, prefix: true
+
+  def as_json(*args)
+    {
+      title: title,
+      speakers: users.collect(&:full_name),
+      event: event.title.upcase,
+      cancelled: cancelled,
+      presented_at: event.starting_at.iso8601
+    }
+  end
 end

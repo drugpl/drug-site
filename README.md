@@ -11,6 +11,7 @@ OAuth applications (github, facebook) assume that app works under `http://drug.d
 That's easy. Symlink app under `drug`, copy `.env` to `.powenv` and you're done. The shortcut:
 
     bundle exec rake setup:pow
+    bundle exec rake db:setup
 
 ## OSX or Linux with Foreman
 
@@ -23,6 +24,7 @@ Put simply, lots of effort. It may be better just to configure your own OAuth ap
 After all this dance:
 
     bundle exec rake setup:default
+    bundle exec rake db:setup
     bundle exec foreman start
 
 ## Vagrant

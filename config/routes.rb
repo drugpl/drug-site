@@ -4,7 +4,7 @@ Drug::Application.routes.draw do
   end
   match "/auth/:provider/callback", to: "sessions#create"
 
-  resources :users, only: [:index, :show] do
+  resources :people, only: [:index, :show] do
     collection do
       get 'edit'
       put 'update'

@@ -1,5 +1,5 @@
 class KarmaCounter
-  def karma(user)
-    return user.id
+  def karma(person)
+    person.id
   end
 end

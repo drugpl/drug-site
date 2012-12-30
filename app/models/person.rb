@@ -1,9 +1,9 @@
-class User < ActiveRecord::Base
+class Person < ActiveRecord::Base
   class AlreadySignedException < StandardError; end
 
   attr_accessible :full_name, :irc_nickname, :rss_url, :description
 
-  has_many :presentations
+  has_many :presentations, foreign_key: :speaker_id
   has_many :participations
   has_many :events, through: :participations
 
@@ -36,6 +36,9 @@ class User < ActiveRecord::Base
     self.presentations.done.count
   end
 
+  def amount_of_participations
+  end
+
   def karma
     (self.irc_points * IrcPointsKarma) +
       (self.amount_of_presentations * PresentationsKarma)
@@ -58,9 +61,9 @@ class User < ActiveRecord::Base
   end
 
   def self.from_omniauth(auth)
-    user = where({ "#{auth.provider}_uid" => auth.uid }).first
-    user ||= where(email: auth.info.email).first_or_initialize
-    user.add_omniauth_properties(auth)
-    user
+    person = where({ "#{auth.provider}_uid" => auth.uid }).first
+    person ||= where(email: auth.info.email).first_or_initialize
+    person.add_omniauth_properties(auth)
+    person
   end
 end

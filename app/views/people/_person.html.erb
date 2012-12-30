@@ -1,0 +1,30 @@
+<li class="person">
+  <header>
+    <h2>
+      <%= link_to person.full_name, person %>
+      <%= facebook_profile_url(person) %>
+      <%= github_profile_url(person) %>
+      <%= rss_url(person) %>
+    </h2>
+  </header>
+
+  <div style="float: left; width: 150px;">
+    <%= image_tag(avatar_url(person, 128), alt: "Avatar not found") %>
+  </div>
+  <div style="float: left; width: 600px;">
+    <p class="description">
+      <%= person.description.try(:html_safe) %>
+    </p>
+
+    <p class="details">
+      <h3><%= person.karma %> karma</h3>
+      <span style="font-size: 60%;">
+        <%= person.amount_of_presentations %> talks,
+        <%= person.irc_points %> irc points,
+        <%= person.amount_of_participations %> DRUGs!
+      </span>
+    </p>
+    
+  </div>
+  <div style="clear:both;"> </div>
+</li>

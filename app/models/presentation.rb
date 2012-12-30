@@ -1,5 +1,5 @@
 class Presentation < ActiveRecord::Base
-  belongs_to :user
+  belongs_to :speaker, class_name: 'Person'
   belongs_to :event
   validates :title, presence: true
 
@@ -7,7 +7,7 @@ class Presentation < ActiveRecord::Base
   scope :postponed, where(status: 'postponed')
   scope :done,      where(status: 'done')
 
-  delegate :full_name, to: :user, prefix: true
+  delegate :full_name, to: :person, prefix: true
   delegate :title, to: :event, prefix: true
 
   def postpone!

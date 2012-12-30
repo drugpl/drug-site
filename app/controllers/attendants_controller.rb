@@ -10,16 +10,16 @@ class AttendantsController < ApplicationController
     @event = Event.find(params[:event_id])
     current_user.attend!(@event)
     redirect_to root_path, notice: "You signed up for this event."
-  rescue User::AlreadySignedException
+  rescue Person::AlreadySignedException
     redirect_to root_path, notice: "You already signed up for this event!"
   end
 
   def destroy
     event = Event.find(params[:event_id])
-    participation = Participation.where(user_id: current_user.id, event_id: event.id).first
+    participation = Participation.where(person_id: current_user.id, event_id: event.id).first
     participation.destroy
 
-    presentations = event.presentations.where(user_id: current_user.id)
+    presentations = event.presentations.where(person_id: current_user.id)
     presentations.each do |presentation|
       presentation.postpone! unless presentation.postponed?
     end

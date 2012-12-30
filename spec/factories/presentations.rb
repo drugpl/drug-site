@@ -3,6 +3,6 @@
 FactoryGirl.define do
   factory :presentation do
     sequence(:title) { |n| "presentation_title_#{n}" }
-    association :user
+    association :person
   end
 end

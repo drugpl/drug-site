@@ -2,7 +2,7 @@ class Event < ActiveRecord::Base
   belongs_to :venue
   has_many   :presentations
   has_many   :participations
-  has_many   :participants, through: :participations, source: :user
+  has_many   :participants, through: :participations, source: :person
 
   validates :title, presence: true
   validates :description, presence: true

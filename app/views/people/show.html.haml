@@ -1,13 +1,13 @@
-%section{class: 'user'}
+%section{class: 'person'}
   %header
-    = image_tag(avatar_url(@user, 80), alt: "Avatar not found")
+    = image_tag(avatar_url(@person, 80), alt: "Avatar not found")
     %h1
-      = @user.full_name
+      = @person.full_name
   %section{class: 'presentations'}
     %h2
       Talks
     %ul
-      - @user.presentations.done.each do |presentation|
+      - @person.presentations.done.each do |presentation|
         %li
           %strong
             = presentation.title
@@ -17,7 +17,7 @@
     %h2
       Presence
     %p
-      = @user.full_name
+      = @person.full_name
       was on 
-      = @user.amount_of_participations
+      = @person.amount_of_participations
       meetups.

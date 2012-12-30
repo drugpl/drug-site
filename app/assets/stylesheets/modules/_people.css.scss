@@ -1,4 +1,4 @@
-section.edit_user {
+section.edit_person {
   margin-top: 1em;
 
   .info {
@@ -17,7 +17,7 @@ section.edit_user {
       }
     }
 
-    form.edit_user {
+    form.edit_person {
       clear: both;
       .field {
         display: table-row;
@@ -37,7 +37,7 @@ section.edit_user {
   }
 }
 
-.user {
+.person {
   margin-top: 1em;
   @include span-columns(12);
   

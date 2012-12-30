@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121230012445) do
+ActiveRecord::Schema.define(:version => 20121230022400) do
 
   create_table "contacts", :force => true do |t|
     t.string   "name",       :null => false
@@ -46,15 +46,32 @@ ActiveRecord::Schema.define(:version => 20121230012445) do
   add_index "friendly_id_slugs", ["sluggable_type"], :name => "index_friendly_id_slugs_on_sluggable_type"
 
   create_table "participations", :force => true do |t|
-    t.integer  "user_id"
+    t.integer  "person_id"
     t.integer  "event_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
 
+  create_table "people", :force => true do |t|
+    t.string   "email",           :default => "",    :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "full_name"
+    t.string   "facebook_uid"
+    t.string   "github_uid"
+    t.boolean  "publicized",      :default => false
+    t.integer  "irc_points",      :default => 0
+    t.string   "irc_nickname"
+    t.string   "github_nickname"
+    t.string   "rss_url"
+    t.text     "description"
+  end
+
+  add_index "people", ["email"], :name => "index_users_on_email", :unique => true
+
   create_table "presentations", :force => true do |t|
     t.string   "title"
-    t.integer  "user_id"
+    t.integer  "speaker_id"
     t.integer  "event_id"
     t.datetime "created_at",                          :null => false
     t.datetime "updated_at",                          :null => false
@@ -62,7 +79,7 @@ ActiveRecord::Schema.define(:version => 20121230012445) do
   end
 
   add_index "presentations", ["event_id"], :name => "index_presentations_on_event_id"
-  add_index "presentations", ["user_id"], :name => "index_presentations_on_user_id"
+  add_index "presentations", ["speaker_id"], :name => "index_presentations_on_user_id"
 
   create_table "sessions", :force => true do |t|
     t.string   "session_id", :null => false
@@ -80,23 +97,6 @@ ActiveRecord::Schema.define(:version => 20121230012445) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
-
-  create_table "users", :force => true do |t|
-    t.string   "email",           :default => "",    :null => false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "full_name"
-    t.string   "facebook_uid"
-    t.string   "github_uid"
-    t.boolean  "publicized",      :default => false
-    t.integer  "irc_points",      :default => 0
-    t.string   "irc_nickname"
-    t.string   "github_nickname"
-    t.string   "rss_url"
-    t.text     "description"
-  end
-
-  add_index "users", ["email"], :name => "index_users_on_email", :unique => true
 
   create_table "venues", :force => true do |t|
     t.string   "address",                                    :null => false

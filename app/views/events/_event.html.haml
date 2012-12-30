@@ -6,7 +6,6 @@
   // chaining is bad, but it's just a sketch
   - event.presentations.not_postponed.each do |presentation|
     %li
-      = presentation.user_full_name
-      
+      = presentation.speakers.collect { |p| p.full_name }.join(', ')
       = presentation.title
 %hr

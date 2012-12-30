@@ -24,4 +24,8 @@ class Presentation < ActiveRecord::Base
   def postponed?
     status == 'postponed'
   end
+
+  def lead_speaker
+    speakers.first
+  end
 end

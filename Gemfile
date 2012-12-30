@@ -13,6 +13,7 @@ gem 'sqlite3'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-github'
+gem 'localeapp'
 
 group :assets do
   gem 'sass-rails', '~> 3.2.3'

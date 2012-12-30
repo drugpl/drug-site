@@ -2,6 +2,7 @@
 /.rvmrc
 /db/*.sqlite3
 /log/*.log
+/log/localeapp.yml
 /tmp
 /config/database.yml
 /config/initializers/secret_token.rb

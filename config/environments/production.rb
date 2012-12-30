@@ -1,5 +1,3 @@
-require 'settings'
-
 Drug::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
@@ -62,6 +60,5 @@ Drug::Application.configure do
 
   config.action_mailer.default_url_options = { :host => "drug.org.pl" }
   config.action_mailer.perform_deliveries  = true
-  config.action_mailer.delivery_method     = :smtp
-  config.action_mailer.smtp_settings       = Settings.email[:smtp_settings]
+  config.action_mailer.delivery_method     = :sendmail
 end

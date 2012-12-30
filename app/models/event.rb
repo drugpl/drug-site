@@ -1,5 +1,3 @@
-require 'settings'
-
 class Event < ActiveRecord::Base
   belongs_to :venue
   has_many :presentations
@@ -31,26 +29,26 @@ class Event < ActiveRecord::Base
     !! facebook_id
   end
 
-  def attendants(options = {})
-    if has_facebook_event?
-      FbGraph::Query.new("
-        SELECT uid, name, pic_square, profile_url
-        FROM user
-        WHERE uid IN (
-          SELECT uid FROM event_member WHERE eid='#{facebook_id}' AND rsvp_status='attending'
-        )
-      ").fetch(options[:access_token] || access_token)
-    else
-      []
-    end
-  end
+  # def attendants(options = {})
+  #   if has_facebook_event?
+  #     FbGraph::Query.new("
+  #       SELECT uid, name, pic_square, profile_url
+  #       FROM user
+  #       WHERE uid IN (
+  #         SELECT uid FROM event_member WHERE eid='#{facebook_id}' AND rsvp_status='attending'
+  #       )
+  #     ").fetch(options[:access_token] || access_token)
+  #   else
+  #     []
+  #   end
+  # end
 
-  protected
+  # protected
 
-  def access_token
-    @access_token ||= begin
-      app = FbGraph::Application.new(Settings.facebook[:app_id], secret: Settings.facebook[:app_secret])
-      app.get_access_token
-    end
-  end
+  # def access_token
+  #   @access_token ||= begin
+  #     app = FbGraph::Application.new(Settings.facebook[:app_id], secret: Settings.facebook[:app_secret])
+  #     app.get_access_token
+  #   end
+  # end
 end

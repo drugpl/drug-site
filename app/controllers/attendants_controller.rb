@@ -1,10 +1,10 @@
 class AttendantsController < ApplicationController
-  def index
-    @event = Event.find(params[:event_id])
-    respond_to do |format|
-      format.json { render json: @event.attendants(access_token: facebook_access_token) }
-    end
-  end
+  # def index
+  #   @event = Event.find(params[:event_id])
+  #   respond_to do |format|
+  #     format.json { render json: @event.attendants(access_token: facebook_access_token) }
+  #   end
+  # end
 
   def create
     @event = Event.find(params[:event_id])
@@ -23,7 +23,7 @@ class AttendantsController < ApplicationController
     presentations.each do |presentation|
       presentation.postpone! unless presentation.postponed?
     end
-    
+
     redirect_to root_path, notice: "You resigned from attending to next DRUG : ("
   end
 end

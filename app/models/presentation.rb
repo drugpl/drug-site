@@ -1,6 +1,7 @@
 class Presentation < ActiveRecord::Base
-  belongs_to :speaker, class_name: 'Person'
   belongs_to :event
+  has_and_belongs_to_many :speakers, class_name: 'Person'
+
   validates :title, presence: true
 
   scope :submitted, where(status: 'submitted')

@@ -3,7 +3,7 @@ class Person < ActiveRecord::Base
 
   attr_accessible :full_name, :irc_nickname, :rss_url, :description
 
-  has_many :presentations, foreign_key: :speaker_id
+  has_and_belongs_to_many :presentations, foreign_key: :person_id
   has_many :participations
   has_many :events, through: :participations
 

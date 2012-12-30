@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121230030531) do
+ActiveRecord::Schema.define(:version => 20121230124925) do
 
   create_table "contacts", :force => true do |t|
     t.string   "name",       :null => false
@@ -53,7 +53,7 @@ ActiveRecord::Schema.define(:version => 20121230030531) do
   end
 
   create_table "people", :force => true do |t|
-    t.string   "email",           :default => "",    :null => false
+    t.string   "email",           :default => ""
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "full_name"
@@ -66,8 +66,6 @@ ActiveRecord::Schema.define(:version => 20121230030531) do
     t.string   "rss_url"
     t.text     "description"
   end
-
-  add_index "people", ["email"], :name => "index_users_on_email", :unique => true
 
   create_table "people_presentations", :force => true do |t|
     t.integer "person_id",       :null => false

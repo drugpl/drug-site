@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121214232756) do
+ActiveRecord::Schema.define(:version => 20121230012445) do
 
   create_table "contacts", :force => true do |t|
     t.string   "name",       :null => false
@@ -64,19 +64,6 @@ ActiveRecord::Schema.define(:version => 20121214232756) do
   add_index "presentations", ["event_id"], :name => "index_presentations_on_event_id"
   add_index "presentations", ["user_id"], :name => "index_presentations_on_user_id"
 
-  create_table "rails_admin_histories", :force => true do |t|
-    t.string   "message"
-    t.string   "username"
-    t.integer  "item"
-    t.string   "table"
-    t.integer  "month",      :limit => 2
-    t.integer  "year",       :limit => 8
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "rails_admin_histories", ["item", "table", "month", "year"], :name => "index_histories_on_item_and_table_and_month_and_year"
-
   create_table "sessions", :force => true do |t|
     t.string   "session_id", :null => false
     t.text     "data"
@@ -95,24 +82,14 @@ ActiveRecord::Schema.define(:version => 20121214232756) do
   end
 
   create_table "users", :force => true do |t|
-    t.string   "email",                               :default => "",    :null => false
-    t.string   "encrypted_password",   :limit => 128, :default => "",    :null => false
-    t.string   "password_salt",                       :default => "",    :null => false
-    t.string   "reset_password_token"
-    t.string   "remember_token"
-    t.datetime "remember_created_at"
-    t.integer  "sign_in_count",                       :default => 0
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
+    t.string   "email",           :default => "",    :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "full_name"
     t.string   "facebook_uid"
     t.string   "github_uid"
-    t.boolean  "publicized",                          :default => false
-    t.integer  "irc_points",                          :default => 0
+    t.boolean  "publicized",      :default => false
+    t.integer  "irc_points",      :default => 0
     t.string   "irc_nickname"
     t.string   "github_nickname"
     t.string   "rss_url"
@@ -120,7 +97,6 @@ ActiveRecord::Schema.define(:version => 20121214232756) do
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
-  add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
 
   create_table "venues", :force => true do |t|
     t.string   "address",                                    :null => false

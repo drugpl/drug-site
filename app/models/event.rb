@@ -47,6 +47,7 @@ class Event < ActiveRecord::Base
 
   def as_json(*)
     {
+      title: title,
       starting_at: starting_at.iso8601,
       venue: venue.as_json
     }

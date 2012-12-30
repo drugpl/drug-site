@@ -104,18 +104,21 @@
           color: #ccc;
         }
 
-        display: table-row;
+        display: table;
 
-        img {
-          margin-bottom: .65em;
+        & > a {
           display: table-cell;
         }
 
-        p {
+        img {
+          margin: 0 .65em .65em 0;
           vertical-align: top;
+        }
+
+        p {
           display: table-cell;
           margin: 0;
-          padding: 0 0 0 1em;
+          padding: 0;
         }
       }
     }

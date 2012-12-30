@@ -1,23 +1,11 @@
 development:
-  adapter: postgresql
-  encoding: unicode
-  database: drug_development
+  adapter: sqlite3
+  database: db/development.sqlite3
   pool: 5
-  username: drug
-  password:
+  timeout: 5000
 
 test:
-  adapter: postgresql
-  encoding: unicode
-  database: drug_test
+  adapter: sqlite3
+  database: db/test.sqlite3
   pool: 5
-  username: drug
-  password:
-
-production:
-  adapter: postgresql
-  encoding: unicode
-  database: drug_production
-  pool: 5
-  username: drug
-  password:
+  timeout: 5000

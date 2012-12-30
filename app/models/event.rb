@@ -49,6 +49,7 @@ class Event < ActiveRecord::Base
     {
       title: title,
       starting_at: starting_at.iso8601,
+      description: description,
       venue: venue.as_json
     }
   end

@@ -3,24 +3,24 @@ class Presentation < ActiveRecord::Base
   belongs_to :event
   validates :title, presence: true
 
-  scope :not_postponed, where("status != 'postponed'")
+  scope :submitted, where(status: 'submitted')
   scope :postponed, where(status: 'postponed')
-  scope :done, where(status: 'done')
+  scope :done,      where(status: 'done')
 
   delegate :full_name, to: :user, prefix: true
   delegate :title, to: :event, prefix: true
 
   def postpone!
     self.status = 'postponed'
-    self.save!
+    save!
   end
 
   def cancel_postponement!
     self.status = 'submitted'
-    self.save!
+    save!
   end
 
   def postponed?
-    self.status == 'postponed'
+    status == 'postponed'
   end
 end

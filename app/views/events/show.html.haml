@@ -1,4 +1,4 @@
 %section.event
   = render 'events/event_details'
   = render 'events/event_map'
-  = render 'events/participants', presentations: @presentations, postponed_presentations: @postponed_presentations,participants: @participants
+  = render 'events/participants', presentations: @submitted_presentations, postponed_presentations: @postponed_presentations, participants: @participants

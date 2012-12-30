@@ -1,12 +1,8 @@
 class Event < ActiveRecord::Base
   belongs_to :venue
-  has_many :presentations
-
-  has_many :participations
-  has_many :users, through: :participations
-
-  extend FriendlyId
-  friendly_id :title, use: :slugged
+  has_many   :presentations
+  has_many   :participations
+  has_many   :participants, through: :participations, source: :user
 
   validates :title, presence: true
   validates :description, presence: true
@@ -16,8 +12,12 @@ class Event < ActiveRecord::Base
   delegate :name, :address, :latitude, :longitude, to: :venue, prefix: true
 
   scope :happened, lambda { where("starting_at < ?", Time.zone.now) }
+  scope :upcoming, lambda { where("starting_at > ?", Time.zone.now) }
   scope :previous, lambda { order("id desc").limit(30).offset(1) }
-  scope :recent, lambda { order("starting_at DESC") }
+  scope :recent,   lambda { order("starting_at DESC") }
+
+  extend FriendlyId
+  friendly_id :title, use: :slugged
 
   paginates_per 5
 
@@ -27,6 +27,10 @@ class Event < ActiveRecord::Base
 
   def has_facebook_event?
     !! facebook_id
+  end
+
+  def self.closest_upcoming
+    upcoming.order('starting_at').first
   end
 
   # def attendants(options = {})

@@ -1,5 +1,4 @@
 Drug::Application.routes.draw do
-  
   resources :sessions, only: [:create] do
     delete 'destroy', on: :collection
   end

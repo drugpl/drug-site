@@ -33,6 +33,14 @@ class Event < ActiveRecord::Base
     upcoming.order('starting_at').first
   end
 
+  def postponed_presentations
+    presentations.postponed
+  end
+
+  def submitted_presentations
+    presentations.submitted
+  end
+
   # def attendants(options = {})
   #   if has_facebook_event?
   #     FbGraph::Query.new("

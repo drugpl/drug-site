@@ -1,0 +1,4 @@
+<section class='event'>
+  <%= render 'events/details', event: event %>
+  <%= render 'events/participants', participants: event.participants, postponed_presentations: event.postponed_presentations, submitted_presentations: event.submitted_presentations %>
+</section>

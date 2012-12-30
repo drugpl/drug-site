@@ -1,14 +1,13 @@
 class EventsController < ApplicationController
   def index
-    all_events = Event.recent
-    @events = all_events.happened.page(params[:page])
-    @events_for_feed = all_events
+    scoped        = Event.recent
+    @presentation = Presentation.new
+    @events       = scoped.happened.page(params[:page])
+    @feed_events  = scoped
   end
 
   def show
-    @event = Event.find(params[:id])
-    @submitted_presentations = @event.presentations.submitted
-    @postponed_presentations = @event.presentations.postponed
-    @participants = @event.participants
+    @event        = Event.find(params[:id])
+    @presentation = Presentation.new
   end
 end

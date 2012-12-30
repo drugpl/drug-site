@@ -1,5 +1,5 @@
 .event {
-  section.map, section.details, section.speakers, section.attendees {
+  section.photo, section.details, section.speakers, section.attendees {
     @include span-columns(6);
 
     @include breakpoint($smartphone-landscape) {
@@ -7,12 +7,18 @@
     }
   }
 
-  section.map {
+  section.details {
+    margin-top: -1.5em;
+  }
+
+  section.photo {
     @include omega;
     min-height: 350px;
-    // Commented because it's lagging a page... wroclove2012.com is not responding  
-    // background-image: url('http://wroclove2012.com/files/article/GFMWIHJL/600x402.jpg');
     margin-top: 1.5em;
+
+    img {
+      width: 100%;
+    }
   }
 
   padding: 1.5em 0;
@@ -83,9 +89,19 @@
 
       li {
         &.postponed {
-          strong {
-            text-decoration: line-through;
+
+          img {
+            opacity: 0.3;
+
+            filter: grayscale(100%);
+            -webkit-filter: grayscale(100%);
+            -moz-filter: grayscale(100%);
+            -ms-filter: grayscale(100%);
+            -o-filter: grayscale(100%);
           }
+
+          a { color: #ccc; }
+          color: #ccc;
         }
 
         display: table-row;

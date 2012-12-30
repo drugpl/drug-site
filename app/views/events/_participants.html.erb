@@ -1,18 +1,12 @@
 <section class="speakers">
   <h1>Speaking</h1>
-  <% if presentations.present? %>
+  <% if submitted_presentations.present? || postponed_presentations.present? %>
     <ul>
-      <%= render presentations %>
-    </ul>
-  <% else %>
-    Call for papers! Maybe you want to tell us about something awesome?
-  <% end %>
-  
-  <% if postponed_presentations.present? %>
-    <h1>Postponed</h1>
-    <ul>
+      <%= render submitted_presentations %>
       <%= render postponed_presentations %>
     </ul>
+  <% else %>
+    Call for papers! What will you talk about?
   <% end %>
 </section>
 
@@ -20,7 +14,7 @@
   <h1>Attending</h1>
   <ul>
     <% participants.each do |participant| %>
-      <li><%= link_to image_tag(avatar_url(participant, 64)), participant %></li>
+      <li><%= avatar_link(participant) %></li>
     <% end %>
   </ul>
 </section>

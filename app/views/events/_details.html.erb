@@ -1,0 +1,33 @@
+<section class='details'>
+  <h1><%= event.title %></h1>
+
+  <div class='datetime'>
+    <%= calendar_link(event) %>
+
+    <time datetime='<%= event.starting_at.iso8601 %>'>
+      <%= l(event.starting_at.to_date, format: :event) %>
+      <br>
+      <%= l(event.starting_at, format: :event) %>
+    </time>
+  </div>
+
+  <div class='venue'>
+    <%= map_link(event.venue) %>
+
+    <address>
+      <%= event.venue_name %>
+      <br>
+      <%= event.venue_address %>
+    </address>
+  </div>
+
+  <p class='description'>
+    <%= event.description %>
+  </p>
+
+  <%#= render 'buttons' unless event.future? %>
+</section>
+
+<section class='photo'>
+  <%= image_tag(event.venue.photo_url) %>
+</section>

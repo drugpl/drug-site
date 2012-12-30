@@ -1,4 +1,4 @@
-@events_for_feed.each do |event|
+@feed_events.each do |event|
   cal.event do |entry|
     entry.summary = event.title
     entry.description = event.description

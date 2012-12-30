@@ -1,12 +1,17 @@
 module ApplicationHelper
-  PAGES = %w(home events contact)
-
-  def site_menu
-    PAGES.collect { |page| [I18n.t("site_menu.pages.#{page}"), page == 'home' ? root_path : send("#{page}_path")] }
+  def calendar_link(event)
+    link_to image_tag('glyphicons_045_calendar.png'), events_path, format: :ics
   end
 
-  # def load_maps
-  #   uri = "http://maps.google.com/maps?file=api&amp;v=2&amp;sensor=false&amp;key=#{Settings.google_maps[:api_key]}"
-  #   javascript_include_tag uri.html_safe
-  # end
+  def map_link(venue)
+    link_to image_tag('glyphicons_242_google_maps.png'), "https://maps.google.com/?ll=#{venue.latitude},#{venue.longitude}"
+  end
+
+  def avatar_link(person, size = 64)
+    link_to image_tag(avatar_url(person, size)), person
+  end
+
+  def speaker_link(speaker)
+    link_to speaker.full_name, speaker
+  end
 end

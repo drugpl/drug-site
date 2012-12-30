@@ -35,15 +35,19 @@ module PeopleHelper
     end
   end
 
-  def avatar_url(person, size=64)
+  def facebook_avatar_url(person)
+    "http://graph.facebook.com/#{person.facebook_uid}/picture?type=square"
+  end
+
+  def gravatar_avatar_url(person, size, default_url)
     gravatar_id = Digest::MD5::hexdigest(person.email).downcase
+    "http://gravatar.com/avatar/#{gravatar_id}.png?s=#{size}&d=#{CGI.escape(default_url)}"
+  end
 
-    if person.facebook_uid.present?
-      avatar_url = "http://graph.facebook.com/#{person.facebook_uid}/picture?type=square"
-    else
-      avatar_url = root_url + asset_path("avatar.png")
-    end
-
-    "http://gravatar.com/avatar/#{gravatar_id}.png?s=#{size}&d=#{CGI.escape(avatar_url)}"
+  def avatar_url(person, size = 64)
+    default_url = root_url + asset_path("avatar.png")
+    return facebook_avatar_url(person) if person.facebook_uid?
+    return gravatar_avatar_url(person, size, default_url) if person.email?
+    default_url
   end
 end

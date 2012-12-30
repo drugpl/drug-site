@@ -45,6 +45,13 @@ class Event < ActiveRecord::Base
     end
   end
 
+  def as_json(*)
+    {
+      starting_at: starting_at.iso8601,
+      venue: venue.as_json
+    }
+  end
+
   protected
 
   def access_token

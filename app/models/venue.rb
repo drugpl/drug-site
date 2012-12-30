@@ -11,4 +11,12 @@ class Venue < ActiveRecord::Base
   def has_geo?
     latitude.present? && longitude.present?
   end
+
+  def as_json(*)
+    {
+      name: name,
+      address: address,
+      location: [latitude, longitude]
+    }
+  end
 end

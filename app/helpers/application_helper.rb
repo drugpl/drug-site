@@ -14,4 +14,10 @@ module ApplicationHelper
   def speaker_link(speaker)
     link_to speaker.full_name, speaker
   end
+
+  def time_tag(time, format = :default)
+    content_tag(:time, datetime: time.iso8601) do
+      l(time, format: format)
+    end
+  end
 end

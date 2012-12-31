@@ -1,5 +1,7 @@
 .event {
-  section.photo, section.details, section.speakers, section.attendees {
+  @include row;
+
+  section.photo, section.details {
     @include span-columns(6);
 
     @include breakpoint($smartphone-landscape) {
@@ -7,61 +9,40 @@
     }
   }
 
-  section.details {
-    margin-top: -1.5em;
-  }
-
   section.photo {
     @include omega;
-    min-height: 350px;
-    margin-top: 1.5em;
 
     img {
       width: 100%;
     }
   }
 
-  padding: 1.5em 0;
-
   h1 {
     margin-bottom: .5em;
   }
 
-  .datetime {
-    padding: .5em .5em .5em 1em;
-    clear: both;
+  .datetime, .venue {
+    margin-bottom: .5em;
 
     img {
-      padding-top: .5em;
-      float: left;
+      vertical-align: top;
     }
 
     time {
-      float: left;
-      margin-left: 15px;
+      margin-left: 10px;
     }
   }
 
   .venue {
-    padding: .5em .5em .5em 1em;
-    clear: both;
-
     img {
-      padding-top: .5em;
-      float: left;
-      margin-left: 3px;
+      margin-left: 4px;
     }
 
     address {
+      display: inline;
       font-style: normal;
-      float: left;
-      margin-left: 22px;
+      margin-left: 14px;
     }
-  }
-
-  .description {
-    padding-top: 1.5em;
-    clear: both;
   }
 
   .buttons {
@@ -76,70 +57,39 @@
   }
 
   .speakers {
-    padding: 1em 0 0;
+  //  padding: 1em 0 0;
 
     h1 {
-      font-size: 150%;
+      font-size: 125%;
     }
 
     ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
+      list-style: square;
+      // padding: 0;
+      // margin: 0;
 
       li {
-        &.postponed {
-
-          img {
-            opacity: 0.3;
-
-            filter: grayscale(100%);
-            -webkit-filter: grayscale(100%);
-            -moz-filter: grayscale(100%);
-            -ms-filter: grayscale(100%);
-            -o-filter: grayscale(100%);
-          }
-
-          a { color: #ccc; }
-          color: #ccc;
-        }
-
-        display: table;
-
-        & > a {
-          display: table-cell;
-        }
-
-        img {
-          margin: 0 .65em .65em 0;
-          vertical-align: top;
-        }
-
-        p {
-          display: table-cell;
-          margin: 0;
-          padding: 0;
-        }
+        padding: 0;
+        margin: 0;
       }
     }
   }
 
   section.attendees {
-    @include omega;
-    padding: 1em 0 0;
+    @include span-columns(12);
 
     h1 {
-      font-size: 150%;
+      font-size: 125%;
     }
 
     ul {
       list-style: none;
       padding: 0;
-      margin: 0;
+      margin-bottom: 2em;
 
       li {
-        padding: 0 .2em .2em 0;
-        display: inline-block; 
+        padding: 0 .25em .25em 0;
+        display: inline-block;
       }
 
       a {

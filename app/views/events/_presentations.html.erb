@@ -1,12 +1,10 @@
 <section class="speakers">
   <% if submitted_presentations.present? %>
     <h1>Zgłoszone prezentacje</h1>
-    <ul><%= render submitted_presentations %></ul>
-  <% end %>
-
-  <% if false #postponed_presentations.present? %>
-    <h1>Odwołane prezentacje</h1>
-    <ul><%= render postponed_presentations %></ul>
+    <ul>
+      <%= render submitted_presentations %>
+      <%= render postponed_presentations %>
+    </ul>
   <% end %>
 </section>
 

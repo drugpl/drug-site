@@ -2,7 +2,7 @@ class EventsController < ApplicationController
   def index
     scoped        = Event.recent
     @presentation = Presentation.new
-    @events       = scoped.happened
+    @events       = scoped #.happened
     @feed_events  = scoped
   end
 

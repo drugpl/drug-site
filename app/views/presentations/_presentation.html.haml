@@ -1,10 +1,11 @@
 %li{class: presentation.status}
   //- presentation.speakers.each do |speaker|
-  //  = avatar_link(speaker)
-  %strong
+  = avatar_link(presentation.lead_speaker, 128)
+  %br
+  %span.title
     = presentation.title
-  \-
-  = presentation.speakers.collect(&:full_name).join(', ')
+  //\-
+  //= presentation.speakers.collect(&:full_name).join(', ')
   %br
   - if presentation.speakers.include? current_user
     - if presentation.postponed?

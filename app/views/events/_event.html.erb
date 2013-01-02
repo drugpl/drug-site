@@ -4,5 +4,11 @@
   </h1>
 
   <%= render 'events/details', event: event %>
-  <%= render 'events/participants', participants: event.participants %>
+  <%= render 'events/photo',   event: event %>
+  <%= render 'events/map',     event: event %>
+
+  <div class="clearfix"></div>
+
+  <%= render 'events/presentations', postponed_presentations: event.postponed_presentations, submitted_presentations: event.submitted_presentations %>
+  <%= render 'events/participants',  participants: event.participants %>
 </section>

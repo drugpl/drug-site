@@ -1,10 +1,13 @@
 <section class='details'>
+  <p>
+    <%= time_tag(event.starting_at, :event) %> w <%= event.venue_name_with_address %>
+  </p>
   <p class='description'>
     <%#= event.description %>
     Zapraszamy na kolejne spotkanie. Zachęcamy do zgłaszania prezentacji. Wstęp wolny, nie jest wymagana rejestracja. Po luźnej części oficjalnej afterparty.
   </p>
 
-
+  <!--
   <div class='datetime'>
     <%= calendar_link(event) %>
     <%= time_tag(event.starting_at, :event) %>
@@ -14,11 +17,7 @@
     <%= map_link(event.venue) %>
     <address><%= event.venue_name_with_address %></address>
   </div>
+  -->
 
-  <%= render 'events/presentations', postponed_presentations: event.postponed_presentations, submitted_presentations: event.submitted_presentations %>
   <%#= render 'buttons' unless event.future? %>
-</section>
-
-<section class='photo'>
-  <%= image_tag(event.venue.photo_url) %>
 </section>

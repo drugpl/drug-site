@@ -1,17 +1,44 @@
 .event {
   @include row;
 
-  section.photo, section.details {
-    @include span-columns(6);
+  section.details {
+    @include span-columns(4);
 
     @include breakpoint($smartphone-landscape) {
       @include span-columns(12);
     }
   }
 
-  section.photo {
+  .clearfix {
+    @include clearfix;
+  }
+
+  section.photo, section.map {
+    @include span-columns(4);
+
+    @include breakpoint($smartphone-landscape) {
+      @include span-columns(6);
+    }
+
+    @include breakpoint($smartphone-portrait) {
+      @include span-columns(12);
+    }
+  }
+
+  address {
+    display: inline;
+    font-style: normal;
+  }
+
+  section.map {
     @include omega;
 
+    img {
+      width: 100%;
+    }
+  }
+
+  section.photo {
     img {
       width: 100%;
     }
@@ -39,8 +66,6 @@
     }
 
     address {
-      display: inline;
-      font-style: normal;
       margin-left: 14px;
     }
   }
@@ -56,27 +81,46 @@
     //margin: 1.5em auto;
   }
 
-  .speakers {
-  //  padding: 1em 0 0;
+  section.speakers {
+    @include row;
 
     h1 {
       font-size: 125%;
     }
 
     ul {
-      list-style: square;
-      // padding: 0;
-      // margin: 0;
+      list-style: none; 
+      padding: 0;
+      margin: 0;
 
       li {
-        padding: 0;
-        margin: 0;
+        @include span-columns(2);
+        @include nth-omega(6n);
+
+        @include breakpoint($smartphone-landscape) {
+          @include span-columns(4);
+          @include nth-omega(3n);
+        }
+
+        @include breakpoint($smartphone-portrait) {
+          @include span-columns(6);
+          @include nth-omega(2n);
+        }
+
+        span.title {
+          display: block;
+          min-height: 4em;
+        }
+
+        img {
+          width: 100%;
+        }
       }
     }
   }
 
   section.attendees {
-    @include span-columns(12);
+    @include row;
 
     h1 {
       font-size: 125%;
@@ -85,11 +129,26 @@
     ul {
       list-style: none;
       padding: 0;
-      margin-bottom: 2em;
+      //margin-bottom: 2em;
 
       li {
-        padding: 0 .25em .25em 0;
-        display: inline-block;
+        @include span-columns(1);
+        @include nth-omega(12n);
+        padding-bottom: $gutter / 2;
+
+        @include breakpoint($smartphone-landscape) {
+          @include span-columns(2);
+          @include nth-omega(6n);
+        }
+
+        @include breakpoint($smartphone-portrait) {
+          @include span-columns(3);
+          @include nth-omega(4n);
+        }
+
+        img  {
+          width: 100%;
+        }
       }
 
       a {

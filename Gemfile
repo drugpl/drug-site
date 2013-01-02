@@ -11,6 +11,8 @@ gem 'RedCloth'
 gem 'ri_cal'
 gem 'fb_graph',     '1.8'
 gem 'polish',       '~> 0.1.4'
+gem 'activeadmin'
+gem 'sqlite3'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'

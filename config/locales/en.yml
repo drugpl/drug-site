@@ -3,3 +3,62 @@
 
 en:
   hello: "Hello world"
+  time:
+    formats:
+      default: "%d/%m/%Y, %H:%M"
+      short: "%d %b, %H:%M"
+      long: "%d %B %Y, %H:%M"
+      event: "%A, %d %B %Y, %H:%M"
+  events:
+    no_events_published: Brak wydarzeń
+    last_event: Ostatnie spotkanie
+    next_event: Najbliższe spotkanie
+    events_so_far: Dotychczasowe spotkania
+    event_details: Szczegóły spotkania
+    details_link: szczegóły
+    comments_link: zobacz komentarze
+    rss:
+      title: Dolnośląska Grupa Użytkowników Ruby - Spotkania
+      description: Kanał spotkań ze strony drug.org.pl
+    attend: Dołącz
+    decline: Zrezygnuj
+
+  site_menu:
+    pages:
+      home: Strona główna
+      events: Spotkania
+      news_articles: Aktualności
+      contact: Kontakt
+
+  snippets:
+    online: DRUG w sieci
+    community: Ruby w Polsce
+    about: O nas
+    keep_in_touch: Na bieżąco
+    events: Wydarzenia
+
+  news_articles:
+    latest: Ostatnie aktualności
+    read_more: 'czytaj więcej'
+    news_article_details: Szczegóły aktualności
+    rss:
+      title: Dolnośląska Grupa Użytkowników Ruby - Aktualności
+      description: Kanał aktualności ze strony drug.org.pl
+
+  contacts:
+    spam_protection: Jesteś człowiekiem?
+    message_sent_successfuly: Wiadomość wysłana pomyślnie
+    message_not_sent_due_to_errors: Wiadomość nie została wysłana z powodu błędów
+
+  contact_mailer:
+    contact_message:
+      subject: "Nowa wiadomość ze strony drug.org.pl"
+
+  send: Wyślij
+
+  views:
+    pagination:
+      next: "Dalej &rarr;"
+      previous: "&larr; Wstecz"
+      truncate: "..."
+

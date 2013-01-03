@@ -37,6 +37,11 @@ class Person < ActiveRecord::Base
   end
 
   def amount_of_participations
+    @amount_of_participations ||= rand(Event.count)
+  end
+
+  def participant?
+    amount_of_participations > 0
   end
 
   def karma

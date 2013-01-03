@@ -1,23 +1,54 @@
 %section{class: 'person'}
-  %header
-    = image_tag(avatar_url(@person, 80), alt: "Avatar not found")
-    %h1
-      = @person.full_name
-  %section{class: 'presentations'}
-    %h2
-      Talks
-    %ul
-      - @person.presentations.done.each do |presentation|
+  %section{class: 'about'}
+    %header
+      = image_tag(avatar_url(@person, 80), alt: "Avatar not found", class: :avatar)
+      %ul.links
         %li
-          %strong
-            = presentation.title
-          on 
-          = presentation.event_title
-  %section{class: 'participations'}
-    %h2
-      Presence
-    %p
-      = @person.full_name
-      was on 
-      = @person.amount_of_participations
-      meetups.
+          = link_to image_tag('glyphicons_322_twitter.png'), 'http://twitter.com/drugpl'
+        %li
+          = link_to image_tag('glyphicons_320_facebook.png'), 'http://facebook.com/drugpl'
+        %li
+          = link_to image_tag('glyphicons_341_github.png'), 'http://github.com/drugpl'
+        %li
+          = link_to image_tag('glyphicons_327_rss.png'), 'http://feeds.feedburner.com/drugpl.xml'
+      %br
+      %h2
+        = @person.full_name
+      .clear{style: 'clear: both;'}
+
+      .about_me
+        %p
+          Piotr Szotkowski is an assistant professor at Warsaw University of Technology (where he happily sneaks Ruby, EventMachine and newfangled database systems into the creaking world of twentieth-century academia), a Ruby developer at Rebased and an alumnus of Mendicant University.
+        %p
+          He's also a long-time contributor to various open source projects for the civic sector and co-organiser of NetWtorek - monthly NetTuesday meetings of people from the NGO/non-profit and IT sectors, as well as SocHack - quarterly 48-hour hackatons for worthy causes, in coordination with Random Hacks of Kindness, Open Data Day and Open Education Week
+
+      .photos
+        .photo
+          %img{src: "https://fbcdn-sphotos-b-a.akamaihd.net/hphotos-ak-prn1/149370_351131761616370_1416385978_n.jpg"}
+        .photo
+          %img{src: "https://fbcdn-sphotos-g-a.akamaihd.net/hphotos-ak-snc7/318648_202540669808814_6279730_n.jpg"}
+
+  %section{class: 'details'}
+    %section{class: 'presentations'}
+      %h2
+        Talks
+      %ul
+        - @person.presentations.done.each do |presentation|
+          %li
+            %strong
+              = presentation.title
+            on 
+            = presentation.event_title
+    - if @person.participant?
+      %section{class: 'participations'}
+        %h2
+          Presence
+        %p
+          = @person.full_name
+          was on 
+          = @person.amount_of_participations
+          meetups.
+        %p
+          - Event.recent.sample(@person.amount_of_participations).sort_by(&:starting_at).each do |e|
+            %span.event_nr
+              = "##{e.id}"

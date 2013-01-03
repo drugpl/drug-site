@@ -42,19 +42,60 @@ section.edit_person {
   @include span-columns(12);
   
   header {
-    img {
+    img.avatar {
       float: left;
-      display: table-cell;
     }
 
-    h1 {
+    h2 {
+      margin-left: 10px;
+    }
+
+    ul.links {
+      list-style: none;
       float: left;
-      display: table-cell;
-      margin-left: 1em;
+      padding: 0px;
+      margin: 0px;
+      margin-left: 10px;
+
+      li {
+        display: inline;
+      }
+    }
+
+    .photo {
+      min-height: 350px;
+      margin-top: 1.5em;
+
+      img {
+        width: 100%;
+      }
     }
   }
 
   .presentations {
     clear: both;
+  }
+
+  section.about, section.details {
+    @include span-columns(6);
+
+    @include breakpoint($smartphone-landscape) {
+      @include span-columns(12);
+    }
+  }
+
+  section.about {
+    /* background-color: #B73731; */
+  }
+
+  section.details {
+    /* background-color: #F6F6F6; */
+  }
+
+  .event_nr {
+    color: grey;
+    font-weight: bold;
+    font-size: 30px;
+    margin-left: 10px;
   }
 }

@@ -1,18 +1,17 @@
 %li{class: presentation.status}
-  - presentation.speakers.each do |speaker|
-    = avatar_link(speaker)
-  %p
-    %strong
-      = presentation.title
-    %br
-    - presentation.speakers.each do |speaker|
-      = speaker_link(speaker)
-    %br
-    - if presentation.speakers.include? current_user
-      - if presentation.postponed?
-        = link_to "Cancel postponement",
-          cancel_postponement_event_presentation_path(presentation.event, presentation), method: :post
-      - else
-        = link_to "Postpone", postpone_event_presentation_path(presentation.event, presentation), method: :post
-      | 
-      = link_to "Cancel presentation", event_presentation_path(presentation.event, presentation), method: :delete
+  //- presentation.speakers.each do |speaker|
+  = avatar_link(presentation.lead_speaker, 128)
+  %br
+  %span.title
+    = presentation.title
+  //\-
+  //= presentation.speakers.collect(&:full_name).join(', ')
+  %br
+  - if presentation.speakers.include? current_user
+    - if presentation.postponed?
+      = link_to "Cancel postponement",
+        cancel_postponement_event_presentation_path(presentation.event, presentation), method: :post
+    - else
+      = link_to "Postpone", postpone_event_presentation_path(presentation.event, presentation), method: :post
+    | 
+    = link_to "Cancel presentation", event_presentation_path(presentation.event, presentation), method: :delete

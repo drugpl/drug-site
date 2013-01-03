@@ -9,7 +9,7 @@ class Event < ActiveRecord::Base
   validates :starting_at, presence: true
   validates :venue, presence: true
 
-  delegate :name, :address, :latitude, :longitude, to: :venue, prefix: true
+  delegate :name, :address, :name_with_address, to: :venue, prefix: true
 
   scope :happened, lambda { where("starting_at < ?", Time.zone.now) }
   scope :upcoming, lambda { where("starting_at > ?", Time.zone.now) }

@@ -46,7 +46,7 @@ module PeopleHelper
 
   def avatar_url(person, size = 64)
     # default_url = root_url + asset_path("avatar.png")
-    default_url = "http://placehold.it/#{size}x#{size}"
+    default_url = "http://userserve-ak.last.fm/serve/_/27372765/MrT.jpg"
     return facebook_avatar_url(person) if person.facebook_uid?
     return gravatar_avatar_url(person, size, default_url) if person.email?
     default_url

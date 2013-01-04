@@ -3,10 +3,10 @@ section.activities {
   background-color: $color1;
   border-bottom: 1px solid $color3;
 
-  .hack, .meetup, .people, .projects {
+  .meetup, .people, .projects {
     margin-top: .5em;
 
-    @include span-columns(3);
+    @include span-columns(4);
     min-height: 12em;
 
     @include breakpoint($smartphone-landscape) {
@@ -17,9 +17,6 @@ section.activities {
     }
 
     @include breakpoint($smartphone-portrait) {
-      @include span-columns(6);
-      @include nth-omega(2);
-
       h1 {
         font-size: 130%;
       }
@@ -29,7 +26,8 @@ section.activities {
     background-color: $color2;
 
     h1 {
-      padding-left: .3em;
+      margin: .5em 0 0 .5em;
+      text-transform: uppercase;
     }
   }
 }

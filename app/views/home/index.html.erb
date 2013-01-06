@@ -1,1 +1,6 @@
-<%= render @event %>
+<% if @event %>
+  <%= render @event %>
+<% else %>
+  <h1><%= t('events.no_upcoming_event') %></h1>
+  <p><%= t('events.keep_updated', source: twitter_link(ENV['TWITTER_HANDLE'], 'twitter')).html_safe %></p>
+<% end %>

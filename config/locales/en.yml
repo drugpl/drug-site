@@ -204,3 +204,8 @@ en:
   activerecord:
     errors:
       <<: *errors
+
+  events:
+    no_upcoming_event: No upcoming event. That's extremely unlikely!
+    keep_updated: Keep an eye for updates on %{source} and come back later.
+

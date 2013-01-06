@@ -146,8 +146,11 @@ pl:
       last_word_connector: " i "
     select:
       prompt: "Proszę wybrać:"
-  
+
   events:
+    no_upcoming_event: Brak nadchodzących wydarzeń. Niespotykane!
+    keep_updated: Śledź wiadomości na {{source}} i zajrzyj tu później.
+
     no_events_published: Brak wydarzeń
     last_event: Ostatnie spotkanie
     next_event: Najbliższe spotkanie

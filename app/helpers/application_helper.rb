@@ -20,4 +20,9 @@ module ApplicationHelper
       l(time, format: format)
     end
   end
+
+  def twitter_link(handle, label = nil)
+    label ||= handle
+    link_to label, "https://twitter.com/#{handle}"
+  end
 end

@@ -1,0 +1,3 @@
+script: "DISPLAY=:99.0 xvfb-run -a bundle exec rake"
+rvm:
+  - 1.9.3

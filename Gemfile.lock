@@ -69,6 +69,7 @@ GEM
       execjs
     coffee-script-source (1.3.3)
     columnize (0.3.6)
+    connection_pool (1.0.0)
     debugger (1.2.0)
       columnize (>= 0.3.1)
       debugger-linecache (~> 1.1.1)
@@ -230,6 +231,7 @@ DEPENDENCIES
   capistrano
   cells (~> 3.8)
   coffee-rails (~> 3.2.1)
+  connection_pool
   debugger
   factory_girl_rails
   foreman

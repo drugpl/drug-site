@@ -25,7 +25,7 @@ end
 
 group :development do
   gem 'foreman'
-  gem 'debugger'
+  # gem 'debugger'
   gem 'capistrano'
   gem 'awesome_print'
   gem 'factory_girl_rails', require: false

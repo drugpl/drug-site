@@ -3,7 +3,6 @@ class ActiveRecord::Base
   @@shared_connection = nil
 
   def self.connection
-    puts "shared connection!"
     @@shared_connection || ConnectionPool::Wrapper.new(:size => 1) { retrieve_connection }
   end
 end

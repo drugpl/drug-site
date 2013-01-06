@@ -11,3 +11,6 @@ class ActiveSupport::TestCase
 
   # Add more helper methods to be used by all tests here...
 end
+
+require 'bbq/test_unit'
+Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each { |f| require f }

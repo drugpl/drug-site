@@ -13,6 +13,7 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-github'
 gem 'localeapp'
+gem 'bbq', :github => 'drugpl/bbq'
 
 group :assets do
   gem 'sass-rails', '~> 3.2.3'

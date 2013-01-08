@@ -112,6 +112,10 @@
           min-height: 4em;
         }
 
+        &.postponed span.title {
+          text-decoration: line-through;
+        }
+
         img {
           width: 100%;
         }

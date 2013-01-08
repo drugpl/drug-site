@@ -13,5 +13,5 @@
         cancel_postponement_event_presentation_path(presentation.event, presentation), method: :post
     - else
       = link_to "Postpone", postpone_event_presentation_path(presentation.event, presentation), method: :post
-    | 
+    %br
     = link_to "Cancel presentation", event_presentation_path(presentation.event, presentation), method: :delete

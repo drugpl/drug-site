@@ -1,9 +1,13 @@
 class SessionsController < ApplicationController
   def create
+    auth = request.env['omniauth.auth']
+    
     if current_user.present?
-      current_user.add_omniauth_properties(request.env['omniauth.auth'])
+      previous_account = Person.where("#{auth.provider}_uid" => auth.uid).first
+      current_user.move_legacy_from(previous_account) unless previous_account.nil?
+      current_user.add_omniauth_properties(auth)
     elsif params[:provider].present?
-      person = Person.from_omniauth(request.env['omniauth.auth'])
+      person = Person.from_omniauth(auth)
       session[:user_id] = person.id
     end
 

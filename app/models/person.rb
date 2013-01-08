@@ -4,7 +4,7 @@ class Person < ActiveRecord::Base
   attr_accessible :full_name, :irc_nickname, :rss_url, :description
 
   has_and_belongs_to_many :presentations, foreign_key: :person_id
-  has_many :participations
+  has_many :participations, dependent: :destroy
   has_many :events, through: :participations
 
   validates :irc_nickname, uniqueness: true, allow_blank: true
@@ -47,6 +47,22 @@ class Person < ActiveRecord::Base
   def karma
     (self.irc_points * IrcPointsKarma) +
       (self.amount_of_presentations * PresentationsKarma)
+  end
+
+  def move_legacy_from(previous_account)
+    self.irc_points += previous_account.irc_points
+    self.presentations += previous_account.presentations
+    self.events += previous_account.events
+    
+    if previous_account.irc_nickname.present? && self.irc_nickname.blank?
+      self.irc_nickname = previous_account.irc_nickname 
+    end
+
+    if previous_account.github_uid.present?
+      self.github_nickname = previous_account.github_nickname
+    end
+
+    previous_account.destroy
   end
 
   def add_omniauth_properties(auth)

@@ -37,8 +37,8 @@ class Event < ActiveRecord::Base
     presentations.postponed
   end
 
-  def submitted_presentations
-    presentations.submitted
+  def not_postponed_presentations
+    presentations.not_postponed
   end
 
   # def attendants(options = {})

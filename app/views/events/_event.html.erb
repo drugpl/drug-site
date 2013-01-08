@@ -9,6 +9,6 @@
 
   <div class="clearfix"></div>
 
-  <%= render 'events/presentations', postponed_presentations: event.postponed_presentations, submitted_presentations: event.submitted_presentations %>
+  <%= render 'events/presentations', postponed_presentations: event.postponed_presentations, not_postponed_presentations: event.not_postponed_presentations %>
   <%= render 'events/participants',  participants: event.participants %>
 </section>

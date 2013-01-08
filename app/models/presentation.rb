@@ -4,9 +4,10 @@ class Presentation < ActiveRecord::Base
 
   validates :title, presence: true
 
-  scope :submitted, where(status: 'submitted')
-  scope :postponed, where(status: 'postponed')
-  scope :done,      where(status: 'done')
+  scope :submitted,     where(status: 'submitted')
+  scope :postponed,     where(status: 'postponed')
+  scope :not_postponed, where("status != 'postponed'")
+  scope :done,          where(status: 'done')
 
   delegate :full_name, to: :person, prefix: true
   delegate :title, to: :event, prefix: true

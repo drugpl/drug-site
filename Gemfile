@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails',        '3.2.9'
+gem 'rails',        '3.2.11'
 gem 'pg',           '~> 0.12.2'
 gem 'haml',         '~> 3.1.4'
 gem 'friendly_id',  '~> 4.0.1'

@@ -49,22 +49,6 @@ class Person < ActiveRecord::Base
       (self.amount_of_presentations * PresentationsKarma)
   end
 
-  def move_legacy_from(previous_account)
-    self.irc_points += previous_account.irc_points
-    self.presentations += previous_account.presentations
-    self.events += previous_account.events
-    
-    if previous_account.irc_nickname.present? && self.irc_nickname.blank?
-      self.irc_nickname = previous_account.irc_nickname 
-    end
-
-    if previous_account.github_uid.present?
-      self.github_nickname = previous_account.github_nickname
-    end
-
-    previous_account.destroy
-  end
-
   def add_omniauth_properties(auth)
     self.send("#{auth.provider}_uid=", auth.uid)
 

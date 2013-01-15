@@ -28,5 +28,6 @@
           = link_to "Conceal membership", change_membership_people_path
         - else
           = link_to "Publicize membership", change_membership_people_path
-      %li
-        = raw(profiles_auth_links(@person))
+      - free_auth_providers(@person).each do |provider|
+        %li
+          = link_to "Connect with #{provider}", provider

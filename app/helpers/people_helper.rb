@@ -19,19 +19,9 @@ module PeopleHelper
     end
   end
 
-  def profiles_auth_links(person)
-    blank_providers = ['github', 'facebook'].select do |provider|
+  def free_auth_providers(person)
+    ['github', 'facebook'].select do |provider|
       person.send("#{provider}_uid").blank?
-    end.map do |provider|
-      link_to provider, "/auth/#{provider}"
-    end
-
-    if blank_providers.present?
-      "You can connect another services to your account: " +
-        blank_providers.to_sentence(two_words_connector: " or ", last_word_connector: ", or ") +
-        "."
-    else
-      "You connected all services. Well done!"
     end
   end
 

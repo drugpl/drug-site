@@ -27,6 +27,8 @@ Drug::Application.routes.draw do
 
   end
 
+  resources :venues
+  
   resource :contact, only: [:show, :create]
 
   root to: "home#index"

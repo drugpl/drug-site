@@ -1,4 +1,6 @@
 class Venue < ActiveRecord::Base
+  attr_accessible :name, :latitude, :longitude
+
   has_many :events
 
   validates :name, presence: true, uniqueness: { scope: :address }

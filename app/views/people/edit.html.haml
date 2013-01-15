@@ -31,3 +31,5 @@
       - free_auth_providers(@person).each do |provider|
         %li
           = link_to "Connect with #{provider}", provider
+      %li
+        = link_to "Manage venues", venues_path

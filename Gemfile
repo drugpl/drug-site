@@ -1,8 +1,8 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.2.9'
+gem 'rails', '~> 3.2.11'
 gem 'haml', '~> 3.1'
-gem 'friendly_id', '~> 4.0.1'
+gem 'friendly_id', '~> 4.0.9'
 gem 'cells', '~> 3.8'
 gem 'jquery-rails'
 gem 'kaminari'

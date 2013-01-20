@@ -8,7 +8,7 @@
 
     <%= f.submit %>
 
-    <%= button_to "Destroy", venues_path, method: :delete, confirm: "Are you sure?" %>
+    <%= link_to "Destroy", venues_path, method: :delete, confirm: "Are you sure?" %>
   <% end %>
   
   <%= image_tag @venue.photo_url %>

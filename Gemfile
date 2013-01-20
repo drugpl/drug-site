@@ -14,6 +14,7 @@ gem 'omniauth-facebook'
 gem 'omniauth-github'
 gem 'localeapp'
 gem 'bbq', :github => 'drugpl/bbq'
+gem 'paperclip'
 
 gem 'whenever', require: false
 

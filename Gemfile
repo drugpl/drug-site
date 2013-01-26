@@ -13,6 +13,7 @@ gem 'localeapp'
 gem 'bbq', :github => 'drugpl/bbq'
 gem 'paperclip'
 gem 'whenever', require: false
+gem 'resque'
 
 gem 'sqlite3'
 

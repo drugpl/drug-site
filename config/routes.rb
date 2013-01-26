@@ -17,6 +17,8 @@ Drug::Application.routes.draw do
       get 'admin'
     end
 
+    resource :participants_message, only: [:new, :create]
+
     resources :attendants, only: [:index, :create] do
       delete 'destroy', on: :collection
     end

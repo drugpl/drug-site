@@ -1,0 +1,5 @@
+<%= form_for [@event, @message], url: event_participants_message_path(@event, @message) do |f| %>
+  <%= f.text_field :subject %>
+  <%= f.text_area :content %>
+  <%= f.submit %>
+<% end %>

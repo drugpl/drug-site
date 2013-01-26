@@ -32,6 +32,7 @@ group :development do
   gem 'capistrano'
   gem 'awesome_print'
   gem 'factory_girl_rails', require: false
+  gem 'minitest-rails'
 end
 
 group :production do
@@ -41,5 +42,6 @@ end
 group :test do
   gem 'factory_girl_rails'
   gem 'connection_pool'
+  gem 'minitest-rails'
 end
 

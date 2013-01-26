@@ -118,6 +118,10 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.19)
+    minitest (4.5.0)
+    minitest-rails (0.5.1)
+      minitest (~> 4.0)
+      rails (>= 3.0)
     multi_json (1.5.0)
     multipart-post (1.1.5)
     neat (1.0.2)
@@ -242,6 +246,7 @@ DEPENDENCIES
   jquery-rails
   kaminari
   localeapp
+  minitest-rails
   neat (~> 1.0.2)
   omniauth
   omniauth-facebook

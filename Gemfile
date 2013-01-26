@@ -3,20 +3,22 @@ source 'http://rubygems.org'
 gem 'rails', '~> 3.2.11'
 gem 'haml', '~> 3.1'
 gem 'friendly_id', '~> 4.0.9'
-gem 'cells', '~> 3.8'
 gem 'jquery-rails'
 gem 'kaminari'
-gem 'ri_cal'
 gem 'unicorn'
-gem 'sqlite3'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-github'
 gem 'localeapp'
 gem 'bbq', :github => 'drugpl/bbq'
 gem 'paperclip'
-
 gem 'whenever', require: false
+
+gem 'sqlite3'
+
+# Do we use these two below anywhere?
+gem 'cells', '~> 3.8'
+gem 'ri_cal'
 
 group :assets do
   gem 'sass-rails', '~> 3.2.3'

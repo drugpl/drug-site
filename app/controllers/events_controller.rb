@@ -6,6 +6,10 @@ class EventsController < ApplicationController
     @feed_events  = scoped
   end
 
+  def admin
+    @events = Event.recent
+  end
+
   def show
     @event        = Event.find(params[:id])
     @presentation = Presentation.new

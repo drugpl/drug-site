@@ -1,0 +1,52 @@
+.events_admin {
+  & > header {
+    @include span-columns(12);
+  }
+
+  & > div {
+    border-top: 1px solid black;
+    @include span-columns(12);
+    
+    header {
+      @include span-columns(3);
+      h1 {
+        font-size: 18pt;
+      }
+      h2 {
+        font-size: 10pt;
+        font-weight: normal;
+      }
+    }
+
+    div {
+      @include span-columns(7);
+
+      div {
+        @include span-columns(7 of 7);
+
+        margin-top: 0.3em;
+        margin-bottom: 0.3em;
+
+        input {
+          @include span-columns(5 of 7);
+        }
+
+        select {
+          @include span-columns(2 of 7);
+          @include omega;
+        }
+      }
+    }
+
+    footer {
+      @include span-columns(2);
+
+      input[type=submit], a {
+        width: 90%;
+        margin-left: 5%;
+        margin-top: 10%;
+        @include button(simple, #707070);
+      }
+    }
+  }
+}

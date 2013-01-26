@@ -13,6 +13,9 @@ Drug::Application.routes.draw do
   end
 
   resources :events, only: [:index, :show] do
+    collection do
+      get 'admin'
+    end
 
     resources :attendants, only: [:index, :create] do
       delete 'destroy', on: :collection

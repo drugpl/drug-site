@@ -19,7 +19,9 @@ $gutter: .4em;
 @import 'modules/event';
 @import 'modules/people';
 @import 'modules/venues';
+@import 'modules/events_admin';
 @import 'modules/bottom_bar';
+
 
 div.container  {
   @include outer-container;

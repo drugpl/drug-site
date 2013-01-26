@@ -19,6 +19,7 @@
     <footer>
       <%= link_to "Mark all as done", "", class: "mark_all_as_done" %>
       <%= f.submit "Update" %>
+      <%= link_to "Send message", new_event_participants_message_path(event_admin) %>
     </footer>
   <% end %>
 </div>

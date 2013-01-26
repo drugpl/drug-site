@@ -1,0 +1,24 @@
+#new_participants_message {
+  @include span-columns(6);
+  @include shift(3);
+
+  margin-top: 1em;
+
+  header {
+    input[type=text] {
+      @include span-columns(5 of 6);
+    }
+
+    input[type=submit] {
+      @include span-columns(1 of 6);
+      @include omega;
+      @include button(simple, #707070);
+    }
+
+    margin-bottom: 2.5em;
+  }
+
+  textarea {
+    @include span-columns(6 of 6);
+  }
+}

@@ -10,7 +10,7 @@ class ParticipantsMessagesController < ApplicationController
     @message.author = current_user
     @message.event = @event
     @message.save!
-    Resque.enqueue(ParticipantsMessagesWorker, self.id)
+    Resque.enqueue(ParticipantsMessagesWorker, @message.id)
     redirect_to admin_events_path, notice: "Message sent!"
   rescue ActiveRecord::RecordInvalid => invalid
     @message = invalid.record

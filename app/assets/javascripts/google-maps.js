@@ -1,18 +1,26 @@
-//= require jquery.googlemaps
+//= require gmap3.min
 
 $(document).ready(function() { 
-  var lat = $("#map-location").data("lat");
-  var lng = $("#map-location").data("lng");
-  var zoom = parseInt($("#map-location").data("depth"));
+  var lat, lng, zoom;
 
-  $('#map').googleMaps({
-        latitude: lat,
-        longitude: lng,
-        scroll: true,
-        depth: zoom,
-        markers: {
-            latitude: lat,
-            longitude: lng
+  $(".map").each(function() {
+    lat = $(this).data("lat");
+    lng = $(this).data("lng");
+    depth = parseInt($(this).data("depth"));
+
+    $(this).gmap3({
+      map: {
+        options: {
+          center: [lat, lng],
+          zoom: 14,
+          mapTypeControl: true,
+          navigationControl: true,
+          scrollwheel: true,
         }
-    }); 
+      },
+      marker: {
+        latLng: [lat, lng],
+      }
+    });
+  });
 });

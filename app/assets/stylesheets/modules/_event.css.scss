@@ -31,11 +31,12 @@
   }
 
   section.map {
-    @include omega;
+    // In gMaps3 Api, there are info, that these values need to be fixed.
+    // Nonresponsive part : (
+    width: 341px;
+    height: 342px;
 
-    img {
-      width: 100%;
-    }
+    @include omega;
   }
 
   section.photo {

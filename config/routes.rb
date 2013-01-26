@@ -12,7 +12,7 @@ Drug::Application.routes.draw do
     end
   end
 
-  resources :events, only: [:index, :show] do
+  resources :events, only: [:index, :show, :update] do
     collection do
       get 'admin'
     end

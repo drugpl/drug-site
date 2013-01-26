@@ -2,10 +2,10 @@
   <%= form_for event_admin do |f| %>
     <header>
       <h1><%= event_admin.title %></h1>
-      <%= f.select :venue, options_from_collection_for_select(Venue.all, :id, :name, event_admin.venue_id) %>
+      <%= f.select :venue_id, options_from_collection_for_select(Venue.all, :id, :name, event_admin.venue_id) %>
     </header>
 
-    <div>
+    <section>
       <% event_admin.presentations.each do |presentation| %>
         <%= f.fields_for :presentations, presentation do |fp| %>
           <div>
@@ -14,10 +14,10 @@
           </div>
         <% end %>
       <% end %>
-    </div>
+    </section>
 
     <footer>
-      <%= link_to "Mark all as done", "" %>
+      <%= link_to "Mark all as done", "", class: "mark_all_as_done" %>
       <%= f.submit "Update" %>
     </footer>
   <% end %>

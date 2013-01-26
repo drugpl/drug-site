@@ -1,5 +1,5 @@
 class Presentation < ActiveRecord::Base
-  attr_accessible :title
+  attr_accessible :title, :status
   
   belongs_to :event
   has_and_belongs_to_many :speakers, class_name: 'Person'

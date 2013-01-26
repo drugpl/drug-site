@@ -4,6 +4,8 @@ class Event < ActiveRecord::Base
   has_many   :participations
   has_many   :participants, through: :participations, source: :person
 
+  attr_accessible :venue_id, :presentations_attributes
+
   validates :title, presence: true
   validates :description, presence: true
   validates :starting_at, presence: true
@@ -20,6 +22,8 @@ class Event < ActiveRecord::Base
   friendly_id :title, use: :slugged
 
   paginates_per 5
+
+  accepts_nested_attributes_for :presentations
 
   def future?
     starting_at > Time.now

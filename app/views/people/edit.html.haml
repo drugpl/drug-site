@@ -28,3 +28,10 @@
           = link_to "Conceal membership", change_membership_people_path
         - else
           = link_to "Publicize membership", change_membership_people_path
+      - free_auth_providers(@person).each do |provider|
+        %li
+          = link_to "Connect with #{provider}", provider
+      %li
+        = link_to "Manage venues", venues_path
+      %li
+        = link_to "Manage events", admin_events_path

@@ -1,0 +1,11 @@
+<div class='venues_form'>
+  <header>
+    <h1>New venue</h1>
+  </header>
+
+  <%= form_for @venue do |f| %>
+    <%= render 'form', venue: @venue, form: f %>
+
+    <%= f.submit %>
+  <% end %>
+</div>

@@ -18,7 +18,11 @@ $gutter: .4em;
 @import 'modules/activities';
 @import 'modules/event';
 @import 'modules/people';
+@import 'modules/venues';
+@import 'modules/events_admin';
+@import 'modules/new_participants_message';
 @import 'modules/bottom_bar';
+
 
 div.container  {
   @include outer-container;

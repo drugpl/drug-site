@@ -1,12 +1,10 @@
 class SessionsController < ApplicationController
   def create
-    if current_user.present?
-      current_user.add_omniauth_properties(request.env['omniauth.auth'])
-    elsif params[:provider].present?
-      person = Person.from_omniauth(request.env['omniauth.auth'])
-      session[:user_id] = person.id
-    end
-
+    session[:user_id] ||= drug_site.omniauth_authenticate(
+      current_user,
+      request.env['omniauth.auth'],
+      params[:provider]
+    )
     redirect_to root_url
   end
 

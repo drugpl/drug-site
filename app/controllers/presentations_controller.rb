@@ -5,7 +5,12 @@ class PresentationsController < ApplicationController
     event = Event.find(params[:event_id])
     @presentation = event.presentations.create(params[:presentation])
     @presentation.speakers << current_user
-    current_user.attend(event)
+    
+    begin
+      current_user.attend!(event)
+    rescue Person::AlreadySignedException
+      # : )
+    end
 
     flash[:notice] = "Presentation added" if @presentation.save
 
@@ -30,7 +35,7 @@ class PresentationsController < ApplicationController
     presentation = Presentation.find(params[:id])
     presentation.cancel_postponement!
 
-    current_user.attend(event) unless current_user.attend?(event)
+    current_user.attend!(event) unless current_user.attend?(event)
 
     flash[:notice] = "Presentation postponement cancelled"
 

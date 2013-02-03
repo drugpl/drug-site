@@ -4,6 +4,8 @@ class Event < ActiveRecord::Base
   has_many   :participations
   has_many   :participants, through: :participations, source: :person
 
+  attr_accessible :venue_id, :presentations_attributes
+
   validates :title, presence: true
   validates :description, presence: true
   validates :starting_at, presence: true
@@ -21,6 +23,8 @@ class Event < ActiveRecord::Base
 
   paginates_per 5
 
+  accepts_nested_attributes_for :presentations
+
   def future?
     starting_at > Time.now
   end
@@ -37,8 +41,8 @@ class Event < ActiveRecord::Base
     presentations.postponed
   end
 
-  def submitted_presentations
-    presentations.submitted
+  def not_postponed_presentations
+    presentations.not_postponed
   end
 
   # def attendants(options = {})

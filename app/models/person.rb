@@ -4,7 +4,7 @@ class Person < ActiveRecord::Base
   attr_accessible :full_name, :irc_nickname, :rss_url, :description
 
   has_and_belongs_to_many :presentations, foreign_key: :person_id
-  has_many :participations
+  has_many :participations, dependent: :destroy
   has_many :events, through: :participations
 
   validates :irc_nickname, uniqueness: true, allow_blank: true

@@ -12,7 +12,12 @@ Drug::Application.routes.draw do
     end
   end
 
-  resources :events, only: [:index, :show] do
+  resources :events, only: [:index, :show, :update] do
+    collection do
+      get 'admin'
+    end
+
+    resource :participants_message, only: [:new, :create]
 
     resources :attendants, only: [:index, :create] do
       delete 'destroy', on: :collection
@@ -27,6 +32,8 @@ Drug::Application.routes.draw do
 
   end
 
+  resources :venues
+  
   resource :contact, only: [:show, :create]
 
   root to: "home#index"

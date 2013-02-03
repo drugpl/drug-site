@@ -1,0 +1,42 @@
+.venues {
+  header {
+    @include span-columns(12);
+  }
+
+  div {
+    @include span-columns(4);
+    @include nth-omega('3n + 1');
+
+    img {
+      width: 100%;
+    }
+  }
+}
+
+.venues_form {
+  header {
+    @include span-columns(12);
+  }
+
+  form {
+    @include span-columns(8);
+
+    label {
+      @include span-columns(3 of 8);
+    }
+
+    input {
+      @include span-columns(5 of 8);
+      @include omega;
+    }
+
+    input[type="submit"] {
+      @include span-columns(2 of 8);
+    }
+  }
+
+  img {
+    @include span-columns(4);
+    @include omega;
+  }
+}

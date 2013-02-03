@@ -19,7 +19,7 @@ class AttendantsController < ApplicationController
     participation = Participation.where(person_id: current_user.id, event_id: event.id).first
     participation.destroy
 
-    presentations = event.presentations.where(person_id: current_user.id)
+    presentations = current_user.presentations.where(event_id: event.id)
     presentations.each do |presentation|
       presentation.postpone! unless presentation.postponed?
     end

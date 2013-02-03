@@ -1,0 +1,7 @@
+<%= form_for [@event, @message], url: event_participants_message_path(@event, @message) do |f| %>
+  <header>
+    <%= f.text_field :subject, placeholder: "Subject" %>
+    <%= f.submit "Send" %>
+  </header>
+  <%= f.text_area :content, placeholder: "Content" %>
+<% end %>

@@ -1,0 +1,15 @@
+<div class='venues_form'>
+  <header>
+    <h1>Edit venue</h1>
+  </header>
+
+  <%= form_for @venue do |f| %>
+    <%= render 'form', venue: @venue, form: f %>
+
+    <%= f.submit %>
+
+    <%= link_to "Destroy", venues_path, method: :delete, confirm: "Are you sure?" %>
+  <% end %>
+  
+  <%= image_tag @venue.photo_url %>
+</div>

@@ -7,6 +7,10 @@ module ApplicationHelper
     link_to image_tag('glyphicons_242_google_maps.png'), "https://maps.google.com/?ll=#{venue.latitude},#{venue.longitude}"
   end
 
+  def map_section(venue, depth=14)
+    "<section class='map' data-lat='#{venue.latitude}' data-lng='#{venue.longitude}' data-depth='#{depth}'></section>"
+  end
+
   def avatar_link(person, size = 64)
     link_to image_tag(avatar_url(person, size)), person
   end

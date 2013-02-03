@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121230124925) do
+ActiveRecord::Schema.define(:version => 20130126140317) do
 
   create_table "contacts", :force => true do |t|
     t.string   "name",       :null => false
@@ -44,6 +44,13 @@ ActiveRecord::Schema.define(:version => 20121230124925) do
   add_index "friendly_id_slugs", ["slug", "sluggable_type"], :name => "index_friendly_id_slugs_on_slug_and_sluggable_type", :unique => true
   add_index "friendly_id_slugs", ["sluggable_id"], :name => "index_friendly_id_slugs_on_sluggable_id"
   add_index "friendly_id_slugs", ["sluggable_type"], :name => "index_friendly_id_slugs_on_sluggable_type"
+
+  create_table "participants_messages", :force => true do |t|
+    t.integer "event_id"
+    t.integer "author_id"
+    t.string  "subject"
+    t.text    "content"
+  end
 
   create_table "participations", :force => true do |t|
     t.integer  "person_id"
@@ -100,12 +107,16 @@ ActiveRecord::Schema.define(:version => 20121230124925) do
   end
 
   create_table "venues", :force => true do |t|
-    t.string   "address",                                    :null => false
-    t.string   "name",                                       :null => false
-    t.datetime "created_at",                                 :null => false
-    t.datetime "updated_at",                                 :null => false
-    t.decimal  "latitude",   :precision => 15, :scale => 10
-    t.decimal  "longitude",  :precision => 15, :scale => 10
+    t.string   "address",                                            :null => false
+    t.string   "name",                                               :null => false
+    t.datetime "created_at",                                         :null => false
+    t.datetime "updated_at",                                         :null => false
+    t.decimal  "latitude",           :precision => 15, :scale => 10
+    t.decimal  "longitude",          :precision => 15, :scale => 10
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
   end
 
   add_index "venues", ["name", "address"], :name => "venues_name_address_unique_index", :unique => true

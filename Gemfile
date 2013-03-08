@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '~> 3.2.11'
+gem 'rails', '~> 3.2.12'
 gem 'haml', '~> 3.1'
 gem 'friendly_id', '~> 4.0.9'
 gem 'jquery-rails'
@@ -10,7 +10,7 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-github'
 gem 'localeapp'
-gem 'bbq', :github => 'drugpl/bbq'
+gem 'bbq', '~> 0.2.0'
 gem 'paperclip'
 gem 'whenever', require: false
 gem 'resque'
@@ -31,7 +31,6 @@ end
 
 group :development do
   gem 'foreman'
-  # gem 'debugger'
   gem 'capistrano'
   gem 'awesome_print'
   gem 'factory_girl_rails', require: false

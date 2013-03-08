@@ -2,4 +2,5 @@ before_script: "RAILS_ENV=test bundle exec rake setup:default db:schema:load"
 script: "DISPLAY=:99.0 RAILS_ENV=test xvfb-run -a bundle exec rake test"
 rvm:
   - 1.9.3
+  - 2.0.0
   - rbx-19mode

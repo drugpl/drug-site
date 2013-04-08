@@ -66,20 +66,12 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.2.0)
-    columnize (0.3.6)
     compass (0.12.2)
       chunky_png (~> 1.2)
       fssm (>= 0.2.7)
       sass (~> 3.1)
     compass-rails (1.0.3)
       compass (>= 0.12.2, < 0.14)
-    debugger (1.2.2)
-      columnize (>= 0.3.1)
-      debugger-linecache (~> 1.1.1)
-      debugger-ruby_core_source (~> 1.1.5)
-    debugger-linecache (1.1.2)
-      debugger-ruby_core_source (>= 1.1.1)
-    debugger-ruby_core_source (1.1.5)
     devise (2.1.2)
       bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.1)
@@ -216,7 +208,6 @@ DEPENDENCIES
   cells (~> 3.8)
   coffee-rails (~> 3.2.1)
   compass-rails
-  debugger
   fb_graph (= 1.8)
   friendly_id (~> 4.0.1)
   haml (~> 3.1.4)

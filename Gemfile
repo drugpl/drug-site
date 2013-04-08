@@ -15,6 +15,7 @@ gem 'activeadmin'
 gem 'sqlite3'
 gem 'yajl-ruby'
 gem 'chillout', '~> 0.5.4'
+gem 'dotenv-rails'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'

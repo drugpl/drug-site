@@ -44,6 +44,10 @@ namespace :deploy do
     end
   end
 
+  task :link_dotenv do
+    run "if [ -f #{deploy_to}/shared/.env.production ]; then ln -sf #{deploy_to}/shared/.env.production #{latest_release}; fi"
+  end
+
   task :link_secret_token do
     run "if [ -f #{deploy_to}/shared/secret_token.rb ] ; then ln -sf #{deploy_to}/shared/secret_token.rb #{latest_release}/config/initializers/; fi"
   end

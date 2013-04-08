@@ -73,5 +73,5 @@ Drug::Application.configure do
   config.action_mailer.smtp_settings       = Settings.email[:smtp_settings]
 
   # Chillout
-  config.chillout = { secret: '4db8492c-da69-4156-95cf-19bb657c8c42' }
+  config.chillout = { secret: ENV['CHILLOUT_KEY'] }
 end

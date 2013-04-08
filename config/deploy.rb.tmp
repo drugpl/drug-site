@@ -55,6 +55,7 @@ end
 
 after "deploy:finalize_update", "deploy:link_configuration_files"
 after "deploy:finalize_update", "deploy:link_secret_token"
+after "deploy:finalize_update", "deploy:link_dotenv"
 after "deploy:finalize_update", "deploy:migrate"
 after "deploy:restart",         "deploy:cleanup"
 

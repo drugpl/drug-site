@@ -14,7 +14,7 @@ gem 'polish',       '~> 0.1.4'
 gem 'activeadmin'
 gem 'sqlite3'
 gem 'yajl-ruby'
-gem 'chillout', git: 'git://github.com/chilloutio/chillout.git'
+gem 'chillout', '~> 0.5.4'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'

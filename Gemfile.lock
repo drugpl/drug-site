@@ -1,3 +1,10 @@
+GIT
+  remote: git://github.com/chilloutio/chillout.git
+  revision: 42f47ba3afa8b1d143b339096b7827ac35c9a0b7
+  specs:
+    chillout (0.5.3)
+      multi_json (~> 1.4)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -206,6 +213,7 @@ DEPENDENCIES
   activeadmin
   capistrano
   cells (~> 3.8)
+  chillout!
   coffee-rails (~> 3.2.1)
   compass-rails
   fb_graph (= 1.8)

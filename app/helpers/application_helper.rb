@@ -1,10 +1,12 @@
 require 'settings'
 
 module ApplicationHelper
-  PAGES = %w(home events contact)
-
   def site_menu
-    PAGES.collect { |page| [I18n.t("site_menu.pages.#{page}"), page == 'home' ? root_path : send("#{page}_path")] }
+    [
+      [I18n.t("site_menu.pages.home"), root_path],
+      [I18n.t("site_menu.pages.events"), events_path],
+      [I18n.t("site_menu.pages.contact"), "mailto:all[KILLSPAMMERS]drug.org.pl"]
+    ]
   end
 
   def load_maps

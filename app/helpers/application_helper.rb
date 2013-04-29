@@ -5,7 +5,7 @@ module ApplicationHelper
     [
       [I18n.t("site_menu.pages.home"), root_path],
       [I18n.t("site_menu.pages.events"), events_path],
-      [I18n.t("site_menu.pages.contact"), "mailto:all[KILLSPAMMERS]drug.org.pl"]
+      [I18n.t("site_menu.pages.contact"), "mailto:all@drug.org.pl"]
     ]
   end
 

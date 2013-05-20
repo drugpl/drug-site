@@ -5,11 +5,18 @@
   %p.description
     //= textilize(event.description).html_safe
     %ul
-      - event.presentations.each do |presentation|
+      - event.confirmed_presentations.each do |presentation|
         %li
           %strong= presentation.title
           \-
           = presentation.users.map(&:full_name).join(', ')
+    %ul
+      - event.cancelled_presentations.each do |presentation|
+        %li
+          %del
+            %strong= presentation.title
+            \-
+            = presentation.users.map(&:full_name).join(', ')
 
   %p.comments
     %time{:datetime => event.starting_at.iso8601.to_date}

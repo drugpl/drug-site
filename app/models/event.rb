@@ -6,6 +6,8 @@ class Event < ActiveRecord::Base
 
   belongs_to :venue
   has_many :presentations
+  has_many :confirmed_presentations, conditions: { cancelled: false }, class_name: 'Presentation'
+  has_many :cancelled_presentations, conditions: { cancelled: true }, class_name: 'Presentation'
 
   extend FriendlyId
   friendly_id :title, use: :slugged

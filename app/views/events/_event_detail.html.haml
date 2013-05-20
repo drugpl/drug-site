@@ -8,14 +8,24 @@
     = "(#{event.venue_name})"
 
 %p.description
-  Dotychczasowe zgłoszenia prezentacji:
+  Zgłoszone prezentacje:
 
   %ul
-    - event.presentations.each do |presentation|
+    - event.confirmed_presentations.each do |presentation|
       %li
         %strong= presentation.title
         \-
         = presentation.users.map(&:full_name).join(', ')
+
+  - unless event.cancelled_presentations.empty?
+    Odwołane prezentacje:
+
+    %ul
+      - event.cancelled_presentations.each do |presentation|
+        %li
+          %strong= presentation.title
+          \-
+          = presentation.users.map(&:full_name).join(', ')
 
 - if @event.has_facebook_event?
   .attendants

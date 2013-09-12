@@ -15,7 +15,6 @@ gem 'activeadmin'
 gem 'sqlite3'
 gem 'yajl-ruby'
 gem 'dotenv-rails'
-gem 'chillout', '~> 0.5.4'
 gem 'airbrake', '3.1.8'
 
 group :assets do

@@ -71,7 +71,4 @@ Drug::Application.configure do
   config.action_mailer.perform_deliveries  = true
   config.action_mailer.delivery_method     = :smtp
   config.action_mailer.smtp_settings       = Settings.email[:smtp_settings]
-
-  # Chillout
-  config.chillout = { secret: ENV['CHILLOUT_KEY'] }
 end

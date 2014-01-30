@@ -16,6 +16,7 @@ gem 'sqlite3'
 gem 'yajl-ruby'
 gem 'dotenv-rails'
 gem 'airbrake', '3.1.8'
+gem 'rack-cors', :require => 'rack/cors'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'

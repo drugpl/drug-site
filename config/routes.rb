@@ -5,6 +5,12 @@ Drug::Application.routes.draw do
 
   root to: "home#index"
 
+  namespace :api do
+    resources :events do
+      resources :presentations
+    end
+  end
+
   resources :events, only: [:index, :show] do
     resources :attendants, only: [:index]
   end
